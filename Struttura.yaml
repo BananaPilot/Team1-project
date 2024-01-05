@@ -3,46 +3,50 @@ TipoProdotto: {}
   Nome: string
   Tipo: string
   Descrizione: string
-  Prodotto: {}
-    ID: int AI
-    IDProdotto: int AI
-    IDTipoProdotto: refTipoProdotto
-    Nome: string
-    Brand: string
-    Descrizione: string
-    Fornitore: string
-    Prezzo: duble
-    Posizione: int
-    DataDiStoccaggio: Data adesso
-    movimenti: []
-      Entrati: int AI
-      Correnti: int AC
-      Usciti: int AM
+Prodotto: {}
+  ID: int AI
+  IDTipoProdotto: refTipoProdotto
+  Nome: string
+  Brand: string
+  Descrizione: string
+  Fornitore: string
+  Prezzo: double
+  Posizione: int
+  DataDiStoccaggio: Data adesso
+  PuoScadere: boolean
+  DataScadenza: Data/Null
+  siPuoVendere: boolan
+  movimenti: []
+    Entrati: int AI
+    QuantitáCorrente: int AC
+    Usciti: int AM
+    Smaltiti: int AC
 Cliente: {}
   ID: int AI
   Nome: string
   Cognome: string
   Indirizzo: string
   Operazioni: []
-    Uscite: []
+    Movimenti: []
       IDProdotti: []
       DataDellAcquisto: date
-      Totale: duble
-    TotaleSpeso: duble
+      Totale: double
+    TotaleSpeso: double
   Contatti: []
     Email: string
     NumeroDiTelefono: string
-  #facoltativo
+  isAzienda: boolean
   PartitaIVA: string
 Fornitore: {}
   ID: int AI
   NomeAzzienda: string
   Indirizzo: string
-  Mansione: string
+  TipoProdottoFornito: string
   Operazioni: []
     Ordini: []
       ID: int AI
       Prodotti: []
+        quantitáOrdinata: int
         Nome: string
         Brand: string
       Data: date
@@ -53,7 +57,7 @@ Fornitore: {}
     NumeroDiTelefono: string
   #Obligatorio
   PartitaIVA: string
-UtenteFinale: {}
+UtenteGestionale: {}
   ID: int 
   Nome: string
   Cognome: string
@@ -80,3 +84,4 @@ Magazzino: {}
           Altezza: string
           Prodotto: {}
             ID: refProdotto
+            Quantitá: int
