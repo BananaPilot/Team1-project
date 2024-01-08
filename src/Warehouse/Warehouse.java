@@ -52,14 +52,18 @@ public class Warehouse {
             System.out.println(positions.get(i));
         }
     }
-    public static ProdottoFantoccio checkProductByName(String name){
-        ProdottoFantoccio risultato = null;
+
+    // metodo per trovare tutte le posizioni in base al nome
+    public static ArrayList<Integer> checkProductByName(String name){
+        ProdottoFantoccio risultato;
+        ArrayList<Integer> myPositions = new ArrayList<>();
         for (int i=0; i< positions.size(); i++){
             if (positions.get(i).getProductInPosition().nome.equalsIgnoreCase(name)){
                 risultato =  positions.get(i).getProductInPosition();
+                myPositions.add(risultato.posizione);
             }
         }
-        return risultato;
+        return myPositions;
     }
 
 }
