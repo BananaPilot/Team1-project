@@ -2,7 +2,7 @@ package Classes;
 
 public class Orders {
     private int counter = 1;
-    private int ID;
+    final int ID;
 
 
 //QUI CI VANNO GLI "ORDERED PRODUCTS"/"PRODUCTS" MA NON SO COME ADDARLI, E' 1 ORA CHE BATTO LA TESTA SULLA
@@ -11,7 +11,7 @@ public class Orders {
 
     private long date;
     private double totalOrder;
-    
+
     public Orders(int ID, long date, double totalOrder) {
         this.ID = incrementAndGet();
         this.date = date;
@@ -19,7 +19,7 @@ public class Orders {
 
     }
 
-    public int getID() {
+    final int getID() {
         return ID;
     }
     public long getDate() {
@@ -29,9 +29,6 @@ public class Orders {
         return totalOrder;
     }
 
-    public void setID(int ID) {
-        this.ID = ID;
-    }
     public void setDate(long date) {
         this.date = date;
     }
@@ -40,5 +37,10 @@ public class Orders {
     }
     private int incrementAndGet() {
         return counter ++;
+    }
+
+    @Override
+    public String toString() {
+        return "Order ID: " + ID + "\nDate: " + date + "Products: " + "Total: " + totalOrder;
     }
 }
