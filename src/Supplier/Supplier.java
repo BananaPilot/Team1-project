@@ -12,6 +12,7 @@ public class Supplier {
   //TODO contacts;
 
   public Supplier(String companyName, String address, int suppliedProductType, String VATNumber) {
+    this.ID = incrementAndGet();
     this.companyName = companyName;
     this.address = address;
     this.suppliedProductType = suppliedProductType;
