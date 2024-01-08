@@ -1,4 +1,4 @@
-package Classes;
+package Classes.Supplier;
 
 public class OrderedProducts {
     private int orderedQuantity;

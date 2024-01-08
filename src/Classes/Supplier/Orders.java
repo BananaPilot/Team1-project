@@ -1,12 +1,12 @@
-package Classes;
+package Classes.Supplier;
 
 public class Orders {
     private int counter = 1;
     private final int ID;
 
 
-//QUI CI VANNO GLI "ORDERED PRODUCTS"/"PRODUCTS" MA NON SO COME ADDARLI, E' 1 ORA CHE BATTO LA TESTA SULLA
-//TASTIERA MA NON ESCE NULLA... non so se ci va qualcosa tra i constructor, devo ripassare un po' di roba
+    //QUI CI VANNO GLI "ORDERED PRODUCTS"/"PRODUCTS" MA NON SO COME ADDARLI, E' 1 ORA CHE BATTO LA TESTA SULLA
+    //TASTIERA MA NON ESCE NULLA... non so se ci va qualcosa tra i constructor, devo ripassare un po' di roba
 
 
     private long date;
@@ -28,7 +28,6 @@ public class Orders {
     public double getTotalOrder() {
         return totalOrder;
     }
-
     public void setDate(long date) {
         this.date = date;
     }
