@@ -1,6 +1,4 @@
-package User;
-
-import java.util.ArrayList;
+package Classes.User;
 
 public class User {
 
@@ -20,12 +18,12 @@ public class User {
     // il nostro utente avrà come proprietà la mansione la data d'assunzione
 
     private String workingTask;
-    private Date hiredDate;
+    // TODO private Date hiredDate;
 
     // proprietà per documentarne la fine del rapporto lavorativo
 
     private Boolean isFired = false;
-    private Date dismissDate;
+    // TODO private Date dismissDate;
 
     /*
       proprietà per determinare la prestazione lavorativa giorno per giorno
@@ -33,7 +31,7 @@ public class User {
       Times sarà il nome della sub classe per adesso
      */
 
-    private Times dayPerformance;
+    // TODO private Times dayPerformance;
 
 
 

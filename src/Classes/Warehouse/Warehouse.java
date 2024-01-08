@@ -1,4 +1,4 @@
-package Warehouse;
+package Classes.Warehouse;
 
 import java.util.ArrayList;
     public class Warehouse {
@@ -31,8 +31,7 @@ import java.util.ArrayList;
                ProdottoFantoccio prodotto = new ProdottoFantoccio(nome,brand,price);
                l'istanza di posizione ha bisogno di un prodotto come argomento sotto
             */
-            StockPosition newPosition = new StockPosition(prodotto);
-            positions.add(newPosition);
+           //TODO positions.add(new StockPosition(prodotto));
             // prodotto.posizione = positions.get(prodotto.id-1).getBatchId();
         }
     }
