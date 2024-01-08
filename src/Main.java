@@ -1,6 +1,21 @@
-public class Main {
-  public static void main(String[] args) {
+import Warehouse.*;
 
-    System.out.println("Lascia fa, cambiamenti incredibili incoming");
+public class Main{
+  public static void main(String[] args){
+
+    /* Warehouse.ProdottoFantoccio pippo = Warehouse.Warehouse.getProductFromPosition(1);
+    System.out.println(pippo);
+     */
+    Warehouse.productIsStocked("bici","la magica", 99);
+
+    Warehouse.productIsStocked("shampoo", "phantene", 2.44);
+   /*
+    Warehouse.ProdottoFantoccio pippo2 = Warehouse.Warehouse.getProductFromPosition(2);
+    System.out.println(pippo2);
+    Warehouse.Warehouse.checkPositions();
+    */
+    ProdottoFantoccio pippo3 = Warehouse.checkProductByName("shampoo");
+    System.out.println(pippo3);
+
   }
 }
