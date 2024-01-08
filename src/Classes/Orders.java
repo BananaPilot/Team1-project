@@ -2,7 +2,7 @@ package Classes;
 
 public class Orders {
     private int counter = 1;
-    final int ID;
+    private final int ID;
 
 
 //QUI CI VANNO GLI "ORDERED PRODUCTS"/"PRODUCTS" MA NON SO COME ADDARLI, E' 1 ORA CHE BATTO LA TESTA SULLA
@@ -19,7 +19,7 @@ public class Orders {
 
     }
 
-    final int getID() {
+    private int getID() {
         return ID;
     }
     public long getDate() {
