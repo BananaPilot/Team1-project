@@ -1,4 +1,4 @@
-package Supplier;
+package Classes.Supplier;
 
 public class Supplier {
   private int counter = 1;

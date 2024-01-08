@@ -1,4 +1,4 @@
-package Warehouse;
+package Classes.Warehouse;
 
 
 public class StockPosition {
@@ -62,7 +62,7 @@ public class StockPosition {
 
     @Override
     public String toString() {
-        return "Warehouse.Warehouse.StockPosition{" +
+        return "Classes.Warehouse.Classes.Warehouse.StockPosition{" +
                 "batchId=" + batchId +
                 ", isFull=" + isFull +
                 ", heigth=" + heigth +

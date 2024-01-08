@@ -1,4 +1,4 @@
-package Customer;
+package Classes.Customer;
 
 public class Customer {
    private int counter = 1;
