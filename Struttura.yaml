@@ -35,8 +35,6 @@ Client: {}
     Contacts: {}
         Email: string
         PhoneNumber: string
-    IsCompany: boolean
-    VATNumber: string
 Supplier: {}
     ID: int AI
     CompanyName: string
