@@ -1,87 +1,87 @@
-TipoProdotto: {}
-  ID: int AI
-  Nome: string
-  Tipo: string
-  Descrizione: string
-Prodotto: {}
-  ID: int AI
-  IDTipoProdotto: refTipoProdotto
-  Nome: string
-  Brand: string
-  Descrizione: string
-  Fornitore: string
-  Prezzo: double
-  Posizione: int
-  DataDiStoccaggio: Data adesso
-  PuoScadere: boolean
-  DataScadenza: Data/Null
-  siPuoVendere: boolan
-  movimenti: []
-    Entrati: int AI
-    QuantitáCorrente: int AC
-    Usciti: int AM
-    Smaltiti: int AC
-Cliente: {}
-  ID: int AI
-  Nome: string
-  Cognome: string
-  Indirizzo: string
-  Operazioni: []
-    Movimenti: []
-      IDProdotti: []
-      DataDellAcquisto: date
-      Totale: double
-    TotaleSpeso: double
-  Contatti: []
-    Email: string
-    NumeroDiTelefono: string
-  isAzienda: boolean
-  PartitaIVA: string
-Fornitore: {}
-  ID: int AI
-  NomeAzzienda: string
-  Indirizzo: string
-  TipoProdottoFornito: string
-  Operazioni: []
-    Ordini: []
-      ID: int AI
-      Prodotti: []
-        quantitáOrdinata: int
-        Nome: string
-        Brand: string
-      Data: date
-      TotaleOdine: duble
-    TotaleSpsoConFornitore: duble
-  Contatti: []
-    Email: string
-    NumeroDiTelefono: string
-  #Obligatorio
-  PartitaIVA: string
-UtenteGestionale: {}
-  ID: int 
-  Nome: string
-  Cognome: string
-  Contatti: []
-    Email: string
-    NumeroTelefono: string
-  Indirizzo: string
-  Mansione: string
-  DataDiAssunzione: date
-  Licenziato: boolean
-  DataLicenziamento: date
-  Times: []
-    IsWorking: boolean
-    BadgeIn: date
-    BageOut: date
-Magazzino: {}
-  Zone: []
-    Zona: {}
-      Settore: string
-      Posizioni: []
-        Posizione: {}
-          Lotto: int AI 
-          isFull: boolean
-          Altezza: string
-          Prodotto: {}
-            ID: refProdotto
-            Quantitá: int
+ProductType: {}
+    ID: int AI
+    Name: string
+    Type: string
+    Description: string
+Product: {}
+    ID: int AI
+    IDProductType: ProductTypeRef
+    Name: string
+    Brand: string
+    Description: string
+    Supplier: string
+    Price: double
+    Position: int
+    StorageDate: ActualDate
+    MayExpire: boolean
+    ExpiryDate: Data/Null
+    CanBeSold: boolean
+    ProductTracking: {}
+        Incoming: int AI
+        CurrentQuantity: int AC
+        Outgoing: int AM
+        DisposedOf: int AC
+Client: {}
+    ID: int AI
+    Name: string
+    Surname: string
+    Address: string
+    Operations: {}
+        Transactions: {}
+            IDProducts: []
+            PurchaseDate: date
+            Total: double
+        TotalSpent: double
+    Contacts: {}
+        Email: string
+        PhoneNumber: string
+    IsCompany: boolean
+    VATNumber: string
+Supplier: {}
+    ID: int AI
+    CompanyName: string
+    Address: string
+    SuppliedProductType: string
+    Operations: {}
+        Orders: {}
+            ID: int AI
+            Products: {}
+                OrderedQuantity: int
+                Name: string
+                Brand: string
+            Date: date
+            TotalOrder: double
+        TotalSpentWithSupplier: double
+    Contacts: {}
+        Email: string
+        PhoneNumber: string
+    #Obligatorio
+    VATNumber: string
+ManagementUser: {}
+    ID: int 
+    Name: string
+    Surname: string
+    Contacts: {}
+        Email: string
+        PhoneNumber: string
+    Address: string
+    WorkingTask: string
+    HireDate: date
+    Fired: boolean
+    DismissalDate: date
+    Times: {}
+        IsWorking: boolean
+        BadgeIn: date
+        BadgeOut: date
+Warehouse: {}
+    Zones: []
+        Zone: {}
+            Sector: string
+            Positions: []
+                Posizion: {}
+                Lot: int AI 
+                IsFull: boolean
+                Height: string
+                Product: {}
+                    ID: ProductRef
+                    Quantity: int
