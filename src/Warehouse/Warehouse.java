@@ -52,6 +52,7 @@ public class Warehouse {
         warehouseZones.add(newZone);
     }
 
+
     // un metodo per istanziare una posizione ed assegnargli un prodotto
     public void productIsStocked(String nome, String brand, double price){
         ProdottoFantoccio prodotto = new ProdottoFantoccio(nome,brand,price);
