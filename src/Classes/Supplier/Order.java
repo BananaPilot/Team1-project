@@ -14,10 +14,10 @@ public class Order {
   private final LocalDateTime dateTime;
   private double totalOrder;
 
-  public Order(int ID, double totalOrder) {
+  public Order() {
     this.ID = incrementAndGet();
     this.dateTime = LocalDateTime.now();
-    this.totalOrder = totalOrder;
+    //this.totalOrder = totalOrder; check line 36
   }
 
   private int getID() {
