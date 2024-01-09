@@ -47,6 +47,7 @@ Supplier: {}
                 OrderedQuantity: int
                 Name: string
                 Brand: string
+                Price: double
             Date: date
             TotalOrder: double
         TotalSpentWithSupplier: double
