@@ -1,21 +1,20 @@
 package Classes.Supplier;
 
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.UUID;
+
 
 public class Order {
     private final String ID;
-
-
-    //QUI CI VANNO GLI "ORDERED PRODUCTS"/"PRODUCTS" MA NON SO COME ADDARLI, E' 1 ORA CHE BATTO LA TESTA SULLA
-    //TASTIERA MA NON ESCE NULLA... non so se ci va qualcosa tra i constructor, devo ripassare un po' di roba
-
-
-    private long date;
+    private ArrayList<OrderedProduct> orderedProducts;
+    private final LocalDateTime date;
     private double totalOrder;
 
-    public Order(int ID, long date, double totalOrder) {
+    public Order(ArrayList<OrderedProduct> orderedProducts, double totalOrder) {
         this.ID = UUID.randomUUID().toString();
-        this.date = date;
+        this.orderedProducts = orderedProducts;
+        this.date = LocalDateTime.now();
         this.totalOrder = totalOrder;
 
     }
@@ -23,21 +22,34 @@ public class Order {
     private String getID() {
         return ID;
     }
-    public long getDate() {
+
+    public ArrayList<OrderedProduct> getOrderedProducts() {
+        return orderedProducts;
+    }
+
+    public LocalDateTime getDate() {
         return date;
     }
+
     public double getTotalOrder() {
         return totalOrder;
     }
-    public void setDate(long date) {
-        this.date = date;
+
+    public void setOrderedProducts(ArrayList<OrderedProduct> orderedProducts) {
+        this.orderedProducts = orderedProducts;
     }
+
     public void setTotalOrder(double totalOrder) {
         this.totalOrder = totalOrder;
     }
 
     @Override
     public String toString() {
-        return "Order ID: " + ID + "\nDate: " + date + "Products: " + "Total: " + totalOrder;
+        return "Orders{" +
+                "ID=" + ID +
+                ", orderedProducts=" + orderedProducts +
+                ", date=" + date +
+                ", totalOrder=" + totalOrder +
+                '}';
     }
 }
