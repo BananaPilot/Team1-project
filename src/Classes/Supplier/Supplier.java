@@ -56,6 +56,6 @@ public class Supplier {
   }
 
   private int incrementAndGet() {
-    return counter ++;
+    return counter++;
   }
 }

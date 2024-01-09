@@ -6,7 +6,7 @@ public class Operations {
   private final ArrayList<Order> orders;
   private final double totalSpent;
 
-  public Operations(ArrayList<Order> orders){
+  public Operations(ArrayList<Order> orders) {
     this.orders = orders;
     this.totalSpent = calculateTotalSpent();
   }
@@ -21,7 +21,7 @@ public class Operations {
 
   private double calculateTotalSpent() {
     double total = 0;
-    for (Order order: orders){
+    for (Order order : orders) {
       total += order.getTotalOrder();
     }
     return total;
