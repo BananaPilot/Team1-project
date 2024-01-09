@@ -1,6 +1,8 @@
 package Classes.Supplier;
 
-public class Orders {
+import java.time.LocalDateTime;
+
+public class Order {
     private int counter = 1;
     private final int ID;
 
@@ -9,37 +11,34 @@ public class Orders {
     //TASTIERA MA NON ESCE NULLA... non so se ci va qualcosa tra i constructor, devo ripassare un po' di roba
 
 
-    private long date;
+    private final LocalDateTime dateTime;
     private double totalOrder;
 
-    public Orders(int ID, long date, double totalOrder) {
+    public Order(int ID, double totalOrder) {
         this.ID = incrementAndGet();
-        this.date = date;
+        this.dateTime = LocalDateTime.now();
         this.totalOrder = totalOrder;
-
     }
 
     private int getID() {
         return ID;
     }
-    public long getDate() {
-        return date;
+    public LocalDateTime getDateTime() {
+        return dateTime;
     }
     public double getTotalOrder() {
         return totalOrder;
     }
-    public void setDate(long date) {
-        this.date = date;
-    }
-    public void setTotalOrder(double totalOrder) {
-        this.totalOrder = totalOrder;
-    }
+    /*
+    TODO
+    automatic calculation of the total by taking all the prices from the class product and then calculating the total
+     */
     private int incrementAndGet() {
         return counter ++;
     }
 
     @Override
     public String toString() {
-        return "Order ID: " + ID + "\nDate: " + date + "Products: " + "Total: " + totalOrder;
+        return "Order ID: " + ID + "\n Date and time: " + dateTime + "Products: " + "Total: " + totalOrder;
     }
 }
