@@ -1,8 +1,9 @@
 package Classes.Customer;
 
+import java.util.UUID;
+
 public class Customer {
-   private int counter = 1;
-   private final int ID;
+   private final String ID;
    private String name;
    private String surname;
    private String address;
@@ -12,13 +13,13 @@ public class Customer {
    //TODO Contacts
 
    public Customer(int ID, String name, String surname, String address) {
-      this.ID = incrementAndGet();
+      this.ID = UUID.randomUUID().toString();
       this.name = name;
       this.surname = surname;
       this.address = address;
    }
 
-   public int getID() {
+   public String getID() {
       return ID;
    }
 
@@ -44,9 +45,5 @@ public class Customer {
 
    public void setAddress(String address) {
       this.address = address;
-   }
-
-   private int incrementAndGet() {
-      return counter++;
    }
 }

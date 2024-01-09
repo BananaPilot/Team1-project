@@ -1,8 +1,9 @@
 package Classes.Supplier;
 
+import java.util.UUID;
+
 public class Orders {
-    private int counter = 1;
-    private final int ID;
+    private final String ID;
 
 
     //QUI CI VANNO GLI "ORDERED PRODUCTS"/"PRODUCTS" MA NON SO COME ADDARLI, E' 1 ORA CHE BATTO LA TESTA SULLA
@@ -13,13 +14,13 @@ public class Orders {
     private double totalOrder;
 
     public Orders(int ID, long date, double totalOrder) {
-        this.ID = incrementAndGet();
+        this.ID = UUID.randomUUID().toString();
         this.date = date;
         this.totalOrder = totalOrder;
 
     }
 
-    private int getID() {
+    private String getID() {
         return ID;
     }
     public long getDate() {
@@ -33,9 +34,6 @@ public class Orders {
     }
     public void setTotalOrder(double totalOrder) {
         this.totalOrder = totalOrder;
-    }
-    private int incrementAndGet() {
-        return counter ++;
     }
 
     @Override
