@@ -12,8 +12,7 @@ public class StockPosition {
     private int batchId = 0;
     private static int staticBatchId = 0;
     private boolean isFull = false;
-    private double heigth;
-    private double longness;
+
     private int productRefId = 0;
 
     // un istanza di posizione conterrà un elemento prodotto
@@ -42,24 +41,17 @@ public class StockPosition {
     public boolean isPositionEmpty(){
         return this.isFull;
     }
-    public double getPositionHeigth(){
-        return this.heigth;
-    }
-    public double getPositionLongness(){
-        return this.longness;
-    }
 
     public ProdottoFantoccio getProductInPosition() {
         return productInPosition;
     }
+
 
     @Override
     public String toString() {
         return "Warehouse.Warehouse.StockPosition{" +
                 "batchId=" + batchId +
                 ", isFull=" + isFull +
-                ", heigth=" + heigth +
-                ", longness=" + longness +
                 ", productRefId=" + productRefId +
                 ", productInPosition=" + productInPosition +
                 '}';
