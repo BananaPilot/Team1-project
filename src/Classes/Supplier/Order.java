@@ -1,43 +1,47 @@
 package Classes.Supplier;
 
-import java.util.UUID;
+import java.time.LocalDateTime;
 
 public class Order {
-    private final String ID;
+  private int counter = 1;
+  private final int ID;
 
 
-    //QUI CI VANNO GLI "ORDERED PRODUCTS"/"PRODUCTS" MA NON SO COME ADDARLI, E' 1 ORA CHE BATTO LA TESTA SULLA
-    //TASTIERA MA NON ESCE NULLA... non so se ci va qualcosa tra i constructor, devo ripassare un po' di roba
+  //QUI CI VANNO GLI "ORDERED PRODUCTS"/"PRODUCTS" MA NON SO COME ADDARLI, E' 1 ORA CHE BATTO LA TESTA SULLA
+  //TASTIERA MA NON ESCE NULLA... non so se ci va qualcosa tra i constructor, devo ripassare un po' di roba
 
 
-    private long date;
-    private double totalOrder;
+  private final LocalDateTime dateTime;
+  private double totalOrder;
 
-    public Order(int ID, long date, double totalOrder) {
-        this.ID = UUID.randomUUID().toString();
-        this.date = date;
-        this.totalOrder = totalOrder;
+  public Order() {
+    this.ID = incrementAndGet();
+    this.dateTime = LocalDateTime.now();
+    //this.totalOrder = totalOrder; check line 36
+  }
 
-    }
+  private int getID() {
+    return ID;
+  }
 
-    private String getID() {
-        return ID;
-    }
-    public long getDate() {
-        return date;
-    }
-    public double getTotalOrder() {
-        return totalOrder;
-    }
-    public void setDate(long date) {
-        this.date = date;
-    }
-    public void setTotalOrder(double totalOrder) {
-        this.totalOrder = totalOrder;
-    }
+  public LocalDateTime getDateTime() {
+    return dateTime;
+  }
 
-    @Override
-    public String toString() {
-        return "Order ID: " + ID + "\nDate: " + date + "Products: " + "Total: " + totalOrder;
-    }
+  public double getTotalOrder() {
+    return totalOrder;
+  }
+
+  /*
+  TODO
+  automatic calculation of the total by taking all the prices from the class product and then calculating the total
+   */
+  private int incrementAndGet() {
+    return counter++;
+  }
+
+  @Override
+  public String toString() {
+    return "Order ID: " + ID + "\n Date and time: " + dateTime + "Products: " + "Total: " + totalOrder;
+  }
 }
