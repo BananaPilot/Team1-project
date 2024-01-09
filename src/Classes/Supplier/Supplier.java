@@ -1,8 +1,9 @@
 package Classes.Supplier;
 
+import java.util.UUID;
+
 public class Supplier {
-  private int counter = 1;
-  private int ID;
+  private final String ID;
   private String companyName;
   private String address;
   private int suppliedProductType;
@@ -12,14 +13,14 @@ public class Supplier {
   //TODO contacts;
 
   public Supplier(String companyName, String address, int suppliedProductType, String VATNumber) {
-    this.ID = incrementAndGet();
+    this.ID = UUID.randomUUID().toString();
     this.companyName = companyName;
     this.address = address;
     this.suppliedProductType = suppliedProductType;
     this.VATNumber = VATNumber;
   }
 
-  public int getID() {
+  public String getID() {
     return ID;
   }
 
@@ -53,9 +54,5 @@ public class Supplier {
 
   public void setVATNumber(String VATNumber) {
     this.VATNumber = VATNumber;
-  }
-
-  private int incrementAndGet() {
-    return counter++;
   }
 }
