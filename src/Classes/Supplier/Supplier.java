@@ -1,5 +1,7 @@
 package Classes.Supplier;
 
+import Classes.Contacts;
+
 import java.util.UUID;
 
 public class Supplier {
@@ -8,16 +10,16 @@ public class Supplier {
   private String address;
   private int suppliedProductType;
   private String VATNumber;
+  private Operations operations;
+  private Contacts contacts;
 
-  //TODO operations;
-  //TODO contacts;
-
-  public Supplier(String companyName, String address, int suppliedProductType, String VATNumber) {
+  public Supplier(String companyName, String address, int suppliedProductType, String VATNumber, String email, String phoneNumber) {
     this.ID = UUID.randomUUID().toString();
     this.companyName = companyName;
     this.address = address;
     this.suppliedProductType = suppliedProductType;
     this.VATNumber = VATNumber;
+    this.contacts = new Contacts(email, phoneNumber);
   }
 
   public String getID() {
@@ -40,6 +42,14 @@ public class Supplier {
     return VATNumber;
   }
 
+  public Operations getOperations() {
+    return operations;
+  }
+
+  public Contacts getContacts() {
+    return contacts;
+  }
+
   public void setCompanyName(String companyName) {
     this.companyName = companyName;
   }
@@ -54,5 +64,26 @@ public class Supplier {
 
   public void setVATNumber(String VATNumber) {
     this.VATNumber = VATNumber;
+  }
+
+  public void setOperations(Operations operations) {
+    this.operations = operations;
+  }
+
+  public void setContacts(Contacts contacts) {
+    this.contacts = contacts;
+  }
+
+  @Override
+  public String toString() {
+    return "Supplier{" +
+            ", ID=" + ID +
+            ", companyName='" + companyName + '\'' +
+            ", address='" + address + '\'' +
+            ", suppliedProductType=" + suppliedProductType +
+            ", VATNumber='" + VATNumber + '\'' +
+            ", operations=" + operations +
+            ", contacts=" + contacts +
+            '}';
   }
 }
