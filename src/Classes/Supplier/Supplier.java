@@ -2,9 +2,10 @@ package Classes.Supplier;
 
 import Classes.Contacts;
 
+import java.util.UUID;
+
 public class Supplier {
-  private int counter = 1;
-  private final int ID;
+  private final String ID;
   private String companyName;
   private String address;
   private int suppliedProductType;
@@ -13,7 +14,7 @@ public class Supplier {
   private Contacts contacts;
 
   public Supplier(String companyName, String address, int suppliedProductType, String VATNumber, String email, String phoneNumber) {
-    this.ID = incrementAndGet();
+    this.ID = UUID.randomUUID().toString();
     this.companyName = companyName;
     this.address = address;
     this.suppliedProductType = suppliedProductType;
@@ -21,7 +22,7 @@ public class Supplier {
     this.contacts = new Contacts(email, phoneNumber);
   }
 
-  public int getID() {
+  public String getID() {
     return ID;
   }
 
@@ -73,14 +74,9 @@ public class Supplier {
     this.contacts = contacts;
   }
 
-  private int incrementAndGet() {
-    return counter++;
-  }
-
   @Override
   public String toString() {
     return "Supplier{" +
-            "counter=" + counter +
             ", ID=" + ID +
             ", companyName='" + companyName + '\'' +
             ", address='" + address + '\'' +
