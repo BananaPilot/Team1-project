@@ -1,4 +1,6 @@
-package Classes.Supplier;
+package Classes;
+
+import Classes.Supplier.Order;
 
 import java.util.ArrayList;
 

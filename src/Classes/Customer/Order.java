@@ -1,13 +1,15 @@
+package Classes.Customer;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
-public class Transactions {
+public class Order {
 
     private final ArrayList<String> IDProducts;
     private final LocalDateTime PurchaseDate;
     private double Total;
 
-    public Transactions(ArrayList<String> IDProducts){
+    public Order(ArrayList<String> IDProducts){
         this.IDProducts = IDProducts;
         this.PurchaseDate = LocalDateTime.now();
         //TODO implement Total
