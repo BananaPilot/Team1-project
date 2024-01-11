@@ -1,49 +1,67 @@
 package Classes.Customer;
 
+import Classes.Contacts;
+import Classes.Supplier.Operations;
+
 import java.util.UUID;
 
 public class Customer {
-   private final String ID;
-   private String name;
-   private String surname;
-   private String address;
+  private final String ID;
+  private String name;
+  private String surname;
+  private String address;
+  private Operations operations;
+  private Contacts contacts;
 
-   //TODO operations
+  public Customer(String name, String surname, String address, String email, String phoneNumber) {
+    this.ID = UUID.randomUUID().toString();
+    this.name = name;
+    this.surname = surname;
+    this.address = address;
+    this.contacts = new Contacts(email, phoneNumber);
+  }
 
-   //TODO Contacts
+  public String getID() {
+    return ID;
+  }
 
-   public Customer(int ID, String name, String surname, String address) {
-      this.ID = UUID.randomUUID().toString();
-      this.name = name;
-      this.surname = surname;
-      this.address = address;
-   }
+  public String getName() {
+    return name;
+  }
 
-   public String getID() {
-      return ID;
-   }
+  public String getSurname() {
+    return surname;
+  }
 
-   public String getName() {
-      return name;
-   }
+  public String getAddress() {
+    return address;
+  }
 
-   public String getSurname() {
-      return surname;
-   }
+  public Operations getOperations() {
+    return operations;
+  }
 
-   public String getAddress() {
-      return address;
-   }
+  public Contacts getContacts() {
+    return contacts;
+  }
 
-   public void setName(String name) {
-      this.name = name;
-   }
+  public void setName(String name) {
+    this.name = name;
+  }
 
-   public void setSurname(String surname) {
-      this.surname = surname;
-   }
+  public void setSurname(String surname) {
+    this.surname = surname;
+  }
 
-   public void setAddress(String address) {
-      this.address = address;
-   }
+  public void setAddress(String address) {
+    this.address = address;
+  }
+
+  public void setOperations(Operations operations) {
+    this.operations = operations;
+  }
+
+  public void setContacts(Contacts contacts) {
+    this.contacts = contacts;
+  }
 }
