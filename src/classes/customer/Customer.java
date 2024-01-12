@@ -1,7 +1,7 @@
 package classes.customer;
 
 import classes.Contacts;
-import classes.supplier.Operations;
+import classes.Operations;
 
 import java.util.UUID;
 
