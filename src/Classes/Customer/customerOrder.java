@@ -1,32 +1,33 @@
 package Classes.Customer;
 
+import Classes.Order;
+import Classes.Product.Product;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
-public class Order {
+public class customerOrder implements Order {
 
-    private final ArrayList<String> IDProducts;
+    private final ArrayList<Product> products;
     private final LocalDateTime PurchaseDate;
     private double Total;
 
-    public Order(ArrayList<String> IDProducts){
-        this.IDProducts = IDProducts;
+    public customerOrder(ArrayList<Product> products){
+        this.products = products;
         this.PurchaseDate = LocalDateTime.now();
         //TODO implement Total
     }
 
-    public ArrayList<String> getIDProducts() {
-        return IDProducts;
+    public ArrayList<Product> getProducts() {
+        return products;
     }
 
     public LocalDateTime getPurchaseDate() {
         return PurchaseDate;
     }
 
+    @Override
     public double getTotal() {
         return Total;
     }
-
-
-
 }

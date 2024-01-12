@@ -1,4 +1,4 @@
-package Classes.Customer;
+package Classes;
 
 import java.util.ArrayList;
 

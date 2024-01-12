@@ -1,22 +1,23 @@
 package Classes.Supplier;
 
+import Classes.Order;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.UUID;
 
 
-public class Order {
+public class supplierOrder implements Order {
     private final String ID;
     private ArrayList<OrderedProduct> orderedProducts;
     private final LocalDateTime date;
-    private double totalOrder;
+    private double total;
 
-    public Order(ArrayList<OrderedProduct> orderedProducts, double totalOrder) {
+    public supplierOrder(ArrayList<OrderedProduct> orderedProducts, double totalOrder) {
         this.ID = UUID.randomUUID().toString();
         this.orderedProducts = orderedProducts;
         this.date = LocalDateTime.now();
-        this.totalOrder = totalOrder;
-
+        // TODO implement Total
     }
 
     private String getID() {
@@ -31,16 +32,17 @@ public class Order {
         return date;
     }
 
-    public double getTotalOrder() {
-        return totalOrder;
+    @Override
+    public double getTotal() {
+        return total;
     }
 
     public void setOrderedProducts(ArrayList<OrderedProduct> orderedProducts) {
         this.orderedProducts = orderedProducts;
     }
 
-    public void setTotalOrder(double totalOrder) {
-        this.totalOrder = totalOrder;
+    public void setTotal(double total) {
+        this.total = total;
     }
 
     @Override
@@ -49,7 +51,7 @@ public class Order {
                 "ID=" + ID +
                 ", orderedProducts=" + orderedProducts +
                 ", date=" + date +
-                ", totalOrder=" + totalOrder +
+                ", totalOrder=" + total +
                 '}';
     }
 }
