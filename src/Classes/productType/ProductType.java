@@ -20,10 +20,6 @@ import java.util.UUID;
             return ID;
         }
 
-        public void setID(String ID) {
-            this.ID = ID;
-        }
-
         public String getName() {
             return name;
         }
