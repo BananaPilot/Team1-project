@@ -4,7 +4,7 @@ import java.util.UUID;
 
     public class ProductType {
 
-        private UUID id;
+        private String ID;
 
         private String name;
 
@@ -13,15 +13,15 @@ import java.util.UUID;
         public ProductType(String name, String description) {
             this.name = name;
             this.description = description;
-            this.id = UUID.randomUUID();
+            this.ID = UUID.randomUUID().toString();
         }
 
-        public UUID getId() {
-            return id;
+        public String getID() {
+            return ID;
         }
 
-        public void setId(UUID id) {
-            this.id = id;
+        public void setID(String ID) {
+            this.ID = ID;
         }
 
         public String getName() {
@@ -43,7 +43,7 @@ import java.util.UUID;
         @Override
         public String toString() {
             return "ProductType{" +
-                    "id=" + id +
+                    "ID=" + ID +
                     ", name='" + name + '\'' +
                     ", description='" + description + '\'' +
                     '}';
