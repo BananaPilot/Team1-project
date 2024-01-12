@@ -1,4 +1,4 @@
-package Classes.productType;
+package classes.productType;
 
 import java.util.UUID;
 

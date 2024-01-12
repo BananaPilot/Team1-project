@@ -1,4 +1,4 @@
-package Classes.Supplier;
+package classes.supplier;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;

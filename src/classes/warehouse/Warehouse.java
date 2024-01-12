@@ -1,4 +1,4 @@
-package Classes.Warehouse;
+package classes.warehouse;
 
 import java.util.ArrayList;
     public class Warehouse {

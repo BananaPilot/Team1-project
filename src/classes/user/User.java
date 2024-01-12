@@ -1,4 +1,4 @@
-package Classes.User;
+package classes.user;
 
 public class User {
 

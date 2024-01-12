@@ -1,6 +1,6 @@
-package Classes.Supplier;
+package classes.supplier;
 
-import Classes.Contacts;
+import classes.Contacts;
 
 import java.util.UUID;
 

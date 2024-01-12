@@ -1,4 +1,4 @@
-package Classes.Customer;
+package classes.customer;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package Classes;
+package classes;
 
 public class Contacts {
   private String email;

@@ -1,4 +1,4 @@
-package Classes.Warehouse;
+package classes.warehouse;
 
 
 public class StockPosition {

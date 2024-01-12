@@ -1,4 +1,4 @@
-package Classes.Supplier;
+package classes.customer;
 
 import java.util.ArrayList;
 
@@ -22,7 +22,7 @@ public class Operations {
   private double calculateTotalSpent() {
     double total = 0;
     for (Order order : orders) {
-      total += order.getTotalOrder();
+      total += order.getTotal();
     }
     return total;
   }
