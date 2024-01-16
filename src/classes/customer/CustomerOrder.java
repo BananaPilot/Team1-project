@@ -1,10 +1,13 @@
-package Classes.Customer;
+package classes.customer;
 
-import Classes.Order;
-import Classes.Product.Product;
+import classes.Order;
+import classes.product.Product;
+import classes.Order;
+import classes.product.Product;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+
 
 public class CustomerOrder implements Order {
 

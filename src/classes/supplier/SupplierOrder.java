@@ -1,7 +1,7 @@
-package Classes.Supplier;
+package classes.supplier;
 
-import Classes.Order;
-import Classes.Product.Product;
+import classes.Order;
+import classes.product.Product;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
