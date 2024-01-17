@@ -16,7 +16,7 @@ public class CustomerOrder implements Order {
     public CustomerOrder(ArrayList<Product> products){
         this.products = products;
         this.PurchaseDate = LocalDateTime.now();
-        //TODO implement Total
+        //TODO implement Total mary <3
     }
 
     public ArrayList<Product> getProducts() {

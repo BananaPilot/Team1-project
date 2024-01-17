@@ -18,7 +18,7 @@ public class SupplierOrder implements Order {
         this.ID = UUID.randomUUID().toString();
         this.products = products;
         this.date = LocalDateTime.now();
-        // TODO implement Total
+        // TODO implement Total mary <3
     }
 
     private String getID() {
