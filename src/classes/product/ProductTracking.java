@@ -1,15 +1,15 @@
 package classes.product;
 
-import classes.supplier.Supplier;
+
 import classes.warehouse.StockPosition;
 import classes.productType.ProductType;
 
 public class ProductTracking extends Product {
 
 	public ProductTracking(String name, String brand, String description, double price,
-			Supplier supplierID, ProductType productTypeID, StockPosition position,
+			ProductType productTypeID, StockPosition position,
 			int in, int currentQuantity, int out, int disposedOf) {
-		super(name, brand, description, price, supplierID, productTypeID, position);
+		super(name, brand, description, price, productTypeID, position);
 		this.in = in;
 		this.currentQuantity = currentQuantity;
 		this.out = out;

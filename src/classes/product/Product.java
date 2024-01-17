@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 import classes.productType.ProductType;
-import classes.supplier.*;
+
 import classes.warehouse.StockPosition;
 
 public class Product {
@@ -15,19 +15,19 @@ public class Product {
 	private String description;
 	private double price;
 	private final LocalDateTime stockDate;
-	private Supplier supplierID;
+	//private Supplier supplierID;
 	private ProductType productTypeID;
 	private StockPosition position;
 
 	public Product(String name, String brand, String description, double price,
-			Supplier supplierID, ProductType productTypeID, StockPosition position) {
+			 ProductType productTypeID, StockPosition position) {
 		this.ID = UUID.randomUUID().toString();
 		this.name = name;
 		this.brand = brand;
 		this.description = description;
 		this.price = price;
 		this.stockDate = LocalDateTime.now();
-		this.supplierID = supplierID;
+		//this.supplierID = supplierID;
 		this.productTypeID = productTypeID;
 		this.position = position;
 	}
@@ -72,9 +72,6 @@ public class Product {
 		return ID;
 	}
 
-	public Supplier getSupplierID() {
-		return supplierID;
-	}
 
 	public ProductType getProductTypeID() {
 		return productTypeID;
@@ -91,7 +88,7 @@ public class Product {
 	@Override
 	public String toString() {
 		return "Product [ID=" + ID + ", name=" + name + ", brand=" + brand + ", description=" + description + ", price="
-				+ price + ", stockDate=" + stockDate + ", supplierID=" + supplierID + ", productTypeID=" + productTypeID
+				+ price + ", stockDate=" + stockDate + ", supplierID=" + ", productTypeID=" + productTypeID
 				+ ", position=" + position + "]";
 	}
 }
