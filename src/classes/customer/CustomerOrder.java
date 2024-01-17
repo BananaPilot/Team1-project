@@ -2,8 +2,6 @@ package classes.customer;
 
 import classes.Order;
 import classes.product.Product;
-import classes.Order;
-import classes.product.Product;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
