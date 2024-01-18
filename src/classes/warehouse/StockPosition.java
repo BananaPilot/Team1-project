@@ -1,72 +1,57 @@
 package classes.warehouse;
+import classes.product.Product;
 
 
 public class StockPosition {
-    /* ogni posizione avrà,
-       un id per il lotto,
-       un booleano per determinare se è disponibile,
-       un altezza che verrà determinata in seguito,
-       quindi anche una lunghezza,
-       ed i numeri identificativi dei prodotti al loro interno ( per adesso )
-     */
-    private int batchId = 0;
-    private static int staticBatchId = 0;
+    private int positionId = 0;
+    private static int staticpositionId = 0;
+    private int heigth = 0;
+    private static int staticHeigth = 0;
     private boolean isFull = false;
-    private double heigth;
-    private double longness;
     private int productRefId = 0;
+    private StringBuilder lot = new StringBuilder(" ");
+    private Product stockedProduct;
+    private static int staticLongnessCounter = 0;
 
-    // un istanza di posizione conterrà un elemento prodotto
-    //private ProdottoFantoccio productInPosition;
+    public StockPosition(int zoneLongness){
 
-    // il costruttore che definirà le proprietà delle nostre posizioni
+        if (staticLongnessCounter == zoneLongness ){
+            staticLongnessCounter = 0;
+            staticHeigth++;
+        }
 
-    public StockPosition(){
-        this.staticBatchId++;
-
-        this.isFull = true;
-        //assegna l'elemento di tipo prodotto ad un istanza di StockPosition
-        //this.productInPosition = product;
-
-        this.batchId = staticBatchId;
-
-        // prende l'id del tipo di prodotto e lo assegna
-        //this.productRefId = product.idTipo;
+        this.staticpositionId++;
+        this.positionId = staticpositionId;
+        this.heigth = staticHeigth;
+        this.lot.append(positionId + "L" + this.heigth);
+        staticLongnessCounter++;
     }
 
-    // avremo bisogno dei getter per poter attingere alle nostre proprietà
+    public static void resetPosition(){
+        staticHeigth = 0;
+        staticLongnessCounter = 0;
+    }
+    //getter e setters
 
-    public int getBatchId(){
-        return batchId;
+    public int getPositionId(){
+        return this.positionId;
     }
-    public int productRefId(){
-        return batchId;
-    }
+    //public int productRefId(){return ID;}
     public boolean isPositionEmpty(){
         return this.isFull;
     }
-    public double getPositionHeigth(){
-        return this.heigth;
-    }
-    public double getPositionLongness(){
-        return this.longness;
+
+    public StringBuilder getLot() {
+        return lot;
     }
 
-    /*
-       prende la posizione del prodotto usando l'id di posizione
-
-
-    public ProdottoFantoccio getProductInPosition() {
-        return productInPosition;
-    }*/
 
     @Override
     public String toString() {
         return "Classes.Warehouse.Classes.Warehouse.StockPosition{" +
-                "batchId=" + batchId +
+                "positionId=" + positionId +
+                " lot=" + lot +
                 ", isFull=" + isFull +
-                ", heigth=" + heigth +
-                ", longness=" + longness +
                 ", productRefId=" + productRefId;
     }
 }
