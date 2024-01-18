@@ -8,7 +8,7 @@ public class StockPosition {
     private int heigth = 0;
     private static int staticHeigth = 0;
     private boolean isFull = false;
-    private int productRefId = 0;
+    private String productRefId;
     private StringBuilder lot = new StringBuilder(" ");
     private Product stockedProduct;
     private static int staticLongnessCounter = 0;
@@ -27,10 +27,7 @@ public class StockPosition {
         staticLongnessCounter++;
     }
 
-    public static void resetPosition(){
-        staticHeigth = 0;
-        staticLongnessCounter = 0;
-    }
+
     public int getPositionId(){
         return this.positionId;
     }
@@ -39,17 +36,35 @@ public class StockPosition {
         return this.isFull;
     }
 
+
     public StringBuilder getLot() {
         return lot;
     }
 
+    public void setProductRefId(String productRefId) {
+        this.productRefId = productRefId;
+    }
+
+    public void setStockedProduct(Product stockedProduct) {
+        this.stockedProduct = stockedProduct;
+        this.isFull = true;
+    }
+
+    public static void setStaticHeigth(int staticHeigth) {
+        StockPosition.staticHeigth = staticHeigth;
+    }
+
+    public static void setStaticLongnessCounter(int staticLongnessCounter) {
+        StockPosition.staticLongnessCounter = staticLongnessCounter;
+    }
 
     @Override
     public String toString() {
-        return "Classes.Warehouse.Classes.Warehouse.StockPosition{" +
-                "positionId=" + positionId +
+        return
+                "positionId= " + positionId +
                 " lot=" + lot +
                 ", isFull=" + isFull +
-                ", productRefId=" + productRefId;
+                ", productRefId= " + productRefId +
+                ", Stock Product= " + stockedProduct;
     }
 }

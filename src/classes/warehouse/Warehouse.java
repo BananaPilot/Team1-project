@@ -1,5 +1,6 @@
 package classes.warehouse;
 
+import classes.WarehouseLogic.StockPoisitionLogic;
 import classes.product.Product;
 
 import java.util.ArrayList;
@@ -34,15 +35,19 @@ public class Warehouse {
                 StockPosition newPosition = new StockPosition(zoneLongness);
                 myPositions.add(newPosition);
             }
-            StockPosition.resetPosition();
+            StockPoisitionLogic.resetPosition();
             Warehouse.warehouseZones.add(newZone);
         }
 
-        public static void productStockIn(Product prodotto){
+    public int getZoneCapacity() {
+        return zoneCapacity;
+    }
 
-        }
+    public static ArrayList<Warehouse> getWarehouseZones() {
+        return warehouseZones;
+    }
 
-        public ArrayList<StockPosition> getPositions() {
+    public ArrayList<StockPosition> getPositions() {
             return positions;
         }
         public static void getAllPositions(int index){

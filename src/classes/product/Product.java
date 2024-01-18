@@ -87,8 +87,15 @@ public class Product {
 
 	@Override
 	public String toString() {
-		return "Product [ID=" + ID + ", name=" + name + ", brand=" + brand + ", description=" + description + ", price="
-				+ price + ", stockDate=" + stockDate + ", supplierID=" + ", productTypeID=" + productTypeID
-				+ ", position=" + position + "]";
+		return "Product{" +
+				"ID='" + ID + '\'' +
+				", name='" + name + '\'' +
+				", brand='" + brand + '\'' +
+				", description='" + description + '\'' +
+				", price=" + price +
+				", stock Date" + stockDate +
+				", position= " + position.getLot() +
+
+				'}';
 	}
 }
