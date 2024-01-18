@@ -24,15 +24,37 @@ public class WarehouseLogic {
         Warehouse.getWarehouseZones().add(newZone);
     }
 
+    // IL METODO DOVRA' INSERIRE TOT PRODOTTI SCELTI DALL UTENTE NELLA ZONA SCELTA
+    public static void stockingManagement(int input,int WarehouseZone,String productName, String productBrand,String productDescription, double productPrice){
+        try {
+            System.out.println("quantità prodotti" + input);
+            Warehouse selectedZone = Warehouse.getWarehouseZones().get(WarehouseZone);
+            if (selectedZone.getStockProductCounter() < input) {
+                for (int i = 0; i < input; i++) {
+                    productStockIn(WarehouseZone, productName, productBrand, productDescription, productPrice);
+                }
+            } else {
+                throw new RuntimeException("Capacità settore non sufficiente");
+            }
+        } catch (RuntimeException e){
+            System.out.println(e);
+        }
+    }
+
+
+
     public static void productStockIn(int WarehouseZone,String productName, String productBrand,String productDescription, double productPrice){
-        ProductType productNewId = new ProductType(productName,productBrand);
+
+
         Warehouse selectedZone = Warehouse.getWarehouseZones().get(WarehouseZone);
+        int stockCounter = selectedZone.getStockProductCounter();
 
-        Product newProduct = new Product(productName,productBrand,productDescription,productPrice,productNewId,selectedZone.getPositions().get(stockProductCounter));
-        selectedZone.getPositions().get(stockProductCounter).setProductRefId(newProduct.getID());
-        selectedZone.getPositions().get(stockProductCounter).setStockedProduct(newProduct);
+        ProductType productNewId = new ProductType(productName,productBrand);
+        Product newProduct = new Product(productName,productBrand,productDescription,productPrice,productNewId,selectedZone.getPositions().get(stockCounter));
+        selectedZone.getPositions().get(stockCounter).setProductRefId(newProduct.getID());
+        selectedZone.getPositions().get(stockCounter).setStockedProduct(newProduct);
 
-        stockProductCounter++;
+        selectedZone.incrementStockProductCounter();
     }
 
 }

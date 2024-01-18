@@ -13,6 +13,7 @@ public class Warehouse {
         private final int zoneHeigth;
         private final int zoneLongness;
         private final int zoneCapacity;
+        private int stockProductCounter;
         private String zoneName;
         private final String zoneId;
         private ArrayList<StockPosition> positions = new ArrayList<StockPosition>();
@@ -29,6 +30,17 @@ public class Warehouse {
 
     public int getZoneCapacity() {
         return zoneCapacity;
+    }
+
+    public int getStockProductCounter() {
+        return stockProductCounter;
+    }
+
+    public void incrementStockProductCounter() {
+        this.stockProductCounter++;
+    }
+    public void resetStockProductCounter(){
+            this.stockProductCounter = 0;
     }
 
     public static ArrayList<Warehouse> getWarehouseZones() {
