@@ -10,7 +10,8 @@ import java.util.ArrayList;
 
 public class WarehouseLogic {
 
-    private static int stockProductCounter = 0;
+    private static int selectedZoneMemory = 0;
+
     public static void createZone(String zoneName, int zoneLongness, int zoneHeigth){
 
         Warehouse newZone = new Warehouse(zoneName,zoneLongness,zoneHeigth);
@@ -19,6 +20,7 @@ public class WarehouseLogic {
         for (int index = 0; index < zoneLength; index++){
             StockPosition newPosition = new StockPosition(zoneLongness);
             myPositions.add(newPosition);
+            myPositions.get(index).setIsContainedIn(newZone.getZoneName());
         }
         StockPoisitionLogic.resetPosition();
         Warehouse.getWarehouseZones().add(newZone);
@@ -26,28 +28,36 @@ public class WarehouseLogic {
 
     // IL METODO DOVRA' INSERIRE TOT PRODOTTI SCELTI DALL UTENTE NELLA ZONA SCELTA
     public static void stockingManagement(int input,int WarehouseZone,String productName, String productBrand,String productDescription, double productPrice){
+        WarehouseZone--;
+
         try {
-            System.out.println("quantità prodotti" + input);
+
+
             Warehouse selectedZone = Warehouse.getWarehouseZones().get(WarehouseZone);
-            if (selectedZone.getStockProductCounter() < input) {
+            int stockedProducts = selectedZone.getStockProductCounter();
+            System.out.println("quantità prodotti " + input + " nel settore " + selectedZone.getZoneName() +
+                    " di capacità: " + (selectedZone.getZoneCapacity()-stockedProducts));
+
+            if ((selectedZone.getZoneCapacity()-stockedProducts) >= input) {
                 for (int i = 0; i < input; i++) {
                     productStockIn(WarehouseZone, productName, productBrand, productDescription, productPrice);
                 }
             } else {
-                throw new RuntimeException("Capacità settore non sufficiente");
+                throw new RuntimeException("Capacità settore non sufficiente " + (selectedZone.getZoneCapacity()-stockedProducts));
             }
         } catch (RuntimeException e){
             System.out.println(e);
         }
+        Warehouse.getAllPositions(WarehouseZone);
     }
 
 
 
     public static void productStockIn(int WarehouseZone,String productName, String productBrand,String productDescription, double productPrice){
-
-
         Warehouse selectedZone = Warehouse.getWarehouseZones().get(WarehouseZone);
         int stockCounter = selectedZone.getStockProductCounter();
+
+
 
         ProductType productNewId = new ProductType(productName,productBrand);
         Product newProduct = new Product(productName,productBrand,productDescription,productPrice,productNewId,selectedZone.getPositions().get(stockCounter));
@@ -55,6 +65,7 @@ public class WarehouseLogic {
         selectedZone.getPositions().get(stockCounter).setStockedProduct(newProduct);
 
         selectedZone.incrementStockProductCounter();
+        }
     }
 
-}
+

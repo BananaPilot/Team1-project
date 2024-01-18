@@ -39,6 +39,11 @@ public class Warehouse {
     public void incrementStockProductCounter() {
         this.stockProductCounter++;
     }
+
+    public String getZoneName() {
+        return zoneName;
+    }
+
     public void resetStockProductCounter(){
             this.stockProductCounter = 0;
     }
@@ -51,7 +56,7 @@ public class Warehouse {
             return positions;
         }
         public static void getAllPositions(int index){
-            index--;
+
             for (StockPosition position :  warehouseZones.get(index).positions){
                 System.out.println(position);
             }

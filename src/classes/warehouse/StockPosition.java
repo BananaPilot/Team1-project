@@ -4,6 +4,8 @@ import classes.product.Product;
 
 public class StockPosition {
     private int positionId = 0;
+    private String isContainedIn;
+
     private static int staticpositionId = 0;
     private int heigth = 0;
     private static int staticHeigth = 0;
@@ -31,7 +33,12 @@ public class StockPosition {
     public int getPositionId(){
         return this.positionId;
     }
-    //public int productRefId(){return ID;}
+
+    public void setIsContainedIn(String isContainedIn) {
+        this.isContainedIn = isContainedIn;
+    }
+
+
     public boolean isPositionEmpty(){
         return this.isFull;
     }
@@ -65,6 +72,7 @@ public class StockPosition {
                 " lot=" + lot +
                 ", isFull=" + isFull +
                 ", productRefId= " + productRefId +
-                ", Stock Product= " + stockedProduct;
+                ", Stock Product= " + stockedProduct +
+                        ", assigned zone " + isContainedIn;
     }
 }
