@@ -26,18 +26,6 @@ public class Warehouse {
             this.zoneId = UUID.randomUUID().toString();
             this.zoneCapacity = zoneHeigth * zoneLongness;
         }
-        public static void createZone(String zoneName, int zoneLongness, int zoneHeigth){
-
-            Warehouse newZone = new Warehouse(zoneName,zoneLongness,zoneHeigth);
-            int zoneLength = newZone.zoneCapacity;
-            ArrayList<StockPosition> myPositions = newZone.getPositions();
-            for (int index = 0; index < zoneLength; index++){
-                StockPosition newPosition = new StockPosition(zoneLongness);
-                myPositions.add(newPosition);
-            }
-            StockPoisitionLogic.resetPosition();
-            Warehouse.warehouseZones.add(newZone);
-        }
 
     public int getZoneCapacity() {
         return zoneCapacity;

@@ -32,7 +32,6 @@ public class WarehouseLogic {
         selectedZone.getPositions().get(stockProductCounter).setProductRefId(newProduct.getID());
         selectedZone.getPositions().get(stockProductCounter).setStockedProduct(newProduct);
 
-
         stockProductCounter++;
     }
 
