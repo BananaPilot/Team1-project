@@ -1,5 +1,4 @@
-package classes.WarehouseLogic;
-import classes.product.Product;
+package Logic;
 import classes.warehouse.*;
 
 public class StockPoisitionLogic {

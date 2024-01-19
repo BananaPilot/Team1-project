@@ -5,13 +5,13 @@ import classes.product.Product;
 public class StockPosition {
     private int positionId = 0;
     private String isContainedIn;
-
     private static int staticpositionId = 0;
     private int heigth = 0;
+    private int quantity;
     private static int staticHeigth = 0;
     private boolean isFull = false;
     private String productRefId;
-    private StringBuilder lot = new StringBuilder(" ");
+    private StringBuilder lot = new StringBuilder();
     private Product stockedProduct;
     private static int staticLongnessCounter = 0;
 
@@ -25,13 +25,17 @@ public class StockPosition {
         this.staticpositionId++;
         this.positionId = staticpositionId;
         this.heigth = staticHeigth;
-        this.lot.append(positionId + "L" + this.heigth);
+        this.lot.append(this.positionId + "L" + this.heigth);
         staticLongnessCounter++;
     }
 
 
     public int getPositionId(){
         return this.positionId;
+    }
+
+    public Product getStockedProduct() {
+        return stockedProduct;
     }
 
     public void setIsContainedIn(String isContainedIn) {
@@ -57,6 +61,14 @@ public class StockPosition {
         this.isFull = true;
     }
 
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
     public static void setStaticHeigth(int staticHeigth) {
         StockPosition.staticHeigth = staticHeigth;
     }
@@ -73,6 +85,7 @@ public class StockPosition {
                 ", isFull=" + isFull +
                 ", productRefId= " + productRefId +
                 ", Stock Product= " + stockedProduct +
+                ", Quantity = " + quantity +
                         ", assigned zone " + isContainedIn;
     }
 }

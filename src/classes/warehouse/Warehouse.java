@@ -1,8 +1,5 @@
 package classes.warehouse;
 
-import classes.WarehouseLogic.StockPoisitionLogic;
-import classes.product.Product;
-
 import java.util.ArrayList;
 import java.util.UUID;
 
@@ -56,7 +53,7 @@ public class Warehouse {
             return positions;
         }
         public static void getAllPositions(int index){
-
+            index--;
             for (StockPosition position :  warehouseZones.get(index).positions){
                 System.out.println(position);
             }
