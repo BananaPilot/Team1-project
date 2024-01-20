@@ -4,11 +4,11 @@ import classes.warehouse.Warehouse;
 public class Main {
     public static void main(String[] args){
 
-        WarehouseLogic.createZone("biciclette",3,3);
-        WarehouseLogic.stockingManagement(2,1,2,"shampoo","panthene","zecche e zanzare",2.55);
-        WarehouseLogic.stockingManagement(2,1,3,"bicicletta","jack bycycle","zecche e zanzare",2.55);
+       WarehouseLogic.createZone("biciclette",3,3);
+       WarehouseLogic.productStockIn(0,2,"shampo","zecche e zanzare","shampo de merda",3.99);
+       Warehouse.getAllPositions(1);
+       WarehouseLogic.searchByLot("1L0",1);
 
 
-        WarehouseLogic.searchByName("bicicletta","jack bycycle",1);
     }
 }

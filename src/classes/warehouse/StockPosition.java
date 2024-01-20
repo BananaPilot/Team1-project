@@ -60,6 +60,12 @@ public class StockPosition {
         this.stockedProduct = stockedProduct;
         this.isFull = true;
     }
+    public void deleteStockedProduct(){
+        this.stockedProduct = null;
+        this.productRefId = null;
+        this.quantity = 0;
+        this.isFull = false;
+    }
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
@@ -79,7 +85,7 @@ public class StockPosition {
 
     @Override
     public String toString() {
-        return
+        return   "QUESTA E POSIZIONE" +
                 "positionId= " + positionId +
                 " lot=" + lot +
                 ", isFull=" + isFull +
