@@ -1,12 +1,10 @@
 package Logic;
 
 import classes.product.Product;
-import classes.product.ProductTracking;
 import classes.productType.ProductType;
 import classes.warehouse.StockPosition;
 import classes.warehouse.Warehouse;
 import Logic.*;
-import java.util.Scanner;
 
 import java.util.ArrayList;
 
@@ -40,9 +38,9 @@ public class WarehouseLogic {
 
                 System.out.println("utente seleziona il numero " + cycles + " prodotto da inserire");
             if ((selectedZone.getZoneCapacity() - stockedProducts) >= input) {
-
-                productStockIn(WarehouseZone, Quantity, productName, productBrand, productDescription, productPrice);
-
+                for (int i = 0; i < input; i++) {
+                    productStockIn(WarehouseZone, Quantity, productName, productBrand, productDescription, productPrice);
+                }
             } else {
                 throw new RuntimeException("Capacità settore non sufficiente " + (selectedZone.getZoneCapacity() - stockedProducts));
             }
@@ -55,7 +53,7 @@ public class WarehouseLogic {
 
 
     public static void productStockIn(int WarehouseZoneSingle, int Quantity, String productName, String productBrand, String productDescription, double productPrice) {
-       //nella versione finale prodotto dentro parametri
+
         Warehouse selectedZone = Warehouse.getWarehouseZones().get(WarehouseZoneSingle);
         int stockCounter = selectedZone.getStockProductCounter();
         ProductType productNewId = new ProductType(productName, productBrand);
@@ -81,25 +79,6 @@ public class WarehouseLogic {
                     if (checkName.equalsIgnoreCase(name) && checkBrand.equalsIgnoreCase(brand)){
                         System.out.println(position.getStockedProduct());
                         System.out.println(position.getStockedProduct().getPosition().getQuantity());
-
-                    }
-                } else{
-                    continue;}
-            } catch (RuntimeException e) {}
-        }
-    }
-    public static void searchByName(String name,int selectedZone) {
-        selectedZone--;
-        ArrayList<StockPosition> sector = Warehouse.getWarehouseZones().get(selectedZone).getPositions();
-
-        for (StockPosition position : sector) {
-            try {
-                String checkName = position.getStockedProduct().getName();
-                if (checkName != null ) {
-                    if (checkName.equalsIgnoreCase(name)){
-                        System.out.println(position.getStockedProduct());
-                        System.out.println(position.getStockedProduct().getPosition().getQuantity());
-
                     }
                 } else{
                     continue;}
@@ -120,94 +99,9 @@ public class WarehouseLogic {
             String secondComparison = checkLot.substring(indexOfMiddle, checkLot.length() - 1);
             if (firstParameter.equalsIgnoreCase(firstComparison) && secondParameter.equalsIgnoreCase(secondComparison)) {
                 System.out.println(position.getStockedProduct());
-
-                System.out.println("quantità prodotti: " + position.getStockedProduct().getPosition().getQuantity());
-                System.out.println(position.getStockedProduct().getPosition());
+                System.out.println(position.getStockedProduct().getPosition().getQuantity());
             }
         }
+
     }
-    // CONCEPIMENTO METODO CRUD DOPO OPZIONI DI RICERCA
-   /* public static void userChoice(){
-        Scanner uInput = new Scanner(System.in);
-        int userInput;
-        do {
-            System.out.println(
-                    "1: Create\n" +
-                            "2: Search\n" +
-                            "3: Delete\n" +
-                            "0: Exit"
-            );
-            userInput = uInput.nextInt();
-
-            switch (userInput) {
-                case 1:
-                    System.out.println("Create: 1");
-                    System.out.println("Scegliere nome zona: ");
-                    String zoneName = uInput.nextLine();
-                    System.out.println("Scegliere altezza zona: ");
-                    int zoneLength = uInput.nextInt();
-                    System.out.println("Scegliere lunghezza zona: ");
-                    int zoneHeigth = uInput.nextInt();
-                    createZone(zoneName,zoneLength,zoneHeigth);
-                    break;
-                case 2:
-                    System.out.println("Search: 2");
-
-
-                    break;
-                case 3:
-                    System.out.println("Delete: 3");
-                    System.out.println(Warehouse.getWarehouseZones());
-                    System.out.println("Delete zone number: ");
-                    int choosedZone = uInput.nextInt();
-                    Warehouse.getWarehouseZones().remove(choosedZone);
-                    System.out.println(Warehouse.getWarehouseZones());
-
-                    break;
-                case 0:
-                    System.out.println("Esci: 0");
-                    break;
-            }
-        } while (userInput > 0);
-        uInput.close();
-    }
-
-    */
-/*
-    public static void userChoice2(StockPosition position) {
-        Scanner uInput = new Scanner(System.in);
-        int userInput;
-        do {
-            System.out.println(
-                    "1: Read\n" +
-                    "2: Update\n" +
-                    "3: Delete\n" +
-                    "0: Exit"
-            );
-            userInput = uInput.nextInt();
-
-            switch (userInput) {
-                case 1:
-                    System.out.println("Read: 1");
-                    System.out.println(position.getStockedProduct());
-                    break;
-                case 2:
-                    System.out.println("Update: 2");
-
-
-                    break;
-                case 3:
-                    System.out.println("Delete: 3");
-                    position.deleteStockedProduct();
-
-                    break;
-                case 0:
-                    System.out.println("Esci: 0");
-                    break;
-            }
-        } while (userInput > 0);
-      uInput.close();
-    }
-
- */
 }
