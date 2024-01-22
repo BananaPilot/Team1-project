@@ -1,6 +1,8 @@
 import Logic.WarehouseLogic;
 import classes.warehouse.Warehouse;
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args){
 
@@ -9,6 +11,7 @@ public class Main {
         WarehouseLogic.stockingManagement(2,1,3,"bicicletta","jack bycycle","zecche e zanzare",2.55);
 
 
-        WarehouseLogic.searchByName("bicicletta","jack bycycle",1);
+        WarehouseLogic.checkFullPositions(1);
+        WarehouseLogic.checkEmptyPositions(1);
     }
 }

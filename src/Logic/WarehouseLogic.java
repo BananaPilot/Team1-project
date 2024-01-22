@@ -23,6 +23,25 @@ public class WarehouseLogic {
         StockPoisitionLogic.resetPosition();
         Warehouse.getWarehouseZones().add(newZone);
     }
+    // CONTROLLA TUTTE POSIZIONI VUOTE O PIENE
+    public static void checkFullPositions(int selectedZone){
+        selectedZone--;
+        ArrayList<StockPosition> myPositions = Warehouse.getWarehouseZones().get(selectedZone).getPositions();
+        for (StockPosition element : myPositions){
+            if (element.isPositionEmpty()){
+                System.out.println(element);
+            }
+        }
+    }
+    public static void checkEmptyPositions(int selectedZone){
+        selectedZone--;
+        ArrayList<StockPosition> myPositions = Warehouse.getWarehouseZones().get(selectedZone).getPositions();
+        for (StockPosition element : myPositions){
+            if (!element.isPositionEmpty()){
+                System.out.println(element);
+            }
+        }
+    }
 
     // IL METODO DOVRA' INSERIRE TOT PRODOTTI SCELTI DALL UTENTE NELLA ZONA SCELTA
     public static void stockingManagement(int input, int WarehouseZone,int Quantity, String productName, String productBrand, String productDescription, double productPrice) {
@@ -38,9 +57,9 @@ public class WarehouseLogic {
 
                 System.out.println("utente seleziona il numero " + cycles + " prodotto da inserire");
             if ((selectedZone.getZoneCapacity() - stockedProducts) >= input) {
-                for (int i = 0; i < input; i++) {
-                    productStockIn(WarehouseZone, Quantity, productName, productBrand, productDescription, productPrice);
-                }
+
+                productStockIn(WarehouseZone, Quantity, productName, productBrand, productDescription, productPrice);
+
             } else {
                 throw new RuntimeException("Capacità settore non sufficiente " + (selectedZone.getZoneCapacity() - stockedProducts));
             }
@@ -80,10 +99,25 @@ public class WarehouseLogic {
                         System.out.println(position.getStockedProduct());
                         System.out.println(position.getStockedProduct().getPosition().getQuantity());
                     }
-                } else{
-                    continue;}
+                }
             } catch (RuntimeException e) {}
         }
+    }
+    public static void searchByID(String str, int selectedZone){
+        selectedZone--;
+        ArrayList<StockPosition> sector = Warehouse.getWarehouseZones().get(selectedZone).getPositions();
+        for (StockPosition position : sector) {
+            try {
+                String checkID = position.getStockedProduct().getID();
+                if (checkID != null) {
+                    if (checkID.equalsIgnoreCase(str)) {
+                        System.out.println(position.getStockedProduct().getPosition());
+                        System.out.println(position.getStockedProduct().getPosition().getQuantity());
+                    }
+                }
+            } catch (RuntimeException e) {}
+        }
+
     }
     public static void searchByLot(String str, int selectedZone) {
         selectedZone--;

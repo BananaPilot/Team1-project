@@ -28,6 +28,9 @@ public class Warehouse {
     public int getZoneCapacity() {
         return zoneCapacity;
     }
+    public static ArrayList<Warehouse> getWarehouseZones(){
+            return warehouseZones;
+    }
 
     public int getStockProductCounter() {
         return stockProductCounter;
@@ -45,9 +48,7 @@ public class Warehouse {
             this.stockProductCounter = 0;
     }
 
-    public static ArrayList<Warehouse> getWarehouseZones() {
-        return warehouseZones;
-    }
+
 
     public ArrayList<StockPosition> getPositions() {
             return positions;
