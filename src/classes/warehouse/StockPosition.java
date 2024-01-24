@@ -93,8 +93,9 @@ public class StockPosition {
                 " LOT: " + lot +
                 " IS-FULL: " + isFull +
                 " PROD-ID: " + productRefId +
-                " PROD: " + stockedProduct +
                 " QUANT: " + quantity +
-                        " ZONE: " + isContainedIn;
+                " ZONE: " + isContainedIn +
+                " PROD: " + stockedProduct;
+
     }
 }

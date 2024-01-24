@@ -40,6 +40,7 @@ public class Product {
 		this.name = name;
 	}
 
+
 	public String getBrand() {
 		return brand;
 	}
@@ -94,7 +95,7 @@ public class Product {
 				", description='" + description + '\'' +
 				", price=" + price +
 				", stock Date" + stockDate +
-				", position= " + position.getLot() +
+				", position= " + position.getLot()+
 
 				'}';
 	}

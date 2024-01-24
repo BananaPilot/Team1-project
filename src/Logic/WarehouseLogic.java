@@ -23,6 +23,13 @@ public class WarehouseLogic {
         StockPoisitionLogic.resetPosition();
         Warehouse.getWarehouseZones().add(newZone);
     }
+    // CONTROLLA TUTTI I SETTORI
+
+    public static void checkWarehouses(){
+        for (Warehouse settore : Warehouse.getWarehouseZones()){
+            System.out.println(settore);
+        }
+    }
     // CONTROLLA TUTTE POSIZIONI VUOTE O PIENE
     public static void checkFullPositions(int selectedZone){
         selectedZone--;
@@ -58,7 +65,6 @@ public class WarehouseLogic {
             if ((selectedZone.getZoneCapacity() - stockedProducts) >= input) {
 
                 productStockIn(WarehouseZone, Quantity, productName, productBrand, productDescription, productPrice);
-
             } else {
                 throw new RuntimeException("Capacità settore non sufficiente " + (selectedZone.getZoneCapacity() - stockedProducts));
             }
@@ -118,23 +124,25 @@ public class WarehouseLogic {
         }
 
     }
-    public static void searchByLot(String str, int selectedZone) {
+    public static Product searchByLot(String lot, int selectedZone) {
         selectedZone--;
 
         ArrayList<StockPosition> sector = Warehouse.getWarehouseZones().get(selectedZone).getPositions();
-        int indexOfMiddle = convertLotMiddle(str);
-        String firstParameter =  convertLotFirst(str);
-        String secondParameter = convertLotSecond(str);
+        int indexOfMiddle = convertLotMiddle(lot);
+        String firstParameter =  convertLotFirst(lot);
+        String secondParameter = convertLotSecond(lot);
+        Product risultato = null;
         for (StockPosition position : sector) {
-
             StringBuilder checkLot = position.getLot();
             String firstComparison = checkLot.substring(0, indexOfMiddle);
             String secondComparison = checkLot.substring(indexOfMiddle, checkLot.length() - 1);
             if (firstParameter.equalsIgnoreCase(firstComparison) && secondParameter.equalsIgnoreCase(secondComparison)) {
                 System.out.println(position.getStockedProduct());
                 System.out.println(position.getStockedProduct().getPosition().getQuantity());
+                risultato = position.getStockedProduct();
             }
         }
+        return risultato;
     }
     // MODIFICARE POSIZIONE
     public static void restockProduct(int zona,int position1, int position2){
@@ -162,8 +170,6 @@ public class WarehouseLogic {
         targetPosition.setStockedProduct(selectedProduct);
         targetPosition.setProductRefId(firstID);
         targetPosition.setQuantity(firstQua);
-
-
     }
     public static String convertLotFirst(String str){
         StringBuilder lot = new StringBuilder(str);
