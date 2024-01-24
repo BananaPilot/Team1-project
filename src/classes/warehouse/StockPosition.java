@@ -47,13 +47,22 @@ public class StockPosition {
         return this.isFull;
     }
 
-
+    public void removeProduct(){
+        this.stockedProduct = null;
+        this.quantity = 0;
+        this.productRefId = null;
+        this.isFull = false;
+    }
     public StringBuilder getLot() {
         return lot;
     }
 
     public void setProductRefId(String productRefId) {
         this.productRefId = productRefId;
+    }
+
+    public String getProductRefId() {
+        return productRefId;
     }
 
     public void setStockedProduct(Product stockedProduct) {
@@ -80,12 +89,12 @@ public class StockPosition {
     @Override
     public String toString() {
         return
-                "positionId= " + positionId +
-                " lot=" + lot +
-                ", isFull=" + isFull +
-                ", productRefId= " + productRefId +
-                ", Stock Product= " + stockedProduct +
-                ", Quantity = " + quantity +
-                        ", assigned zone " + isContainedIn;
+                "ID: " + positionId +
+                " LOT: " + lot +
+                " IS-FULL: " + isFull +
+                " PROD-ID: " + productRefId +
+                " PROD: " + stockedProduct +
+                " QUANT: " + quantity +
+                        " ZONE: " + isContainedIn;
     }
 }

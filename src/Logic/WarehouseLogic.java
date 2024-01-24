@@ -54,8 +54,7 @@ public class WarehouseLogic {
             System.out.println("quantità prodotti " + input + " nel settore " + selectedZone.getZoneName() +
                     " di capacità: " + (selectedZone.getZoneCapacity() - stockedProducts));
             for (int cycles = 0; cycles < input; cycles++){
-
-                System.out.println("utente seleziona il numero " + cycles + " prodotto da inserire");
+                 System.out.println("utente seleziona il numero " + cycles + " prodotto da inserire");
             if ((selectedZone.getZoneCapacity() - stockedProducts) >= input) {
 
                 productStockIn(WarehouseZone, Quantity, productName, productBrand, productDescription, productPrice);
@@ -121,11 +120,11 @@ public class WarehouseLogic {
     }
     public static void searchByLot(String str, int selectedZone) {
         selectedZone--;
-        StringBuilder lot = new StringBuilder(str);
+
         ArrayList<StockPosition> sector = Warehouse.getWarehouseZones().get(selectedZone).getPositions();
-        int indexOfMiddle = lot.indexOf("L");
-        String firstParameter = lot.substring(0, indexOfMiddle);
-        String secondParameter = lot.substring(indexOfMiddle, lot.length() - 1);
+        int indexOfMiddle = convertLotMiddle(str);
+        String firstParameter =  convertLotFirst(str);
+        String secondParameter = convertLotSecond(str);
         for (StockPosition position : sector) {
 
             StringBuilder checkLot = position.getLot();
@@ -136,6 +135,53 @@ public class WarehouseLogic {
                 System.out.println(position.getStockedProduct().getPosition().getQuantity());
             }
         }
+    }
+    // MODIFICARE POSIZIONE
+    public static void restockProduct(int zona,int position1, int position2){
+        zona--;
+        position1--;
+        position2--;
+
+        Warehouse selectedZone = Warehouse.getWarehouseZones().get(zona);
+        StockPosition selectedPosition = selectedZone.getPositions().get(position1);
+        StockPosition targetPosition = selectedZone.getPositions().get(position2);
+
+        Product selectedProduct = selectedPosition.getStockedProduct();
+        String firstID = selectedPosition.getProductRefId();
+        int firstQua = selectedPosition.getQuantity();
+        selectedPosition.removeProduct();
+        if (targetPosition.isPositionEmpty()){
+            Product targetProduct = targetPosition.getStockedProduct();
+            String secondID = targetPosition.getProductRefId();
+            int secondQua = targetPosition.getQuantity();
+            targetPosition.removeProduct();
+            selectedPosition.setStockedProduct(targetProduct);
+            selectedPosition.setProductRefId(secondID);
+            selectedPosition.setQuantity(secondQua);
+        }
+        targetPosition.setStockedProduct(selectedProduct);
+        targetPosition.setProductRefId(firstID);
+        targetPosition.setQuantity(firstQua);
+
+
+    }
+    public static String convertLotFirst(String str){
+        StringBuilder lot = new StringBuilder(str);
+        int indexOfMiddle = lot.indexOf("L");
+        return lot.substring(0, indexOfMiddle);
+    }
+    public static String convertLotSecond(String str){
+        StringBuilder lot = new StringBuilder(str);
+        int indexOfMiddle = lot.indexOf("L");
+        return lot.substring(indexOfMiddle, lot.length() - 1);
+    }
+    public static int convertLotMiddle(String str){
+        StringBuilder lot = new StringBuilder(str);
+        return lot.indexOf("L");
+    }
+
+    // TEMPORANEO
+    public static void promptCreaProdotto(){
 
     }
 }

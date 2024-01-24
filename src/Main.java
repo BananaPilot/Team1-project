@@ -11,7 +11,9 @@ public class Main {
         WarehouseLogic.stockingManagement(2,1,3,"bicicletta","jack bycycle","zecche e zanzare",2.55);
 
 
+
         WarehouseLogic.checkFullPositions(1);
-        WarehouseLogic.checkEmptyPositions(1);
+        WarehouseLogic.restockProduct(1,1,2);
+        WarehouseLogic.checkFullPositions(1);
     }
 }
