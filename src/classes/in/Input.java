@@ -11,4 +11,15 @@ public class Input {
     }
     return scanner;
   }
+
+  public static int getInt(){
+    int input = getScanner().nextInt();
+    getScanner().nextLine();
+    return input;
+  }
+
+  public static String getString(String description){
+    System.out.println(description);
+    return getScanner().nextLine();
+  }
 }
