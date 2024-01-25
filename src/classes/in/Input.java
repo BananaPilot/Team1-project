@@ -13,6 +13,7 @@ public class Input {
   }
 
   public static int getInt(){
+    System.out.print("Input: ");
     int input = getScanner().nextInt();
     getScanner().nextLine();
     return input;

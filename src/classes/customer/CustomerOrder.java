@@ -5,20 +5,26 @@ import classes.product.Product;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.UUID;
 
 
 public class CustomerOrder implements Order {
-
-    private final ArrayList<Product> products;
+    private final String ID;
+    private ArrayList<Product> products;
     private final LocalDateTime PurchaseDate;
-    private double Total;
+    private double total;
+
 
     public CustomerOrder(ArrayList<Product> products){
+        this.ID = UUID.randomUUID().toString();
         this.products = products;
         this.PurchaseDate = LocalDateTime.now();
-        //TODO implement Total mary <3
+        this.total = calculateTotal();
     }
 
+    private String getID() {
+        return ID;
+    }
     public ArrayList<Product> getProducts() {
         return products;
     }
@@ -29,6 +35,34 @@ public class CustomerOrder implements Order {
 
     @Override
     public double getTotal() {
-        return Total;
+        return total;
+    }
+
+    @Override
+    public double calculateTotal() {
+        double calculatedTotal = 0;
+        for (Product product : products) {
+            calculatedTotal += product.getPrice();
+        }
+        return calculatedTotal;
+    }
+
+    public void setProducts(ArrayList<Product> products) {
+        this.products = products;
+        this.total = calculateTotal();
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
+    }
+
+    @Override
+    public String toString() {
+        return "CustomerOrder{" +
+                "ID='" + ID + '\'' +
+                ", products=" + products +
+                ", PurchaseDate=" + PurchaseDate +
+                ", total=" + total +
+                '}';
     }
 }
