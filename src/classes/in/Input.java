@@ -19,7 +19,7 @@ public class Input {
   }
 
   public static String getString(String description){
-    System.out.println(description);
+    System.out.print(description);
     return getScanner().nextLine();
   }
 }
