@@ -16,4 +16,13 @@ public class CustomerPrompts {
     System.out.println("3. Search by name and surname");
     System.out.println("0. Back to previous menu");
   }
+
+  public static void customerUpdatePrompt(){
+    System.out.println("1. Change name");
+    System.out.println("2. Change surname");
+    System.out.println("3. Change address");
+    System.out.println("4. Change E-mail");
+    System.out.println("5. Change Phone-number");
+    System.out.println("0. Back to previous menu");
+  }
 }
