@@ -23,7 +23,7 @@ public class SearchCustomer {
 
   public static Customer getCustomerByNameSurname(String name, String surname) {
     for (Customer customer: customers) {
-      if (customer.getName().equals(name) && customer.getSurname().equals(surname)) return customer;
+      if (customer.getName().equalsIgnoreCase(name) && customer.getSurname().equalsIgnoreCase(surname)) return customer;
     }
     return null;
   }
