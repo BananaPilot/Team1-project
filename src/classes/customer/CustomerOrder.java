@@ -10,14 +10,14 @@ import java.util.UUID;
 public class CustomerOrder implements Order {
     private final String ID;
     private ArrayList<OrderProduct> products;
-    private final LocalDateTime purchaseDate;
+    private final LocalDateTime date;
     private double total;
 
 
     public CustomerOrder(ArrayList<OrderProduct> products){
         this.ID = UUID.randomUUID().toString();
         this.products = products;
-        this.purchaseDate = LocalDateTime.now();
+        this.date = LocalDateTime.now();
         this.total = calculateTotal();
     }
 
@@ -29,7 +29,7 @@ public class CustomerOrder implements Order {
     }
 
     public LocalDateTime getPurchaseDate() {
-        return purchaseDate;
+        return date;
     }
 
     @Override
