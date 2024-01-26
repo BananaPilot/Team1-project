@@ -1,8 +1,7 @@
 package classes.customer;
 
+import classes.OrderProduct;
 import classes.Order;
-import classes.product.Product;
-
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.UUID;
@@ -10,27 +9,27 @@ import java.util.UUID;
 
 public class CustomerOrder implements Order {
     private final String ID;
-    private ArrayList<Product> products;
-    private final LocalDateTime PurchaseDate;
+    private ArrayList<OrderProduct> products;
+    private final LocalDateTime purchaseDate;
     private double total;
 
 
-    public CustomerOrder(ArrayList<Product> products){
+    public CustomerOrder(ArrayList<OrderProduct> products){
         this.ID = UUID.randomUUID().toString();
         this.products = products;
-        this.PurchaseDate = LocalDateTime.now();
+        this.purchaseDate = LocalDateTime.now();
         this.total = calculateTotal();
     }
 
     private String getID() {
         return ID;
     }
-    public ArrayList<Product> getProducts() {
+    public ArrayList<OrderProduct> getProducts() {
         return products;
     }
 
     public LocalDateTime getPurchaseDate() {
-        return PurchaseDate;
+        return purchaseDate;
     }
 
     @Override
@@ -41,13 +40,13 @@ public class CustomerOrder implements Order {
     @Override
     public double calculateTotal() {
         double calculatedTotal = 0;
-        for (Product product : products) {
-            calculatedTotal += product.getPrice();
+        for (OrderProduct product : products) {
+            calculatedTotal += product.getProduct().getPrice() * product.getOrderQty();
         }
         return calculatedTotal;
     }
 
-    public void setProducts(ArrayList<Product> products) {
+    public void setProducts(ArrayList<OrderProduct> products) {
         this.products = products;
         this.total = calculateTotal();
     }
@@ -59,10 +58,10 @@ public class CustomerOrder implements Order {
     @Override
     public String toString() {
         return "CustomerOrder{" +
-                "ID='" + ID + '\'' +
-                ", products=" + products +
-                ", PurchaseDate=" + PurchaseDate +
-                ", total=" + total +
+                "ID=" + ID +
+                ", orderedProducts=" + products +
+                ", date=" + date +
+                ", totalOrder=" + total +
                 '}';
     }
 }
