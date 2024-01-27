@@ -3,5 +3,24 @@ package classes.in;
 import java.util.Scanner;
 
 public class Input {
-  public static Scanner scanner = new Scanner(System.in);
+  private Input() {}
+  private static Scanner scanner;
+  public static Scanner getScanner() {
+    if (scanner == null) {
+      scanner = new Scanner(System.in);
+    }
+    return scanner;
+  }
+
+  public static int getInt(){
+    System.out.print("Input: ");
+    int input = getScanner().nextInt();
+    getScanner().nextLine();
+    return input;
+  }
+
+  public static String getString(String description){
+    System.out.print(description);
+    return getScanner().nextLine();
+  }
 }
