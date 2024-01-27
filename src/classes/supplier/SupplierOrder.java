@@ -1,9 +1,7 @@
 package classes.supplier;
-
 import classes.OrderProduct;
 import classes.Order;
-
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.UUID;
 
@@ -11,17 +9,17 @@ import java.util.UUID;
 public class SupplierOrder implements Order {
     private final String ID;
     private ArrayList<OrderProduct> products;
-    private final LocalDateTime date;
+    private final LocalDate date;
     private double total;
 
     public SupplierOrder(ArrayList<OrderProduct> products) {
         this.ID = UUID.randomUUID().toString();
         this.products = products;
-        this.date = LocalDateTime.now();
+        this.date = LocalDate.now();
         this.total = calculateTotal();
     }
 
-    private String getID() {
+    public String getID() {
         return ID;
     }
 
@@ -29,7 +27,7 @@ public class SupplierOrder implements Order {
         return products;
     }
 
-    public LocalDateTime getDate() {
+    public LocalDate getDate() {
         return date;
     }
 

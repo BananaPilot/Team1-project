@@ -1,8 +1,7 @@
 package classes.customer;
-
 import classes.OrderProduct;
 import classes.Order;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.UUID;
 
@@ -10,25 +9,25 @@ import java.util.UUID;
 public class CustomerOrder implements Order {
     private final String ID;
     private ArrayList<OrderProduct> products;
-    private final LocalDateTime date;
+    private final LocalDate date;
     private double total;
 
 
     public CustomerOrder(ArrayList<OrderProduct> products){
         this.ID = UUID.randomUUID().toString();
         this.products = products;
-        this.date = LocalDateTime.now();
+        this.date = LocalDate.now();
         this.total = calculateTotal();
     }
 
-    private String getID() {
+    public String getID() {
         return ID;
     }
     public ArrayList<OrderProduct> getProducts() {
         return products;
     }
 
-    public LocalDateTime getPurchaseDate() {
+    public LocalDate getDate() {
         return date;
     }
 
