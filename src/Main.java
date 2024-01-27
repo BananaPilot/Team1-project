@@ -15,10 +15,15 @@ public class Main {
 
         WarehouseLogic.checkFullPositions(1);
 
-        WarehouseLogic.checkEmptyPositions(1);
-        Product pippo = WarehouseLogic.searchByLot("2L0",1);
-        WarehouseLogic.checkWarehouses();
-        UserInputWarehouse.mainWarehouseInput();
+
+        WarehouseLogic.searchByLot("2L0",1);
+
+        WarehouseLogic.restockProduct(1, "1L0","5L0");
+
+        WarehouseLogic.checkFullPositions(1);
+
+
+
 
     }
 }

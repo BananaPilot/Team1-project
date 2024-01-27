@@ -7,19 +7,20 @@ import classes.warehouse.Warehouse;
 import Logic.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class WarehouseLogic {
     // CREA SETTORE MAGAZZINO
     public static void createZone(String zoneName, int zoneLongness, int zoneHeigth) {
 
         Warehouse newZone = new Warehouse(zoneName, zoneLongness, zoneHeigth);
-        int zoneLength = newZone.getZoneCapacity();
         ArrayList<StockPosition> myPositions = newZone.getPositions();
-        for (int index = 0; index < zoneLength; index++) {
-            StockPosition newPosition = new StockPosition(zoneLongness);
+
+        for (int index = 0; index < newZone.getZoneCapacity(); index++) {
+            StockPosition newPosition = new StockPosition(zoneLongness, zoneName);
             myPositions.add(newPosition);
-            myPositions.get(index).setIsContainedIn(newZone.getZoneName());
         }
+
         StockPoisitionLogic.resetPosition();
         Warehouse.getWarehouseZones().add(newZone);
     }
@@ -128,15 +129,13 @@ public class WarehouseLogic {
         selectedZone--;
 
         ArrayList<StockPosition> sector = Warehouse.getWarehouseZones().get(selectedZone).getPositions();
-        int indexOfMiddle = convertLotMiddle(lot);
-        String firstParameter =  convertLotFirst(lot);
-        String secondParameter = convertLotSecond(lot);
         Product risultato = null;
         for (StockPosition position : sector) {
-            StringBuilder checkLot = position.getLot();
-            String firstComparison = checkLot.substring(0, indexOfMiddle);
-            String secondComparison = checkLot.substring(indexOfMiddle, checkLot.length() - 1);
-            if (firstParameter.equalsIgnoreCase(firstComparison) && secondParameter.equalsIgnoreCase(secondComparison)) {
+
+            String firstComparison = convertLotFirst(position.getLot().toString());
+            String secondComparison = convertLotSecond(position.getLot().toString());
+
+            if ( convertLotFirst(lot).equalsIgnoreCase(firstComparison) && convertLotSecond(lot).equalsIgnoreCase(secondComparison)) {
                 System.out.println(position.getStockedProduct());
                 System.out.println(position.getStockedProduct().getPosition().getQuantity());
                 risultato = position.getStockedProduct();
@@ -145,32 +144,34 @@ public class WarehouseLogic {
         return risultato;
     }
     // MODIFICARE POSIZIONE
-    public static void restockProduct(int zona,int position1, int position2){
-        zona--;
-        position1--;
-        position2--;
+    /*
+    public static void restockProduct(int zona,String firstLot, String secondLot){
+       zona--;
+       String[] firstPos = firstLot.split("L");
+       String[] secondPos = secondLot.split("L");
+       Warehouse selectedZone = Warehouse.getWarehouseZones().get(zona);
+       ArrayList<StockPosition> selectedPos = selectedZone.getPositions();
+       StockPosition firstPosition = null;
+       StockPosition secondPosition = null;
 
-        Warehouse selectedZone = Warehouse.getWarehouseZones().get(zona);
-        StockPosition selectedPosition = selectedZone.getPositions().get(position1);
-        StockPosition targetPosition = selectedZone.getPositions().get(position2);
+       for (StockPosition position : selectedPos){
+           String[] lotCheck = position.getLot().toString().split("L");
+           if (lotCheck[0].equalsIgnoreCase(firstPos[0]) && lotCheck[1].equalsIgnoreCase(firstPos[1])){
+               firstPosition = position;
+           }
+           if (lotCheck[0].equalsIgnoreCase(secondPos[0]) && lotCheck[1].equalsIgnoreCase(secondPos[1])){
+               secondPosition = position;
+           }
+       }
 
-        Product selectedProduct = selectedPosition.getStockedProduct();
-        String firstID = selectedPosition.getProductRefId();
-        int firstQua = selectedPosition.getQuantity();
-        selectedPosition.removeProduct();
-        if (targetPosition.isPositionEmpty()){
-            Product targetProduct = targetPosition.getStockedProduct();
-            String secondID = targetPosition.getProductRefId();
-            int secondQua = targetPosition.getQuantity();
-            targetPosition.removeProduct();
-            selectedPosition.setStockedProduct(targetProduct);
-            selectedPosition.setProductRefId(secondID);
-            selectedPosition.setQuantity(secondQua);
-        }
-        targetPosition.setStockedProduct(selectedProduct);
-        targetPosition.setProductRefId(firstID);
-        targetPosition.setQuantity(firstQua);
+       StockPoisitionLogic.restockProduct(firstPosition, secondPosition);
+
     }
+
+     */
+
+    // CANCELLA SETTORE
+
     public static String convertLotFirst(String str){
         StringBuilder lot = new StringBuilder(str);
         int indexOfMiddle = lot.indexOf("L");
@@ -181,10 +182,7 @@ public class WarehouseLogic {
         int indexOfMiddle = lot.indexOf("L");
         return lot.substring(indexOfMiddle, lot.length() - 1);
     }
-    public static int convertLotMiddle(String str){
-        StringBuilder lot = new StringBuilder(str);
-        return lot.indexOf("L");
-    }
+
 
     // TEMPORANEO
     public static void promptCreaProdotto(){

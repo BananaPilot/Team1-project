@@ -15,13 +15,13 @@ public class StockPosition {
     private Product stockedProduct;
     private static int staticLongnessCounter = 0;
 
-    public StockPosition(int zoneLongness){
+    public StockPosition(int zoneLongness, String zoneReference){
 
         if (staticLongnessCounter == zoneLongness ){
             staticLongnessCounter = 0;
             staticHeigth++;
         }
-
+        this.isContainedIn = zoneReference;
         this.staticpositionId++;
         this.positionId = staticpositionId;
         this.heigth = staticHeigth;
@@ -42,12 +42,15 @@ public class StockPosition {
         this.isContainedIn = isContainedIn;
     }
 
-
+    public void setIsPositionEmpty(boolean isFull){
+        this.isFull  = isFull;
+    }
     public boolean isPositionEmpty(){
         return this.isFull;
     }
 
     public void removeProduct(){
+        this.stockedProduct.setPosition(null);
         this.stockedProduct = null;
         this.quantity = 0;
         this.productRefId = null;
