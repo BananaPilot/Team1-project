@@ -9,7 +9,7 @@ public class StockPoisitionLogic {
     }
     // MODIFICA QUANTITA
     // MODIFICA PRODOTTO
-
+    //non funziona restockProducts
     public static void modifyQuantity(StockPosition pos, int newQuantity){
         pos.setQuantity(newQuantity);
     }

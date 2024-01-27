@@ -4,7 +4,7 @@ import java.util.UUID;
 
     public class ProductType {
 
-        private String ID;
+        private final String ID;
 
         private String name;
 

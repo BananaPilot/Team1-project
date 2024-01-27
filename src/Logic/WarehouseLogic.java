@@ -20,7 +20,6 @@ public class WarehouseLogic {
             StockPosition newPosition = new StockPosition(zoneLongness, zoneName);
             myPositions.add(newPosition);
         }
-
         StockPoisitionLogic.resetPosition();
         Warehouse.getWarehouseZones().add(newZone);
     }
@@ -144,33 +143,44 @@ public class WarehouseLogic {
         return risultato;
     }
     // MODIFICARE POSIZIONE
-    /*
-    public static void restockProduct(int zona,String firstLot, String secondLot){
-       zona--;
-       String[] firstPos = firstLot.split("L");
-       String[] secondPos = secondLot.split("L");
-       Warehouse selectedZone = Warehouse.getWarehouseZones().get(zona);
-       ArrayList<StockPosition> selectedPos = selectedZone.getPositions();
-       StockPosition firstPosition = null;
-       StockPosition secondPosition = null;
+    // FUNZIONA MA NON RIESCO CON LE POSIZIONI VUOTE
 
-       for (StockPosition position : selectedPos){
-           String[] lotCheck = position.getLot().toString().split("L");
-           if (lotCheck[0].equalsIgnoreCase(firstPos[0]) && lotCheck[1].equalsIgnoreCase(firstPos[1])){
-               firstPosition = position;
-           }
-           if (lotCheck[0].equalsIgnoreCase(secondPos[0]) && lotCheck[1].equalsIgnoreCase(secondPos[1])){
-               secondPosition = position;
-           }
-       }
+    public static void restockProduct(int zone, String lot, String lot2) {
+        zone--;
+        ArrayList<StockPosition> sector = Warehouse.getWarehouseZones().get(zone).getPositions();
+        StockPosition selectedPosition1 = null;
+        StockPosition selectedPosition2 = null;
 
-       StockPoisitionLogic.restockProduct(firstPosition, secondPosition);
+        for (StockPosition position : sector) {
+
+            String firstComparison = convertLotFirst(position.getLot().toString());
+            String firstComparison2 = convertLotSecond(position.getLot().toString());
+
+            if (convertLotFirst(lot.toString()).equalsIgnoreCase(firstComparison)
+            &&  convertLotSecond(lot.toString()).equalsIgnoreCase(firstComparison2)) {
+                selectedPosition1 = position;
+                selectedPosition1.setStockedProduct(position.getStockedProduct());
+            }
+            if (convertLotFirst(lot2.toString()).equalsIgnoreCase(firstComparison)
+            && convertLotSecond(lot2.toString()).equalsIgnoreCase(firstComparison2)){
+                selectedPosition2 = position;
+                selectedPosition2.setStockedProduct(position.getStockedProduct());
+            }
+        }
+
+        StockPosition temporary = new StockPosition();
+        temporary.setExistentPosition(selectedPosition1);
+        selectedPosition1.setExistentPosition(selectedPosition2);
+        selectedPosition2.setExistentPosition(temporary);
 
     }
 
-     */
-
     // CANCELLA SETTORE
+
+    public static void deleteSector(int zone){
+        zone--;
+        Warehouse.getWarehouseZones().remove(zone);
+    }
 
     public static String convertLotFirst(String str){
         StringBuilder lot = new StringBuilder(str);

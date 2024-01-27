@@ -9,7 +9,7 @@ import classes.warehouse.StockPosition;
 
 public class Product {
 
-	private String ID; 
+	private final String ID;
 	private String name;
 	private String brand;
 	private String description;
