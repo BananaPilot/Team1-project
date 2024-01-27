@@ -14,7 +14,7 @@ public class StockPoisitionLogic {
         pos.setQuantity(newQuantity);
     }
     public static void modifyProduct(StockPosition pos){
-        //chiama metodo dentro product tramite pos : pos.getStockedProduct(). ? 
+        //chiama metodo dentro product tramite pos : pos.getStockedProduct().
     }
 
 
