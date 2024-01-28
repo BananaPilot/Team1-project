@@ -17,9 +17,14 @@ public class Input {
     getScanner().nextLine();
     return input;
   }
-
-  public static String getString(String description){
-    System.out.println(description);
+  
+  public static Double getDouble(){
+	    Double input = getScanner().nextDouble();
+	    getScanner().nextLine();
+	    return input;
+	  }
+  
+  public static String getString(){
     return getScanner().nextLine();
   }
 }
