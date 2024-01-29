@@ -35,9 +35,9 @@ public class WarehouseLogic {
         selectedZone--;
         ArrayList<StockPosition> myPositions = Warehouse.getWarehouseZones().get(selectedZone).getPositions();
         for (StockPosition element : myPositions){
-            if (element.isPositionEmpty()){
+
                 System.out.println(element);
-            }
+
         }
     }
     public static void checkEmptyPositions(int selectedZone){
@@ -122,7 +122,6 @@ public class WarehouseLogic {
                 }
             } catch (RuntimeException e) {}
         }
-
     }
     public static Product searchByLot(String lot, int selectedZone) {
         selectedZone--;
@@ -169,9 +168,18 @@ public class WarehouseLogic {
         }
 
         StockPosition temporary = new StockPosition();
-        temporary.setExistentPosition(selectedPosition1);
-        selectedPosition1.setExistentPosition(selectedPosition2);
-        selectedPosition2.setExistentPosition(temporary);
+        if (selectedPosition1.getStockedProduct() == null){
+            selectedPosition1.setExistentPosition(selectedPosition2);
+            selectedPosition2.removeProduct();
+            return;
+        } else if (selectedPosition2.getStockedProduct() == null){
+            selectedPosition2.setExistentPosition(selectedPosition1);
+            selectedPosition1.removeProduct();
+        } else {
+            temporary.setExistentPosition(selectedPosition1);
+            selectedPosition1.setExistentPosition(selectedPosition2);
+            selectedPosition2.setExistentPosition(temporary);
+        }
 
     }
 

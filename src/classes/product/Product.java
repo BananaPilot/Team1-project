@@ -95,7 +95,7 @@ public class Product {
 				", description='" + description + '\'' +
 				", price=" + price +
 				", stock Date" + stockDate +
-				", position= " + position.getLot()+
+
 
 				'}';
 	}

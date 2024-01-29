@@ -16,8 +16,8 @@ public class Main {
         WarehouseLogic.stockingManagement(1,1,2,"Piantalons","LE MARGHERITINE MAGICHE","nikita piace",8);
         WarehouseLogic.stockingManagement(1,1,2,"Babaluitron","I VASI DI JACK","nikita piace",8);
 
-
-        WarehouseLogic.restockProduct(1,"1L0","2L0");
+        WarehouseLogic.checkFullPositions(1);
+        WarehouseLogic.restockProduct(1,"3L0","1L0");
         WarehouseLogic.checkFullPositions(1);
 
     }

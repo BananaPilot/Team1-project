@@ -64,7 +64,6 @@ public class StockPosition {
     }
     public void setExistentPosition(StockPosition position){
 
-
         this.setStockedProduct(position.getStockedProduct());
         this.setQuantity(position.getQuantity());
         this.setFull(position.isPositionEmpty());
