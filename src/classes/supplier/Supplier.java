@@ -2,13 +2,12 @@ package classes.supplier;
 
 import classes.Contacts;
 import classes.Operations;
-import classes.Searchable;
 
 import java.util.UUID;
 
-public class Supplier implements Searchable {
+public class Supplier {
   private final String ID;
-  private String name;
+  private String companyName;
   private String address;
   private int suppliedProductType;
   private String VATNumber;
@@ -17,7 +16,7 @@ public class Supplier implements Searchable {
 
   public Supplier(String companyName, String address, int suppliedProductType, String VATNumber, String email, String phoneNumber) {
     this.ID = UUID.randomUUID().toString();
-    this.name = companyName;
+    this.companyName = companyName;
     this.address = address;
     this.suppliedProductType = suppliedProductType;
     this.VATNumber = VATNumber;
@@ -28,8 +27,8 @@ public class Supplier implements Searchable {
     return ID;
   }
 
-  public String getName() {
-    return name;
+  public String getCompanyName() {
+    return companyName;
   }
 
   public String getAddress() {
@@ -52,8 +51,8 @@ public class Supplier implements Searchable {
     return contacts;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public void setCompanyName(String companyName) {
+    this.companyName = companyName;
   }
 
   public void setAddress(String address) {
@@ -80,7 +79,7 @@ public class Supplier implements Searchable {
   public String toString() {
     return "Supplier{" +
             ", ID=" + ID +
-            ", companyName='" + name + '\'' +
+            ", companyName='" + companyName + '\'' +
             ", address='" + address + '\'' +
             ", suppliedProductType=" + suppliedProductType +
             ", VATNumber='" + VATNumber + '\'' +

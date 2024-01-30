@@ -1,12 +1,9 @@
 package CRUD.customer;
 
-import classes.SearchBy;
-import classes.Searchable;
 import classes.customer.Customer;
 import classes.in.Input;
 import interactions.customer.CustomerInteractions;
 import prompts.customer.CustomerPrompts;
-import util.Util;
 
 public class CustomerCRUD {
   public static Customer createCustomer(){
@@ -14,7 +11,7 @@ public class CustomerCRUD {
   }
 
   public static void listCustomers(){
-    for(Searchable customer : CustomerInteractions.getCustomers()){
+    for(Customer customer : CustomerInteractions.getCustomers()){
       System.out.println(customer);
     }
   }
@@ -23,13 +20,12 @@ public class CustomerCRUD {
     int input;
     CustomerPrompts.customerSearchPrompt();
     input = Input.getInt();
-    Searchable customer = switch (input) {
-      case 1 -> Util.search(CustomerInteractions.getCustomers(), SearchBy.ID, Input.getString("ID: "));
-      case 2 -> Util.search(CustomerInteractions.getCustomers(), SearchBy.EMAIL, Input.getString("E-mail: "));
-      case 3 -> Util.search(CustomerInteractions.getCustomers(), SearchBy.FULL_NAME, Input.getString("Name: "), Input.getString("Surname: "));
+    return switch (input) {
+      case 1 -> SearchCustomer.getCustomerByID(Input.getString("ID: "));
+      case 2 -> SearchCustomer.getCustomerByEmail(Input.getString("E-mail: "));
+      case 3 -> SearchCustomer.getCustomerByNameSurname(Input.getString("Name: "), Input.getString("Surname"));
       default -> null;
     };
-    return (Customer) customer;
   }
 
   public static void updateCustomer() {

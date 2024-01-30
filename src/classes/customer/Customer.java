@@ -2,11 +2,10 @@ package classes.customer;
 
 import classes.Contacts;
 import classes.Operations;
-import classes.Searchable;
 
 import java.util.UUID;
 
-public class Customer implements Searchable {
+public class Customer {
   private final String ID;
   private String name;
   private String surname;
@@ -20,10 +19,6 @@ public class Customer implements Searchable {
     this.surname = surname;
     this.address = address;
     this.contacts = new Contacts(email, phoneNumber);
-  }
-
-  public Customer(){
-    this.ID = UUID.randomUUID().toString();
   }
 
   public String getID() {
