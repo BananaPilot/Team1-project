@@ -1,7 +1,9 @@
 package classes.warehouse;
 
+import classes.Searchable;
+
 import java.util.ArrayList;
-    public class Warehouse {
+    public class Warehouse implements Searchable {
 
         /* il magazzino sarà un insieme di zone
            qui dichiaro una lista di zone,

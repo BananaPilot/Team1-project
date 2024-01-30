@@ -1,7 +1,9 @@
 package classes.warehouse;
 
 
-public class StockPosition {
+import classes.Searchable;
+
+public class StockPosition implements Searchable {
     /* ogni posizione avrà,
        un id per il lotto,
        un booleano per determinare se è disponibile,

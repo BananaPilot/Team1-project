@@ -1,8 +1,10 @@
 package classes.productType;
 
+import classes.Searchable;
+
 import java.util.UUID;
 
-    public class ProductType {
+    public class ProductType implements Searchable {
 
         private final String ID;
 

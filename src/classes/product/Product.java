@@ -3,11 +3,12 @@ package classes.product;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
+import classes.Searchable;
 import classes.productType.ProductType;
 import classes.supplier.*;
 import classes.warehouse.StockPosition;
 
-public class Product {
+public class Product implements Searchable {
 
 	private final String ID;
 	private String name;
