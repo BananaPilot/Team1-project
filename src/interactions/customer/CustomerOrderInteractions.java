@@ -16,7 +16,7 @@ public class CustomerOrderInteractions {
         return customerOrder;
     }
 
-    public static void CustomerOrderManager(){
+    public static void CustomerOrderManager() {
         ArrayList<CustomerOrder> customerOrder = new ArrayList<>();
         int input;
 
@@ -25,16 +25,11 @@ public class CustomerOrderInteractions {
             input = classes.in.Input.getInt();
 
             switch (input) {
-                case 1:customerOrder.add(CustomerOrderCRUD.createCustomerOrder(products));
-                    break;
-                case 2:CustomerOrderCRUD.listCustomerOrders(customerOrder);
-                    break;
-                case 3:System.out.println(CustomerOrderCRUD.getCustomerOrder(customerOrder));
-                    break;
-                case 4:CustomerOrderCRUD.updateCustomerOrder(customerOrder);
-                    break;
-                case 5:customerOrder.remove(CustomerOrderCRUD.getCustomerOrder(customerOrder));
-                    break;
+                case 1 -> getCustomerOrder().add(CustomerOrderCRUD.createCustomerOrder(products));
+                case 2 -> CustomerOrderCRUD.listCustomerOrders(customerOrder);
+                case 3 -> System.out.println(CustomerOrderCRUD.getCustomerOrder(customerOrder));
+                case 4 -> CustomerOrderCRUD.updateCustomerOrder(customerOrder);
+                case 5 -> getCustomerOrder().remove(CustomerOrderCRUD.getCustomerOrder(customerOrder));
             }
         } while (input != 0);
     }

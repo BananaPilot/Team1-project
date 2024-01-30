@@ -23,6 +23,11 @@ public class CustomerOrderPrompts {
         System.out.println("0. Back to previous menu");
     }
 
+    public static void customerOrderDeletePrompt() {
+        System.out.println("1. Delete order");
+        System.out.println("0. Back to previous menu");
+    }
+
 
 
 

@@ -41,5 +41,9 @@ public class CustomerOrderCRUD {
         }
 
         //5.DELETE
+        //IMPLEMENTARE DELETE
+        public static void deleteCustomerOrder(ArrayList<CustomerOrder> customerOrders) {
+            CustomerOrderPrompts.customerOrderDeletePrompt();
+        }
 
 }
