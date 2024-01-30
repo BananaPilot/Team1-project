@@ -9,22 +9,6 @@ public interface Searchable {
     return null;
   }
 
-  default String getSurname(){
-    return null;
-  }
-
-  default String getBrand(){
-    return null;
-  }
-
-  default String getLot(){
-    return null;
-  }
-
-  default String getVATNumber() {
-    return null;
-  }
-
   default Contacts getContacts(){
     return null;
   }
