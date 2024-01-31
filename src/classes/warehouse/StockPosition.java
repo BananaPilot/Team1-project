@@ -62,7 +62,7 @@ public class StockPosition {
 
     @Override
     public String toString() {
-        return "Classes.Warehouse.Classes.Warehouse.StockPosition{" +
+        return "StockPosition{" +
                 "batchId=" + batchId +
                 ", isFull=" + isFull +
                 ", heigth=" + heigth +

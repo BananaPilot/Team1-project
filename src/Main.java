@@ -1,12 +1,14 @@
-import Logic.ProductLogics;
 import classes.in.Input;
-import prompts.productprompts.ProductPromtps;
+import logic.product.ProductLogics;
+import prompts.MainPrompt;
+import prompts.productprompts.ProductPrompts;
+import prompts.productprompts.ProductsHandler;
 
 public class Main {
 	public static void main(String[] args) {
 		String input = null;
 		do {
-			ProductPromtps.mainProductPrompt();
+			MainPrompt.mainMenuPrompts();
 			input = Input.getString();
 			try {
 				Integer.parseInt( input );
@@ -15,11 +17,7 @@ public class Main {
 			}
 			switch (input) {
 			case "1": {
-				ProductLogics.createProduct();
-				break;
-			}
-			case "2": {
-				ProductLogics.listAllProducts();
+				ProductsHandler.productsMainMenu();
 				break;
 			}
 			default:
