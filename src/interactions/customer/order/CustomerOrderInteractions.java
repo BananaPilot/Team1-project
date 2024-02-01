@@ -1,8 +1,8 @@
-package interactions.customer;
-import CRUD.customer.CustomerOrderCRUD;
+package interactions.customer.order;
+import CRUD.customer.order.CustomerOrderCRUD;
 import classes.OrderProduct;
 import classes.customer.CustomerOrder;
-import prompts.customer.CustomerOrderPrompts;
+import prompts.customer.order.CustomerOrderPrompts;
 import java.util.ArrayList;
 
 public class CustomerOrderInteractions {

@@ -1,4 +1,4 @@
-package prompts.customer;
+package prompts.customer.order;
 
 public class CustomerOrderPrompts {
     public static void customerOrderMainPrompt() {

@@ -1,9 +1,9 @@
-package CRUD.customer;
+package CRUD.customer.order;
 import classes.OrderProduct;
 import classes.customer.CustomerOrder;
 import classes.in.Input;
-import interactions.customer.CustomerOrderInteractions;
-import prompts.customer.CustomerOrderPrompts;
+import interactions.customer.order.CustomerOrderInteractions;
+import prompts.customer.order.CustomerOrderPrompts;
 import java.util.ArrayList;
 
 
