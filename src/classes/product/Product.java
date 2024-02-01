@@ -5,7 +5,7 @@ import java.util.UUID;
 
 import classes.productType.ProductType;
 
-import classes.warehouse.StockPosition;
+import classes.warehouse.Position;
 
 public class Product {
 
@@ -17,10 +17,10 @@ public class Product {
 	private final LocalDateTime stockDate;
 	//private Supplier supplierID;
 	private ProductType productTypeID;
-	private StockPosition position;
+	private Position position;
 
 	public Product(String name, String brand, String description, double price,
-			 ProductType productTypeID, StockPosition position) {
+			 ProductType productTypeID, Position position) {
 		this.ID = UUID.randomUUID().toString();
 		this.name = name;
 		this.brand = brand;
@@ -78,11 +78,11 @@ public class Product {
 		return productTypeID;
 	}
 
-	public StockPosition getPosition() {
+	public Position getPosition() {
 		return position;
 	}
 
-	public void setPosition(StockPosition position) {
+	public void setPosition(Position position) {
 		this.position = position;
 	}
 

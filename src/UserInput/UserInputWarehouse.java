@@ -28,14 +28,14 @@ public class UserInputWarehouse {
                 System.out.println("seleziona settore: ");
                 int index = input.nextInt();
                 input.nextLine();
-                Warehouse selectedZone = chooseWarehouse(index);
+                Zone selectedZone = chooseWarehouse(index);
                 warehouseSearchInput(selectedZone);
                 break;
 
         }
         } while (!inputStr.equalsIgnoreCase("0"));
     }
-    public static void warehouseSearchInput(Warehouse sector){
+    public static void warehouseSearchInput(Zone sector){
         System.out.println("Eseguire ricerca? \n " +
                                "Y or N");
         Scanner input = UserInputWarehouse.getInput();
@@ -66,9 +66,9 @@ public class UserInputWarehouse {
 
     }
 
-  public static Warehouse chooseWarehouse(int index){
-        Warehouse chosedSector = null;
-        for (Warehouse settore : Warehouse.getWarehouseZones()){
+  public static Zone chooseWarehouse(int index){
+        Zone chosedSector = null;
+        for (Zone settore : Zone.getWarehouseZones()){
             if (settore.getWarehouseIndex() == index){
                 chosedSector = settore;
                 System.out.println("Selected: " + settore);

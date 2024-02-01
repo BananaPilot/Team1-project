@@ -2,78 +2,64 @@ package classes.warehouse;
 import classes.product.Product;
 
 
-public class StockPosition {
+public class Position {
     private int positionId = 0;
     private static int staticpositionId = 0;
-    private int heigth = 0;
-    private static int staticHeigth = 0;
+    private int level = 0;
+    private static int staticLevel = 0;
     private boolean isFull = false;
     private String productRefId;
     private StringBuilder lot = new StringBuilder("");
-    private Product stockedProduct;
+    private Product product;
     private static int staticLongnessCounter = 0;
     private String isContainedIn;
     private int quantity;
 
-    public StockPosition(int zoneLongness, String zoneReference){
+    public Position(int zoneLongness, String zoneReference){
 
         if (staticLongnessCounter == zoneLongness ){
             staticLongnessCounter = 0;
-            staticHeigth++;
+            staticLevel++;
         }
         this.isContainedIn = zoneReference;
         this.staticpositionId++;
         this.positionId = staticpositionId;
-        this.heigth = staticHeigth;
-        this.lot.append(this.positionId + "L" + this.heigth);
+        this.level = staticLevel;
+        this.lot.append(this.positionId + "L" + this.level);
         staticLongnessCounter++;
     }
-    public StockPosition(){}
-
-
-
-
-    public Product getStockedProduct() {
-        return stockedProduct;
+    public Position(){}
+    public Product getProduct() {
+        return product;
     }
-
     public String getIsContainedIn() {
         return isContainedIn;
     }
-
     public void setIsContainedIn(String isContainedIn) {
         this.isContainedIn = isContainedIn;
     }
-
     public static void resetPosition(){
-        staticHeigth = 0;
+        staticLevel = 0;
         staticLongnessCounter = 0;
     }
-    //getter e setters
-
-    public int getPositionId(){
-        return this.positionId;
-    }
-    //public int productRefId(){return ID;}
     public boolean isPositionEmpty(){
         return this.isFull;
     }
-
     public void setFull(boolean full) {
         isFull = full;
     }
-    public void setExistentPosition(StockPosition position){
+    public void setExistentPosition(Position position){
 
-        this.setStockedProduct(position.getStockedProduct());
+        this.setProduct(position.getProduct());
         this.setQuantity(position.getQuantity());
         this.setFull(position.isPositionEmpty());
         this.setProductRefId(position.getProductRefId());
         this.setIsContainedIn(position.getIsContainedIn());
-        this.stockedProduct.setPosition(this);
+        this.product.setPosition(this);
     }
     public void removeProduct(){
-        this.stockedProduct.setPosition(null);
-        this.stockedProduct = null;
+        this.product.setPosition(null);
+        this.product = null;
         this.quantity = 0;
         this.productRefId = null;
         this.isFull = false;
@@ -81,34 +67,27 @@ public class StockPosition {
     public StringBuilder getLot() {
         return lot;
     }
-
     public void setProductRefId(String productRefId) {
         this.productRefId = productRefId;
     }
-
     public String getProductRefId() {
         return productRefId;
     }
-
-    public void setStockedProduct(Product stockedProduct) {
-        this.stockedProduct = stockedProduct;
+    public void setProduct(Product product) {
+        this.product = product;
         this.isFull = true;
     }
-
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
-
     public int getQuantity() {
         return quantity;
     }
-
-    public static void setStaticHeigth(int staticHeigth) {
-        StockPosition.staticHeigth = staticHeigth;
+    public static void setStaticLevel(int staticLevel) {
+        Position.staticLevel = staticLevel;
     }
-
     public static void setStaticLongnessCounter(int staticLongnessCounter) {
-        StockPosition.staticLongnessCounter = staticLongnessCounter;
+        Position.staticLongnessCounter = staticLongnessCounter;
     }
 
     @Override
@@ -120,6 +99,6 @@ public class StockPosition {
                         " PROD-ID: " + productRefId +
                         " QUANT: " + quantity +
                         " ZONE: " + isContainedIn +
-                        " PROD: " + stockedProduct;
+                        " PROD: " + product;
     }
 }
