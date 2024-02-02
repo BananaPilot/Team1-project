@@ -21,7 +21,6 @@ public class Customer implements Searchable {
     this.surname = surname;
     this.address = address;
     this.contacts = new Contacts(email, phoneNumber);
-    this.operations = new Operations(new ArrayList<>());
   }
 
   public String getID() {

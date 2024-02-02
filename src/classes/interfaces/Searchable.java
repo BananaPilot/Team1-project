@@ -14,9 +14,9 @@ public interface Searchable {
       String capField = Util.capitalize(field.getName());
       for (Object value: values){
         try {
-          if (this.getClass().getMethod("get" + capField).invoke(this).equals(value)){
-            if (!objects.contains(this)) objects.add(this);
-          }
+          Object object = this.getClass().getMethod("get" + capField).invoke(this);
+          if (object == null) continue;
+          if (!objects.contains(this)) objects.add(this);
         } catch (Exception e){
           e.printStackTrace();
         }
