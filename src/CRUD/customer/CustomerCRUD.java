@@ -1,9 +1,12 @@
 package CRUD.customer;
 
+import classes.Contacts;
 import classes.customer.Customer;
 import classes.in.Input;
 import interactions.customer.CustomerInteractions;
 import prompts.customer.CustomerPrompts;
+
+import java.util.ArrayList;
 
 public class CustomerCRUD {
   public static Customer createCustomer(){
@@ -20,12 +23,13 @@ public class CustomerCRUD {
     int input;
     CustomerPrompts.customerSearchPrompt();
     input = Input.getInt();
-    return switch (input) {
-      case 1 -> SearchCustomer.getCustomerByID(Input.getString("ID: "));
-      case 2 -> SearchCustomer.getCustomerByEmail(Input.getString("E-mail: "));
-      case 3 -> SearchCustomer.getCustomerByNameSurname(Input.getString("Name: "), Input.getString("Surname"));
+    Object object = switch (input) {
+      case 1 -> search(CustomerInteractions.getCustomers(), Input.getString("ID: "));
+      case 2 -> Contacts.search(CustomerInteractions.getCustomers(), Input.getString("Email: "));
+      case 3 -> search(CustomerInteractions.getCustomers(), Input.getString("Name: "), Input.getString("Surname: "));
       default -> null;
     };
+    return (Customer) object;
   }
 
   public static void updateCustomer() {
@@ -47,5 +51,12 @@ public class CustomerCRUD {
       }
     } while (input != 0);
     System.out.println("Updated Customer: " + customer);
+  }
+
+  public static Customer search(ArrayList<Customer> customers, Object... valueToSearch){
+    for (Customer customer: customers){
+      if (customer.contains(valueToSearch)) return customer;
+    }
+    return null;
   }
 }

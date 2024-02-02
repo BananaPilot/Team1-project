@@ -2,7 +2,7 @@ package classes;
 
 import classes.product.Product;
 
-public class OrderProduct {
+public class OrderProduct implements Searchable {
     private int orderQty;
     private Product product;
 
