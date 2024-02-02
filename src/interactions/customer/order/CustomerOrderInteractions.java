@@ -22,7 +22,7 @@ public class CustomerOrderInteractions {
 
         do {
             CustomerOrderPrompts.customerOrderMainPrompt();
-            input = in.Input.getInt();
+            input = in.Input.getInput();
 
             switch (input) {
                 case 1 -> getCustomerOrder().add(CustomerOrderCRUD.createCustomerOrder(products));

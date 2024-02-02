@@ -26,7 +26,7 @@ public class CustomerOrderCRUD {
         public static CustomerOrder getCustomerOrder(ArrayList<CustomerOrder> customerOrders) {
             int input;
             CustomerOrderPrompts.customerOrderSearchPrompt();
-            input = Input.getInt();
+            input = Input.getInput();
             return switch (input) {
                 case 1 -> SearchCustomerOrder.getCustomerOrderByID(Input.getString("ID: "));
                 case 2 -> SearchCustomerOrder.getCustomerOrderByDate();

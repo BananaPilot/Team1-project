@@ -4,6 +4,7 @@ import classes.shared.Contacts;
 import classes.shared.Operations;
 import classes.interfaces.Searchable;
 
+import java.util.ArrayList;
 import java.util.UUID;
 
 public class Supplier implements Searchable {
@@ -22,6 +23,7 @@ public class Supplier implements Searchable {
     this.suppliedProductType = suppliedProductType;
     this.VATNumber = VATNumber;
     this.contacts = new Contacts(email, phoneNumber);
+    this.operations = new Operations(new ArrayList<>());
   }
 
   public String getID() {
