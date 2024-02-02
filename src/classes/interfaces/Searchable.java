@@ -1,9 +1,8 @@
-package classes;
+package classes.interfaces;
 
-import classes.util.Util;
+import util.Util;
 
 import java.lang.reflect.Field;
-import java.util.AbstractList;
 import java.util.ArrayList;
 
 public interface Searchable {

@@ -1,8 +1,8 @@
 package CRUD.customer;
 
-import classes.Contacts;
+import classes.shared.Contacts;
 import classes.customer.Customer;
-import classes.in.Input;
+import in.Input;
 import interactions.customer.CustomerInteractions;
 import prompts.customer.CustomerPrompts;
 

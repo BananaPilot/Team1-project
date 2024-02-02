@@ -1,5 +1,6 @@
-package classes;
+package classes.shared;
 
+import classes.interfaces.Searchable;
 import classes.product.Product;
 
 public class OrderProduct implements Searchable {

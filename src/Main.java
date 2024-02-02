@@ -1,4 +1,4 @@
-import classes.in.Input;
+import in.Input;
 import interactions.customer.CustomerInteractions;
 
 public class Main {

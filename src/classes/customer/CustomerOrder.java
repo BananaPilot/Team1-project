@@ -1,7 +1,7 @@
 package classes.customer;
-import classes.OrderProduct;
-import classes.Order;
-import classes.Searchable;
+import classes.shared.OrderProduct;
+import classes.interfaces.Order;
+import classes.interfaces.Searchable;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

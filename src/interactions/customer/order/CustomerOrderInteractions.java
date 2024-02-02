@@ -1,6 +1,6 @@
 package interactions.customer.order;
 import CRUD.customer.order.CustomerOrderCRUD;
-import classes.OrderProduct;
+import classes.shared.OrderProduct;
 import classes.customer.CustomerOrder;
 import prompts.customer.order.CustomerOrderPrompts;
 import java.util.ArrayList;
@@ -22,7 +22,7 @@ public class CustomerOrderInteractions {
 
         do {
             CustomerOrderPrompts.customerOrderMainPrompt();
-            input = classes.in.Input.getInt();
+            input = in.Input.getInt();
 
             switch (input) {
                 case 1 -> getCustomerOrder().add(CustomerOrderCRUD.createCustomerOrder(products));

@@ -2,7 +2,7 @@ package interactions.customer;
 
 import CRUD.customer.CustomerCRUD;
 import classes.customer.Customer;
-import classes.in.Input;
+import in.Input;
 import prompts.customer.CustomerPrompts;
 
 import java.util.ArrayList;

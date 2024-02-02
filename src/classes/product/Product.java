@@ -3,7 +3,7 @@ package classes.product;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-import classes.Searchable;
+import classes.interfaces.Searchable;
 import classes.productType.ProductType;
 import classes.supplier.*;
 import classes.warehouse.StockPosition;

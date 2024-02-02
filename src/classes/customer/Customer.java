@@ -1,8 +1,8 @@
 package classes.customer;
 
-import classes.Contacts;
-import classes.Operations;
-import classes.Searchable;
+import classes.shared.Contacts;
+import classes.shared.Operations;
+import classes.interfaces.Searchable;
 
 import java.util.ArrayList;
 import java.util.UUID;

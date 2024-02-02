@@ -1,5 +1,6 @@
-package classes;
+package classes.shared;
 
+import classes.interfaces.Searchable;
 import classes.customer.Customer;
 import classes.supplier.Supplier;
 
