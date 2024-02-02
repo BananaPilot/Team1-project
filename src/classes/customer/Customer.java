@@ -2,10 +2,12 @@ package classes.customer;
 
 import classes.Contacts;
 import classes.Operations;
+import classes.Searchable;
 
+import java.util.ArrayList;
 import java.util.UUID;
 
-public class Customer {
+public class Customer implements Searchable {
   private final String ID;
   private String name;
   private String surname;
@@ -19,6 +21,7 @@ public class Customer {
     this.surname = surname;
     this.address = address;
     this.contacts = new Contacts(email, phoneNumber);
+    this.operations = new Operations(new ArrayList<>());
   }
 
   public String getID() {

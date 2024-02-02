@@ -1,12 +1,14 @@
 package classes.customer;
 import classes.OrderProduct;
 import classes.Order;
+import classes.Searchable;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.UUID;
 
 
-public class CustomerOrder implements Order {
+public class CustomerOrder implements Order, Searchable {
     private final String ID;
     private ArrayList<OrderProduct> products;
     private final LocalDate date;
