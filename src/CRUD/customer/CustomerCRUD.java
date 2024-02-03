@@ -22,7 +22,7 @@ public class CustomerCRUD {
   public static Customer getCustomer() {
     int input;
     CustomerPrompts.customerSearchPrompt();
-    input = Input.getInt();
+    input = Input.getInput();
     Object object = switch (input) {
       case 1 -> search(CustomerInteractions.getCustomers(), Input.getString("ID: "));
       case 2 -> Contacts.search(CustomerInteractions.getCustomers(), Input.getString("Email: "));
@@ -41,7 +41,7 @@ public class CustomerCRUD {
     int input;
     do {
       CustomerPrompts.customerUpdatePrompt();
-      input = Input.getInt();
+      input = Input.getInput();
       switch (input) {
         case 1 -> customer.setName(Input.getString("New name: "));
         case 2 -> customer.setSurname(Input.getString("New Surname: "));
