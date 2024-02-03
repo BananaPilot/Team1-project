@@ -1,7 +1,7 @@
 package prompts.productprompts;
 
 public class ProductPrompts {
-	protected static void mainProductPrompt() {
+	public static void mainProductPrompt() {
 		System.out.println("1. Create new product");
 		System.out.println("2. List all products");
 		System.out.println("3. Add tracking to a product...");
@@ -11,7 +11,7 @@ public class ProductPrompts {
 		System.out.println("0. Previous menu...");
 	}
 	
-	protected static void searchProductsPrompt() {
+	public static void searchProductsPrompt() {
 		System.out.println("1. Search product by ID");
 		System.out.println("2. Search product by name");
 		System.out.println("3. Search products by brand");

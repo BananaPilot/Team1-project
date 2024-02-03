@@ -98,7 +98,7 @@ public class ProductCRUD {
 	 * @since 0.1
 	 * 
 	 */
-	public static Optional<Product> searchByName(ArrayList<Product> products) {
+	public static Product searchByName(ArrayList<Product> products) {
 		System.out.println("Insert the name to search:");
 		String name = Input.getScanner().nextLine();
 		for (Product product : products) {
@@ -106,7 +106,7 @@ public class ProductCRUD {
 				return Optional.of(product);
 			}
 		}
-		return Optional.empty();
+		return null;
 	}
 	/**
 	 * @param Arraylist of products to search from
