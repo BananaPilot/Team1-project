@@ -1,4 +1,4 @@
-package Logic;
+package interactions.warehouse.Logic;
 
 import classes.product.Product;
 import classes.productType.ProductType;
@@ -19,6 +19,7 @@ public class WarehouseLogic {
         PositionLogic.resetPosition();
         Zone.getWarehouseZones().add(newZone);
     }
+
     // CONTROLLA TUTTI I SETTORI
     public static void checkWarehouses(){
         for (Zone settore : Zone.getWarehouseZones()){

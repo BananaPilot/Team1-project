@@ -1,4 +1,4 @@
-package Logic;
+package interactions.warehouse.Logic;
 import classes.warehouse.*;
 
 public class PositionLogic {
