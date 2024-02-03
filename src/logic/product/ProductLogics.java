@@ -1,10 +1,7 @@
 package logic.product;
 
-import java.io.Console;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Comparator;
-import java.util.HashMap;
 import java.util.Optional;
 
 import classes.in.Input;
@@ -32,11 +29,11 @@ public class ProductLogics {
 	 */
 		public static void createProduct() {
 		System.out.println("Insert product name: ");
-		String name = Input.getString();
+		String name = Input.getScanner().nextLine();
 		System.out.println("Insert product brand: ");
-		String brand = Input.getString();
+		String brand = Input.getScanner().nextLine();
 		System.out.println("Insert product description:");
-		String description = Input.getString();
+		String description = Input.getScanner().nextLine();
 		System.out.println("Insert product price:");
 		Double price = Input.getDouble();
 		//selectSupplier
@@ -68,7 +65,7 @@ public class ProductLogics {
 	 */
 	public static Product searchByID(ArrayList<Product> products) {
 		System.out.println("Insert ID of the product to search:");
-		String UUID = Input.getString();
+		String UUID = Input.getScanner().nextLine();
 		for (Product product : products) {
 			if(product.getID().equals(UUID)) {
 				return product;
@@ -85,7 +82,7 @@ public class ProductLogics {
 	 */
 	public static ArrayList<Product> searchByBrand(ArrayList<Product> products) {
 		System.out.println("Insert the brand to search:");
-		String brand = Input.getString();
+		String brand = Input.getScanner().nextLine();
 		ArrayList<Product> productsByBrand = new ArrayList<Product>();
 		for (Product product : products) {
 			if(product.getBrand().equals(brand)) {
@@ -103,7 +100,7 @@ public class ProductLogics {
 	 */
 	public static Optional<Product> searchByName(ArrayList<Product> products) {
 		System.out.println("Insert the name to search:");
-		String name = Input.getString();
+		String name = Input.getScanner().nextLine();
 		for (Product product : products) {
 			if(product.getName().equals(name)) {
 				return Optional.of(product);
@@ -137,11 +134,11 @@ public class ProductLogics {
 	public static void addProductTracking(ArrayList<Product> products) {
 		Product product = ElementSelector.selectAsset(products, "Seleziona prodotto al quale aggiungere un movimento:");
 		System.out.println("Quantità del prodotto in entrata:");
-		Integer in = Integer.parseInt(Input.getString()); //TODO try-catch
+		Integer in = Integer.parseInt(Input.getScanner().nextLine()); //TODO try-catch
 		System.out.println("Quantità del prodotto in uscita:");
-		Integer out = Integer.parseInt(Input.getString()); //TODO try-catch
+		Integer out = Integer.parseInt(Input.getScanner().nextLine()); //TODO try-catch
 		System.out.println("Quantità del prodotto in smaltimento:");
-		Integer disposedOf = Integer.parseInt(Input.getString()); //TODO try-catch
+		Integer disposedOf = Integer.parseInt(Input.getScanner().nextLine()); //TODO try-catch
 		product.addProductTracking(in, out, disposedOf);
 	}
 	

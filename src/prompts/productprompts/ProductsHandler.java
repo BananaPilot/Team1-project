@@ -11,7 +11,7 @@ public class ProductsHandler {
 		String input = null;
 		do {
 			ProductPrompts.mainProductPrompt();
-			input = Input.getString();
+			input = Input.getScanner().nextLine();
 			switch (input) {
 			case "1": {
 				ProductLogics.createProduct();
@@ -42,7 +42,7 @@ public class ProductsHandler {
 		String input = null;
 		do {
 			ProductPrompts.searchProductsPrompt();
-			input = Input.getString();
+			input = Input.getScanner().nextLine();
 			try {
 				Integer.parseInt( input );
 			} catch (Exception e) {

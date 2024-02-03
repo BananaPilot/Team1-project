@@ -24,7 +24,8 @@ public class Input {
 	    return input;
 	  }
   
-  public static String getString(){
-    return getScanner().nextLine();
+  public static String getString(String description){
+	  System.out.println(description);
+	  return getScanner().nextLine();
   }
 }

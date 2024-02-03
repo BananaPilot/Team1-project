@@ -1,7 +1,5 @@
 import classes.in.Input;
-import logic.product.ProductLogics;
 import prompts.MainPrompt;
-import prompts.productprompts.ProductPrompts;
 import prompts.productprompts.ProductsHandler;
 
 public class Main {
@@ -9,7 +7,7 @@ public class Main {
 		String input = null;
 		do {
 			MainPrompt.mainMenuPrompts();
-			input = Input.getString();
+			input = Input.getScanner().nextLine();
 			try {
 				Integer.parseInt( input );
 			} catch (Exception e) {

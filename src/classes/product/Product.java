@@ -14,12 +14,13 @@ public class Product {
 	private String name;
 	private String brand;
 	private String description;
+	private Integer currentQuantity;
 	private double price;
 	private final LocalDateTime stockDate;
 	private Supplier supplierID;
 	private ProductType productTypeID;
 	private StockPosition position;
-	private ArrayList<ProductTracking> productTracking;
+	private ArrayList<ProductTracking> productTrackings;
 
 	public Product(String name, String brand, String description, double price,
 			Supplier supplierID, ProductType productTypeID, StockPosition position) {
@@ -28,11 +29,12 @@ public class Product {
 		this.brand = brand;
 		this.description = description;
 		this.price = price;
+		this.price = 0;
 		this.stockDate = LocalDateTime.now();
 		this.supplierID = supplierID;
 		this.productTypeID = productTypeID;
 		this.position = position;
-		this.productTracking = new ArrayList<ProductTracking>();
+		this.productTrackings = new ArrayList<ProductTracking>();
 	}
 
 	public String getName() {
@@ -57,6 +59,18 @@ public class Product {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	
+	public Integer getCurrentQuantity() {
+		return currentQuantity;
+	}
+
+	public void setCurrentQuantity() {
+		this.currentQuantity = 
+				getCurrentQuantity()
+				+ productTrackings.get(productTrackings.size()-1).getIn()
+				- productTrackings.get(productTrackings.size()-1).getOut()
+				- productTrackings.get(productTrackings.size()-1).getDisposedOf();
 	}
 
 	public double getPrice() {
@@ -91,29 +105,28 @@ public class Product {
 		this.position = position;
 	}
 
-	public ArrayList<ProductTracking> getProductTracking() {
-		return productTracking;
+	public ArrayList<ProductTracking> getProductTrackings() {
+		return productTrackings;
 	}
 
-	public void setProductTracking(ArrayList<ProductTracking> productTracking) {
-		this.productTracking = productTracking;
+	public void setProductTrackings(ArrayList<ProductTracking> productTrackings) {
+		this.productTrackings = productTrackings;
 	}
 	
 	public void addProductTracking(int in, int out, int disposedOf) {
-		this.productTracking.add(new ProductTracking(in, out, disposedOf));
+		this.productTrackings.add(new ProductTracking(in, out, disposedOf));
 	}
 
 	@Override
 	public String toString() {
-		return "Product [ID=" + ID + ", name=" + name + ", brand=" + brand + ", description=" + description + ", price="
-				+ price + ", stockDate=" + stockDate + ", supplierID=" + supplierID + ", productTypeID=" + productTypeID
-				+ ", position=" + position + "]";
+		return "Product [ID=" + ID + ", name=" + name + ", brand=" + brand + ", description=" + description 
+				+ ", price=" + price + ", stockDate=" + stockDate + ", supplierID=" + supplierID 
+				+ ", productTypeID=" + productTypeID + ", position=" + position + "]";
 	}
 	
 	public class ProductTracking{
 		
 		private Integer in;
-		private Integer currentQuantity;
 		private Integer out;
 		private Integer disposedOf;
 		private final LocalDateTime stockDate;
@@ -123,8 +136,6 @@ public class Product {
 			this.in = in;
 			this.out = out;
 			this.disposedOf = disposedOf;
-			this.currentQuantity = this.getCurrentQuantity();
-			this.setCurrentQuantity();
 		}
 		
 		public ProductTracking() {
@@ -136,16 +147,6 @@ public class Product {
 		}
 		public void setIn(int in) {
 			this.in = in;
-		}
-		public int getCurrentQuantity() {
-			return currentQuantity;
-		}
-		public void setCurrentQuantity() {
-			if(getProductTracking().size()==0) {				
-				this.currentQuantity = 0 + this.getIn() - this.getOut() - this.getDisposedOf();
-			}else {
-				this.currentQuantity = getProductTracking().get(getProductTracking().size()).getCurrentQuantity() + this.getIn() - this.getOut() - this.getDisposedOf();
-			}
 		}
 		public int getOut() {
 			return out;
@@ -164,8 +165,8 @@ public class Product {
 		}
 		@Override
 		public String toString() {
-			return "ProductTracking [in=" + in + ", currentQuantity=" + currentQuantity + ", out=" + out + ", disposedOf="
-					+ disposedOf + "]";
+			return "ProductTracking [in=" + in + ", currentQuantity=" + currentQuantity + ", out=" + out 
+					+ ", disposedOf=" + disposedOf + "]";
 		}
 	}
 }
