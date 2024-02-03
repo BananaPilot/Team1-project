@@ -16,7 +16,7 @@ public interface Searchable {
         try {
           Object object = this.getClass().getMethod("get" + capField).invoke(this);
           if (object == null) continue;
-          if (!objects.contains(this)) objects.add(this);
+          if (object.equals(value)) if (!objects.contains(this)) objects.add(this);
         } catch (Exception e){
           e.printStackTrace();
         }

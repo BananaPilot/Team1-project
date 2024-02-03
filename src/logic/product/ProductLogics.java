@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Optional;
 
-import classes.in.Input;
+import in.Input;
 import classes.product.Product;
 import classes.productType.ProductType;
 import classes.supplier.Supplier;
