@@ -12,18 +12,26 @@ public class Input {
     return scanner;
   }
 
-  public static int getInt(){
+  public static int getInput(){
     System.out.print("Input: ");
     int input = getScanner().nextInt();
     getScanner().nextLine();
     return input;
   }
+
+  public static int getInt(String description){
+    System.out.print(description);
+    int input = getScanner().nextInt();
+    getScanner().nextLine();
+    return input;
+  }
   
-  public static Double getDouble(){
+  public static Double getDouble(String description){
+      System.out.print(description);
 	    Double input = getScanner().nextDouble();
 	    getScanner().nextLine();
 	    return input;
-	  }
+  }
   
   public static String getString(String description){
     System.out.print(description);
