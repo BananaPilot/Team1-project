@@ -1,35 +1,35 @@
 package classes.supplier;
+import classes.shared.OrderProduct;
+import classes.interfaces.Order;
+import classes.interfaces.Searchable;
 
-import classes.Order;
-import classes.product.Product;
-
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.UUID;
 
 
-public class SupplierOrder implements Order {
+public class SupplierOrder implements Order, Searchable {
     private final String ID;
-    private ArrayList<Product> products;
-    private final LocalDateTime date;
+    private ArrayList<OrderProduct> products;
+    private final LocalDate date;
     private double total;
 
-    public SupplierOrder(ArrayList<Product> products) {
+    public SupplierOrder(ArrayList<OrderProduct> products) {
         this.ID = UUID.randomUUID().toString();
         this.products = products;
-        this.date = LocalDateTime.now();
-        // TODO implement Total mary <3
+        this.date = LocalDate.now();
+        this.total = calculateTotal();
     }
 
-    private String getID() {
+    public String getID() {
         return ID;
     }
 
-    public ArrayList<Product> getProducts() {
+    public ArrayList<OrderProduct> getProducts() {
         return products;
     }
 
-    public LocalDateTime getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
@@ -38,8 +38,18 @@ public class SupplierOrder implements Order {
         return total;
     }
 
-    public void setProducts(ArrayList<Product> products) {
+    @Override
+    public double calculateTotal() {
+        double calculatedTotal = 0;
+        for (OrderProduct product : products) {
+            calculatedTotal += product.getProduct().getPrice() * product.getOrderQty();
+        }
+        return calculatedTotal;
+    }
+
+    public void setProducts(ArrayList<OrderProduct> products) {
         this.products = products;
+        this.total = calculateTotal();
     }
 
     public void setTotal(double total) {
@@ -48,7 +58,7 @@ public class SupplierOrder implements Order {
 
     @Override
     public String toString() {
-        return "Orders{" +
+        return "SupplierOrder{" +
                 "ID=" + ID +
                 ", orderedProducts=" + products +
                 ", date=" + date +

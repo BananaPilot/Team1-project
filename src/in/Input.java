@@ -1,4 +1,4 @@
-package classes.in;
+package in;
 
 import java.util.Scanner;
 
@@ -13,6 +13,7 @@ public class Input {
   }
 
   public static int getInt(){
+    System.out.print("Input: ");
     int input = getScanner().nextInt();
     getScanner().nextLine();
     return input;
@@ -25,7 +26,7 @@ public class Input {
 	  }
   
   public static String getString(String description){
-	  System.out.println(description);
-	  return getScanner().nextLine();
+    System.out.print(description);
+    return getScanner().nextLine();
   }
 }

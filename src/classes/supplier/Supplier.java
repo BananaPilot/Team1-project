@@ -1,11 +1,12 @@
 package classes.supplier;
 
-import classes.Contacts;
-import classes.Operations;
+import classes.shared.Contacts;
+import classes.shared.Operations;
+import classes.interfaces.Searchable;
 
 import java.util.UUID;
 
-public class Supplier {
+public class Supplier implements Searchable {
   private final String ID;
   private String companyName;
   private String address;

@@ -1,8 +1,11 @@
-package classes;
+package classes.shared;
+
+import classes.interfaces.Order;
+import classes.interfaces.Searchable;
 
 import java.util.ArrayList;
 
-public class Operations {
+public class Operations implements Searchable {
   private final ArrayList<Order> orders;
   private final double totalSpent;
 
@@ -25,5 +28,13 @@ public class Operations {
       total += order.getTotal();
     }
     return total;
+  }
+
+  @Override
+  public String toString() {
+    return "Operations{" +
+            "orders=" + orders +
+            ", totalSpent=" + totalSpent +
+            '}';
   }
 }

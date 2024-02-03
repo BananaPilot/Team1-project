@@ -1,6 +1,8 @@
-import classes.in.Input;
+
+import in.Input;
 import prompts.MainPrompt;
 import prompts.productprompts.ProductsHandler;
+
 
 public class Main {
 	public static void main(String[] args) {

@@ -1,34 +1,68 @@
 package classes.customer;
+import classes.shared.OrderProduct;
+import classes.interfaces.Order;
+import classes.interfaces.Searchable;
 
-import classes.Order;
-import classes.product.Product;
-
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.UUID;
 
 
-public class CustomerOrder implements Order {
+public class CustomerOrder implements Order, Searchable {
+    private final String ID;
+    private ArrayList<OrderProduct> products;
+    private final LocalDate date;
+    private double total;
 
-    private final ArrayList<Product> products;
-    private final LocalDateTime PurchaseDate;
-    private double Total;
 
-    public CustomerOrder(ArrayList<Product> products){
+    public CustomerOrder(ArrayList<OrderProduct> products){
+        this.ID = UUID.randomUUID().toString();
         this.products = products;
-        this.PurchaseDate = LocalDateTime.now();
-        //TODO implement Total mary <3
+        this.date = LocalDate.now();
+        this.total = calculateTotal();
     }
 
-    public ArrayList<Product> getProducts() {
+    public String getID() {
+        return ID;
+    }
+    public ArrayList<OrderProduct> getProducts() {
         return products;
     }
 
-    public LocalDateTime getPurchaseDate() {
-        return PurchaseDate;
+    public LocalDate getDate() {
+        return date;
     }
 
     @Override
     public double getTotal() {
-        return Total;
+        return total;
+    }
+
+    @Override
+    public double calculateTotal() {
+        double calculatedTotal = 0;
+        for (OrderProduct product : products) {
+            calculatedTotal += product.getProduct().getPrice() * product.getOrderQty();
+        }
+        return calculatedTotal;
+    }
+
+    public void setProducts(ArrayList<OrderProduct> products) {
+        this.products = products;
+        this.total = calculateTotal();
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
+    }
+
+    @Override
+    public String toString() {
+        return "CustomerOrder{" +
+                "ID=" + ID +
+                ", orderedProducts=" + products +
+                ", date=" + date +
+                ", totalOrder=" + total +
+                '}';
     }
 }

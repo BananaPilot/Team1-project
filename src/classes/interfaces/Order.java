@@ -1,4 +1,4 @@
-package classes;
+package classes.interfaces;
 
 public interface Order {
   double getTotal();
