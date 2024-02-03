@@ -22,16 +22,8 @@ public class ProductsHandler {
 				break;
 			}
 			case "3": {
-				ProductCRUD.addProductTracking(ProductCRUD.products);
-				break;
-			}
-			case "4": {
 				searchMenu();
 				break;
-				
-			}
-			case "0":{
-				continue;
 			}
 			default:
 				System.out.println("Unexpected value: " + input);
@@ -50,29 +42,20 @@ public class ProductsHandler {
 			}
 			switch (input) {
 			case "1": {
-				ProductCRUD.searchByID(ProductCRUD.products);
+				ProductCRUD.search(ProductCRUD.products, Input.getString("ID: "));
 				break;
 			}
 			case "2": {
-				Optional<Product> optionalProduct = ProductCRUD.searchByName(ProductCRUD.products);
-				optionalProduct.orElseThrow();
-				if (optionalProduct.isEmpty()) {
-					
-				}else {
-					
-				}
+				ProductCRUD.search(ProductCRUD.products, Input.getString("Name: "));
 				break;
 			}
 			case "3": {
-				ProductCRUD.searchByBrand(ProductCRUD.products);
+				ProductCRUD.search(ProductCRUD.products, Input.getString("Brand: "));
 				break;
 			}
 			case "4":{
 				ProductCRUD.searchByProductType(ProductCRUD.products,
 												ProductCRUD.productTypes);
-			}
-			case "0":{
-				continue;
 			}
 			default:
 				System.out.println("Unexpected value: " + input);

@@ -17,23 +17,26 @@ public class Product implements Searchable {
   private String description;
   private double price;
   private final LocalDateTime stockDate;
-  private Supplier supplierID;
-  private ProductType productTypeID;
+  private final Supplier supplier;
+  private final ProductType productType;
   private StockPosition position;
-  private ProductTracking productTracking;
+  private final ArrayList<ProductTracking> productTrackings = new ArrayList<>();
+
+  public ArrayList<ProductTracking> getProductTrackings(){
+    return productTrackings;
+  }
 
   public Product(String name, String brand, String description, double price,
-                 Supplier supplierID, ProductType productTypeID, StockPosition position) {
+                 Supplier supplier, ProductType productType, StockPosition position) {
     this.ID = UUID.randomUUID().toString();
     this.name = name;
     this.brand = brand;
     this.description = description;
     this.price = price;
     this.stockDate = LocalDateTime.now();
-    this.supplierID = supplierID;
-    this.productTypeID = productTypeID;
+    this.supplier = supplier;
+    this.productType = productType;
     this.position = position;
-    this.productTracking = new ProductTracking();
   }
 
   public String getName() {
@@ -76,12 +79,12 @@ public class Product implements Searchable {
     return ID;
   }
 
-  public Supplier getSupplierID() {
-    return supplierID;
+  public Supplier getSupplier() {
+    return supplier;
   }
 
-  public ProductType getProductTypeID() {
-    return productTypeID;
+  public ProductType getProductType() {
+    return productType;
   }
 
   public StockPosition getPosition() {
@@ -92,19 +95,11 @@ public class Product implements Searchable {
     this.position = position;
   }
 
-  public ProductTracking getProductTracking() {
-    return productTracking;
-  }
-
-  public void setProductTracking(ProductTracking productTracking) {
-    this.productTracking = productTracking;
-  }
-
   @Override
   public String toString() {
     return "Product [ID=" + ID + ", name=" + name + ", brand=" + brand + ", description=" + description
-            + ", price=" + price + ", stockDate=" + stockDate + ", supplierID=" + supplierID
-            + ", productTypeID=" + productTypeID + ", position=" + position + "]";
+            + ", price=" + price + ", stockDate=" + stockDate + ", supplierID=" + supplier
+            + ", productTypeID=" + productType + ", position=" + position + "]";
   }
 }
 
