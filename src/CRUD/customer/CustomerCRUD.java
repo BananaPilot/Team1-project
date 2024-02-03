@@ -5,6 +5,7 @@ import classes.customer.Customer;
 import in.Input;
 import interactions.customer.CustomerInteractions;
 import prompts.customer.CustomerPrompts;
+import util.Util;
 
 import java.util.ArrayList;
 
@@ -14,15 +15,13 @@ public class CustomerCRUD {
   }
 
   public static void listCustomers(){
-    for(Customer customer : CustomerInteractions.getCustomers()){
-      System.out.println(customer);
-    }
+    Util.printArrayList(CustomerInteractions.getCustomers());
   }
 
   public static Customer getCustomer() {
     int input;
     CustomerPrompts.customerSearchPrompt();
-    input = Input.getInt();
+    input = Input.getInput();
     Object object = switch (input) {
       case 1 -> search(CustomerInteractions.getCustomers(), Input.getString("ID: "));
       case 2 -> Contacts.search(CustomerInteractions.getCustomers(), Input.getString("Email: "));
@@ -41,7 +40,7 @@ public class CustomerCRUD {
     int input;
     do {
       CustomerPrompts.customerUpdatePrompt();
-      input = Input.getInt();
+      input = Input.getInput();
       switch (input) {
         case 1 -> customer.setName(Input.getString("New name: "));
         case 2 -> customer.setSurname(Input.getString("New Surname: "));
@@ -53,9 +52,9 @@ public class CustomerCRUD {
     System.out.println("Updated Customer: " + customer);
   }
 
-  public static Customer search(ArrayList<Customer> customers, Object... valueToSearch){
+  public static Customer search(ArrayList<Customer> customers, Object... values){
     for (Customer customer: customers){
-      if (customer.contains(valueToSearch)) return customer;
+      if (customer.contains(values)) return customer;
     }
     return null;
   }
