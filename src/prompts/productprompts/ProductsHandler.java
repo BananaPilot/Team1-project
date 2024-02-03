@@ -2,9 +2,9 @@ package prompts.productprompts;
 
 import java.util.Optional;
 
-import classes.in.Input;
+import CRUD.product.ProductCRUD;
+import in.Input;
 import classes.product.Product;
-import logic.product.ProductLogics;
 
 public class ProductsHandler {
 	public static void productsMainMenu() {
@@ -14,15 +14,15 @@ public class ProductsHandler {
 			input = Input.getScanner().nextLine();
 			switch (input) {
 			case "1": {
-				ProductLogics.createProduct();
+				ProductCRUD.createProduct();
 				break;
 			}
 			case "2": {
-				ProductLogics.listAllProducts();
+				ProductCRUD.listAllProducts();
 				break;
 			}
 			case "3": {
-				ProductLogics.addProductTracking(ProductLogics.products);
+				ProductCRUD.addProductTracking(ProductCRUD.products);
 				break;
 			}
 			case "4": {
@@ -50,11 +50,11 @@ public class ProductsHandler {
 			}
 			switch (input) {
 			case "1": {
-				ProductLogics.searchByID(ProductLogics.products);
+				ProductCRUD.searchByID(ProductCRUD.products);
 				break;
 			}
 			case "2": {
-				Optional<Product> optionalProduct = ProductLogics.searchByName(ProductLogics.products);
+				Optional<Product> optionalProduct = ProductCRUD.searchByName(ProductCRUD.products);
 				optionalProduct.orElseThrow();
 				if (optionalProduct.isEmpty()) {
 					
@@ -64,12 +64,12 @@ public class ProductsHandler {
 				break;
 			}
 			case "3": {
-				ProductLogics.searchByBrand(ProductLogics.products);
+				ProductCRUD.searchByBrand(ProductCRUD.products);
 				break;
 			}
 			case "4":{
-				ProductLogics.searchByProductType(ProductLogics.products,
-												ProductLogics.productTypes);
+				ProductCRUD.searchByProductType(ProductCRUD.products,
+												ProductCRUD.productTypes);
 			}
 			case "0":{
 				continue;

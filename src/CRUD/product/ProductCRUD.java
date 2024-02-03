@@ -1,4 +1,4 @@
-package logic.product;
+package CRUD.product;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -11,7 +11,7 @@ import classes.supplier.Supplier;
 import classes.warehouse.StockPosition;
 import logic.ElementSelector;
 
-public class ProductLogics {
+public class ProductCRUD {
 	public static ArrayList<Product> products = new ArrayList<Product>();
 	public static ArrayList<Supplier> suppliers = new ArrayList<Supplier>(Arrays.asList(
 			new Supplier(null, null, 0, null, null, null),

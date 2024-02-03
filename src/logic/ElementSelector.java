@@ -1,8 +1,7 @@
 package logic;
 
 import java.util.ArrayList;
-
-import classes.in.Input;
+import in.Input;
 
 public class ElementSelector <T>{
 	
