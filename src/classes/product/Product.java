@@ -7,6 +7,7 @@ import java.util.UUID;
 import classes.interfaces.Searchable;
 import classes.productType.ProductType;
 import classes.supplier.*;
+import classes.warehouse.Position;
 import classes.warehouse.StockPosition;
 
 public class Product implements Searchable {
@@ -19,7 +20,7 @@ public class Product implements Searchable {
   private final LocalDateTime stockDate;
   private final Supplier supplier;
   private final ProductType productType;
-  private StockPosition position;
+  private Position position;
   private final ArrayList<ProductTracking> productTrackings = new ArrayList<>();
 
   public ArrayList<ProductTracking> getProductTrackings(){
@@ -27,7 +28,7 @@ public class Product implements Searchable {
   }
 
   public Product(String name, String brand, String description, double price,
-                 Supplier supplier, ProductType productType, StockPosition position) {
+                 Supplier supplier, ProductType productType, Position position) {
     this.ID = UUID.randomUUID().toString();
     this.name = name;
     this.brand = brand;
@@ -87,13 +88,13 @@ public class Product implements Searchable {
     return productType;
   }
 
-  public StockPosition getPosition() {
-    return position;
-  }
+	public Position getPosition() {
+		return position;
+	}
 
-  public void setPosition(StockPosition position) {
-    this.position = position;
-  }
+	public void setPosition(Position position) {
+		this.position = position;
+	}
 
   @Override
   public String toString() {
