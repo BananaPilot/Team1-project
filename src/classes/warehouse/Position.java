@@ -49,7 +49,6 @@ public class Position {
         isFull = full;
     }
     public void setExistentPosition(Position position){
-
         this.setProduct(position.getProduct());
         this.setQuantity(position.getQuantity());
         this.setFull(position.isPositionEmpty());

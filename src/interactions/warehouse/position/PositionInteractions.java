@@ -1,7 +1,7 @@
-package interactions.warehouse.Logic;
+package interactions.warehouse.position;
 import classes.warehouse.*;
 
-public class PositionLogic {
+public class PositionInteractions {
     public static void resetPosition(){
         Position.setStaticLevel(0);;
         Position.setStaticLongnessCounter(0);
