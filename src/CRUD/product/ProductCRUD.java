@@ -11,17 +11,7 @@ import classes.warehouse.StockPosition;
 import util.Util;
 
 public class ProductCRUD {
-  public static ArrayList<Product> products = new ArrayList<Product>();
-  public static ArrayList<Supplier> suppliers = new ArrayList<Supplier>(Arrays.asList(
-          new Supplier(null, null, 0, null, null, null),
-          new Supplier(null, null, 0, null, null, null)
-  ));
-  public static ArrayList<ProductType> productTypes = new ArrayList<ProductType>(Arrays.asList(
-          new ProductType(null, null)
-  ));
-  public static ArrayList<StockPosition> stockPositions = new ArrayList<StockPosition>(Arrays.asList(
-          new StockPosition()
-  ));
+
 
   /**
    * requests an input for every attribute of a product and creates it, adding it to the products arraylist

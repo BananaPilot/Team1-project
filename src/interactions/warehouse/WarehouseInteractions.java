@@ -1,6 +1,7 @@
 package interactions.warehouse;
 import in.Input;
 import classes.warehouse.*;
+import database.DB;
 import prompts.warehouse.WarehousePrompts;
 
 
@@ -14,7 +15,7 @@ public class WarehouseInteractions {
     }
     public static Zone selectASector(int index){
         index--;
-        return Warehouse.getWarehouseZones().get(index);
+        return DB.getWarehouseZones().get(index);
     }
     public static void mainWarehouseCRUD(){
 

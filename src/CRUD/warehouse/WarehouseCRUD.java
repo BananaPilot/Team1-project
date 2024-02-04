@@ -4,6 +4,7 @@ import classes.product.Product;
 import classes.productType.ProductType;
 import classes.warehouse.Position;
 import classes.warehouse.Zone;
+import interactions.warehouse.position.PositionInteractions;
 
 import java.util.ArrayList;
 

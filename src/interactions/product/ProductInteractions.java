@@ -12,7 +12,7 @@ public class ProductInteractions {
 		int input;
 		do {
 			ProductPrompts.mainProductPrompt();
-			input = Input.getInt();
+			input = Input.getInt(null);
 			switch (input) {
 				case 1 -> ProductCRUD.createProduct();	
 				case 2 -> ProductCRUD.listAllProducts();
