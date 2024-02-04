@@ -36,7 +36,7 @@ public class Zone {
         return zoneCapacity;
     }
     public static ArrayList<Zone> getWarehouseZones(){
-            return DB.getWarehouseZones();
+            return DB.getZones();
     }
     public int getStockProductCounter() {
         return stockProductCounter;
@@ -55,7 +55,8 @@ public class Zone {
 
     public ArrayList<Position> getPositions() {
             return positions;
-        }
+    }
+    
     public static void getAllPositions(int index) {
         index--;
         for (Position position : DB.getWarehouseZones().get(index).positions) {

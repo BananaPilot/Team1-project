@@ -1,12 +1,13 @@
 package CRUD.warehouse;
 
 import classes.product.Product;
-import classes.productType.ProductType;
 import classes.warehouse.Position;
 import classes.warehouse.Zone;
 import interactions.warehouse.position.PositionInteractions;
 
 import java.util.ArrayList;
+
+import CRUD.warehouse.position.PositionCRUD;
 
 public class WarehouseCRUD {
     public static void createZone(String zoneName, int zoneLongness, int zoneHeigth) {
@@ -31,7 +32,7 @@ public class WarehouseCRUD {
 
 
     // IL METODO DOVRA' INSERIRE TOT PRODOTTI SCELTI DALL UTENTE NELLA ZONA SCELTA
-    public static void stockingManagement(int input, int WarehouseZone,int Quantity, String productName, String productBrand, String productDescription, double productPrice) {
+    public static void stockingManagement(int input, int WarehouseZone, Product product) {
         WarehouseZone--;
         try {
             Zone selectedZone = Zone.getWarehouseZones().get(WarehouseZone);
@@ -41,7 +42,7 @@ public class WarehouseCRUD {
             for (int cycles = 0; cycles < input; cycles++){
                  System.out.println("utente seleziona il numero " + cycles + " prodotto da inserire");
                 if ((selectedZone.getZoneCapacity() - stockedProducts) >= input) {
-                    productStockIn(WarehouseZone, Quantity, productName, productBrand, productDescription, productPrice);
+                    PositionCRUD.productStockIn(WarehouseZone, product);
                 } else {
                     throw new RuntimeException("Capacità settore non sufficiente " + (selectedZone.getZoneCapacity() - stockedProducts));
                 }
