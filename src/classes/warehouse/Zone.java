@@ -3,6 +3,8 @@ package classes.warehouse;
 import java.util.ArrayList;
 import java.util.UUID;
 
+import database.DB;
+
 public class Zone {
 
         private final int zoneHeigth;
@@ -34,7 +36,7 @@ public class Zone {
         return zoneCapacity;
     }
     public static ArrayList<Zone> getWarehouseZones(){
-            return Warehouse.getWarehouseZones();
+            return DB.getZones();
     }
     public int getStockProductCounter() {
         return stockProductCounter;
@@ -53,10 +55,11 @@ public class Zone {
 
     public ArrayList<Position> getPositions() {
             return positions;
-        }
+    }
+    
     public static void getAllPositions(int index) {
         index--;
-        for (Position position : Warehouse.getWarehouseZones().get(index).positions) {
+        for (Position position : DB.getWarehouseZones().get(index).positions) {
             System.out.println(position);
         }
     }

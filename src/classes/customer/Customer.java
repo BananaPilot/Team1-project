@@ -4,7 +4,6 @@ import classes.shared.Contacts;
 import classes.shared.Operations;
 import classes.interfaces.Searchable;
 
-import java.util.ArrayList;
 import java.util.UUID;
 
 public class Customer implements Searchable {
