@@ -1,13 +1,11 @@
 package CRUD.product;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 import in.Input;
 import classes.product.Product;
 import classes.productType.ProductType;
 import classes.supplier.Supplier;
-import classes.warehouse.StockPosition;
 import util.Util;
 
 public class ProductCRUD {

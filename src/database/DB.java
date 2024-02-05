@@ -21,9 +21,7 @@ public class DB {
             new ProductType(null, null)
     ));
     private static ArrayList<Zone> zones = new ArrayList<>();
-    private static ArrayList<Position> positions = new ArrayList<Position>(Arrays.asList(
-            new Position()
-    ));
+    private static ArrayList<Position> positions = new ArrayList<Position>();
     private static ArrayList<Customer> customers;
     
     

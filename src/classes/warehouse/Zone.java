@@ -4,76 +4,41 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 import database.DB;
+import in.Input;
 
 public class Zone {
+  private String sector;
+  private final ArrayList<Position> positions = DB.getPositions();
 
-        private final int zoneHeigth;
-        private int warehouseIndex = 1;
-        private static int staticWarehouseIndex = 1;
-        private final int zoneLongness;
-        private final int zoneCapacity;
-        private int stockProductCounter;
-        private String sector;
-        private final String zoneId;
-        private ArrayList<Position> positions = new ArrayList<Position>();
+  public Zone(String sector) {
+    this.sector = sector;
+    buildZone(Input.getInt("Total number of racks: "), Input.getInt("With : "), Input.getInt("Height: "));
+  }
 
-
-        public Zone(String sector, int zoneLongness, int zoneHeigth){
-
-            this.sector = sector;
-            this.zoneLongness = zoneLongness;
-            this.zoneHeigth = zoneHeigth;
-            this.zoneId = UUID.randomUUID().toString();
-            this.zoneCapacity = zoneHeigth * zoneLongness;
-            this.warehouseIndex = staticWarehouseIndex;
-            staticWarehouseIndex++;
+  public void buildZone(int totalNumberOfRacks, int widthOfRack, int heightOfRack) {
+    for (int numberOfRacks = 0; numberOfRacks < totalNumberOfRacks; numberOfRacks++) {
+      for (int height = 0; height <= heightOfRack; height++) {
+        for (int width = 0; width < widthOfRack; width++) {
+          positions.add(new Position(Position.getWid(), height));
         }
+      }
+    }
+  }
 
-    public int getWarehouseIndex() {
-        return warehouseIndex;
-    }
-    public int getZoneCapacity() {
-        return zoneCapacity;
-    }
-    public static ArrayList<Zone> getWarehouseZones(){
-            return DB.getZones();
-    }
-    public int getStockProductCounter() {
-        return stockProductCounter;
-    }
-    public void incrementStockProductCounter() {
-        this.stockProductCounter++;
-    }
+  public String getSector() {
+    return sector;
+  }
 
-    public String getSector() {
-        return sector;
-    }
+  public void setSector(String sector) {
+    this.sector = sector;
+  }
 
-    public void resetStockProductCounter(){
-            this.stockProductCounter = 0;
-    }
-
-    public ArrayList<Position> getPositions() {
-            return positions;
-    }
-    
-    public static void getAllPositions(int index) {
-        index--;
-        for (Position position : DB.getWarehouseZones().get(index).positions) {
-            System.out.println(position);
-        }
-    }
-
-    @Override
-    public String toString() {
-        return "Sector: " +
-                " Index: " + this.warehouseIndex +
-                " zoneHeigth: " + zoneHeigth +
-                " zoneLongness: " + zoneLongness +
-                " zoneCapacity: " + zoneCapacity +
-                " zoneName: " + sector + '\'' +
-                " zoneId: " + zoneId + '\''
-                ;
-    }
+  @Override
+  public String toString() {
+    return "Zone{" +
+            "sector='" + sector + '\'' +
+            ", positions=" + positions +
+            '}';
+  }
 }
 
