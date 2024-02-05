@@ -3,7 +3,6 @@ package database;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import classes.warehouse.Position;
 import classes.customer.Customer;
 import classes.product.Product;
 import classes.productType.ProductType;
