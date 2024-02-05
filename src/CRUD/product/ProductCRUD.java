@@ -33,7 +33,7 @@ public class ProductCRUD {
     }
 
     /**
-     * iterates all products showing them to video
+     * Iterates all products showing them to video
      *
      * @since 0.1
      */
@@ -65,4 +65,9 @@ public class ProductCRUD {
         }
         return null;
     }
+    
+    public static void deleteProduct(ArrayList<Product> products) {
+    	
+    }
+    
 }

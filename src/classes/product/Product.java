@@ -100,9 +100,25 @@ public class Product implements Searchable {
     public int getCurrentQuantity() {
         return currentQuantity;
     }
-
-    public void setCurrentQuantity(int currentQuantity) {
-        this.currentQuantity = currentQuantity;
+    
+    /**
+     * Calculates the current quantity of <strong>this</strong> product based on the last <strong>instance</strong> of the class
+     * {@code Class} <strong>ProductTracking</strong> made.
+     * 
+     * 
+     * @since 0.1 
+     * 
+     * @see ProductTracking
+     * 
+     */
+    public void calculateCurrentQuantity() {
+        if (!productTrackings.isEmpty()) {
+			this.currentQuantity = getCurrentQuantity() + productTrackings.get(productTrackings.size() - 1).getIn()
+					- productTrackings.get(productTrackings.size() - 1).getOut()
+					- productTrackings.get(productTrackings.size() - 1).getDisposedOf();
+		}else {
+			System.out.println("Nessun movimento registrato per questo prodotto!");
+		}
     }
 
     @Override
@@ -119,12 +135,14 @@ class ProductTracking {
     private int in;
     private int out;
     private int disposedOf;
+    private final int currentQuantity;
     private final LocalDateTime stockDate;
 
     public ProductTracking() {
         this.stockDate = LocalDateTime.now();
         this.in = 0;
         this.out = 0;
+        this.currentQuantity = getCurrentQuantity();
         this.disposedOf = 0;
     }
 
@@ -155,14 +173,16 @@ class ProductTracking {
     public LocalDateTime getStockDate() {
         return stockDate;
     }
-
+    public int getTrackingQuantity() {
+    	return currentQuantity;
+    }
     public int getCurrentQuantity() {
-        return in - out - disposedOf;
+        return getTrackingQuantity();
     }
 
     @Override
     public String toString() {
-        return "ProductTracking [in=" + in + ", currentQuantity=" + getCurrentQuantity() + ", out=" + out
+        return "ProductTracking [in=" + in + ", currentQuantity=" + getTrackingQuantity() + ", out=" + out
                 + ", disposedOf=" + disposedOf + "]";
     }
 }
