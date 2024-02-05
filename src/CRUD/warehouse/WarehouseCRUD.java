@@ -23,8 +23,8 @@ public class WarehouseCRUD {
     }
 
     // CONTROLLA TUTTI I SETTORI
-    public static void checkWarehouses(){
-        for (Zone settore : Zone.getWarehouseZones()){
+    public static void checkWarehouses() {
+        for (Zone settore : Zone.getWarehouseZones()) {
             System.out.println(settore);
         }
     }
@@ -38,9 +38,9 @@ public class WarehouseCRUD {
             Zone selectedZone = Zone.getWarehouseZones().get(WarehouseZone);
             int stockedProducts = selectedZone.getStockProductCounter();
             System.out.println("quantità prodotti " + input + " nel settore " + selectedZone.getSector() +
-                               " di capacità: " + (selectedZone.getZoneCapacity() - stockedProducts));
-            for (int cycles = 0; cycles < input; cycles++){
-                 System.out.println("utente seleziona il numero " + cycles + " prodotto da inserire");
+                    " di capacità: " + (selectedZone.getZoneCapacity() - stockedProducts));
+            for (int cycles = 0; cycles < input; cycles++) {
+                System.out.println("utente seleziona il numero " + cycles + " prodotto da inserire");
                 if ((selectedZone.getZoneCapacity() - stockedProducts) >= input) {
                     PositionCRUD.productStockIn(WarehouseZone, product);
                 } else {
@@ -53,7 +53,6 @@ public class WarehouseCRUD {
     }
 
 
-
     // RICERCA PRODOTTI
     // by name and brand
     public static void searchByName(String name, String brand, int selectedZone) {
@@ -64,15 +63,17 @@ public class WarehouseCRUD {
                 String checkName = position.getProduct().getName();
                 String checkBrand = position.getProduct().getBrand();
                 if (checkName != null && checkBrand != null) {
-                    if (checkName.equalsIgnoreCase(name) && checkBrand.equalsIgnoreCase(brand)){
+                    if (checkName.equalsIgnoreCase(name) && checkBrand.equalsIgnoreCase(brand)) {
                         System.out.println(position.getProduct());
                         System.out.println(position.getProduct().getPosition().getQuantity());
                     }
                 }
-            } catch (RuntimeException e) {}
+            } catch (RuntimeException e) {
+            }
         }
     }
-    public static void searchByID(String str, int selectedZone){
+
+    public static void searchByID(String str, int selectedZone) {
         selectedZone--;
         ArrayList<Position> sector = Zone.getWarehouseZones().get(selectedZone).getPositions();
         for (Position position : sector) {
@@ -84,7 +85,8 @@ public class WarehouseCRUD {
                         System.out.println(position.getProduct().getPosition().getQuantity());
                     }
                 }
-            } catch (RuntimeException e) {}
+            } catch (RuntimeException e) {
+            }
         }
     }
 }

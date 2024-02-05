@@ -1,4 +1,5 @@
 package classes.customer;
+
 import classes.shared.OrderProduct;
 import classes.interfaces.Order;
 import classes.interfaces.Searchable;
@@ -15,7 +16,7 @@ public class CustomerOrder implements Order, Searchable {
     private double total;
 
 
-    public CustomerOrder(ArrayList<OrderProduct> products){
+    public CustomerOrder(ArrayList<OrderProduct> products) {
         this.ID = UUID.randomUUID().toString();
         this.products = products;
         this.date = LocalDate.now();
@@ -25,6 +26,7 @@ public class CustomerOrder implements Order, Searchable {
     public String getID() {
         return ID;
     }
+
     public ArrayList<OrderProduct> getProducts() {
         return products;
     }

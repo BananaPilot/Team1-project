@@ -7,18 +7,18 @@ import database.DB;
 
 public class CustomerInteractions {
 
-  public static void CustomerHandler(){
-    int input;
-    do {
-      CustomerPrompts.customerMainPrompt();
-      input = Input.getInput();
-      switch (input) {
-        case 1 -> DB.getCustomers().add(CustomerCRUD.createCustomer());
-        case 2 -> CustomerCRUD.listCustomers();
-        case 3 -> System.out.println(CustomerCRUD.getCustomer());
-        case 4 -> CustomerCRUD.updateCustomer();
-        case 5 -> DB.getCustomers().remove(CustomerCRUD.getCustomer());
-      }
-    } while(input != 0);
-  }
+    public static void CustomerHandler() {
+        int input;
+        do {
+            CustomerPrompts.customerMainPrompt();
+            input = Input.getInput();
+            switch (input) {
+                case 1 -> DB.getCustomers().add(CustomerCRUD.createCustomer());
+                case 2 -> CustomerCRUD.listCustomers();
+                case 3 -> System.out.println(CustomerCRUD.getCustomer());
+                case 4 -> CustomerCRUD.updateCustomer();
+                case 5 -> DB.getCustomers().remove(CustomerCRUD.getCustomer());
+            }
+        } while (input != 0);
+    }
 }

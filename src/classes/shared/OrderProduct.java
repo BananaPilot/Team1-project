@@ -30,9 +30,6 @@ public class OrderProduct implements Searchable {
 
     @Override
     public String toString() {
-        return "OrderProduct{" +
-                "orderQty=" + orderQty +
-                ", product=" + product +
-                '}';
+        return "OrderProduct{" + "orderQty=" + orderQty + ", product=" + product + '}';
     }
 }

@@ -1,4 +1,5 @@
 package classes.warehouse;
+
 import classes.product.Product;
 
 public class Position {
@@ -12,12 +13,15 @@ public class Position {
         this.lot = constructLot(width, height);
         wid++;
     }
+
     public static int getWid() {
         return wid;
     }
-    private String constructLot(int width, int height){
+
+    private String constructLot(int width, int height) {
         return width + "L" + height;
     }
+
     public String getLot() {
         return lot;
     }

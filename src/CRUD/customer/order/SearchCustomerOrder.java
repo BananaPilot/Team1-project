@@ -1,6 +1,8 @@
 package CRUD.customer.order;
+
 import classes.customer.CustomerOrder;
 import interactions.customer.order.CustomerOrderInteractions;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -16,6 +18,7 @@ public class SearchCustomerOrder {
         }
         return null;
     }
+
     public static CustomerOrder getCustomerOrderByDate() {
         DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDate date = LocalDate.parse(in.Input.getString("Date in format DD-MM-YYYY"), dateFormat);
@@ -24,8 +27,6 @@ public class SearchCustomerOrder {
         }
         return null;
     }
-
-
 
 
 }

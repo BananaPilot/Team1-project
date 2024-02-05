@@ -39,8 +39,8 @@ public class ProductType implements Searchable {
         this.description = description;
     }
 
-    public static ProductType search(ArrayList<ProductType> productTypes, Object value){
-        for (ProductType productType: productTypes){
+    public static ProductType search(ArrayList<ProductType> productTypes, Object value) {
+        for (ProductType productType : productTypes) {
             if (productType.contains(value)) return productType;
         }
         return null;
