@@ -3,17 +3,17 @@ import classes.product.Product;
 
 
 public class Position {
-    private int positionId = 0;
-    private static int staticpositionId = 0;
-    private int level = 0;
-    private static int staticLevel = 0;
+    private int positionId = 0;//a che serve questo?
+    private static int staticpositionId = 0;//?? cosé sta robba?
+    private int level = 0;// creare il lot attravero metodo
+    private static int staticLevel = 0;// immmettere nel metodo di creazione
     private boolean isFull = false;
-    private String productRefId;
-    private StringBuilder lot = new StringBuilder("");
-    private Product product;
-    private static int staticLongnessCounter = 0;
-    private String isContainedIn;
-    private int quantity;
+    private String productRefId;//inutile
+    private StringBuilder lot = new StringBuilder("");//convertire to string
+    private Product product;//ok
+    private static int staticLongnessCounter = 0;//immettere un metodo che li passa come parametri
+    private String isContainedIn; //?
+    private int quantity;//ok
 
     public Position(int zoneLongness, String zoneReference){
 
