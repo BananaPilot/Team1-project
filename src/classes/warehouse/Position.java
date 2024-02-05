@@ -12,11 +12,9 @@ public class Position {
         this.lot = constructLot(width, height);
         wid++;
     }
-
     public static int getWid() {
         return wid;
     }
-
     private String constructLot(int width, int height){
         return width + "L" + height;
     }

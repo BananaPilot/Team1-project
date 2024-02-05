@@ -8,7 +8,11 @@ public class Main {
 	public static void main(String[] args) {
 		Zone zone = new Zone("Falegnameria");
 		Zone zone1 = new Zone("Fale");
-		Util.printArrayList(DB.getPositions());
+		DB.getZones().add(zone);
+		DB.getZones().add(zone1);
+		Util.printArrayList(DB.getZones().get(0).getPositions());
+		System.out.println("-------------------------------------------------------------------------------");
+		Util.printArrayList(DB.getZones().get(1).getPositions());
 		Input.getScanner().close();
 	}
 }
