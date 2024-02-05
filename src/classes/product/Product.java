@@ -41,7 +41,7 @@ public class Product implements Searchable {
         this.position = position;
     }
 
-    public String getName() {
+	public String getName() {
         return name;
     }
 

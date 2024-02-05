@@ -6,6 +6,8 @@ import in.Input;
 import classes.product.Product;
 import classes.productType.ProductType;
 import classes.supplier.Supplier;
+import classes.warehouse.*;
+import database.DB;
 import util.Util;
 
 public class ProductCRUD {
@@ -17,7 +19,17 @@ public class ProductCRUD {
      * @since 0.1
      */
     public static Product createProduct() {
-        return new Product(Input.getString("Name: "), Input.getString("Brand: "), Input.getString("Description: "), Input.getDouble("Price: "), (Supplier) Util.select(suppliers, "Select a supplier: "), (ProductType) Util.select(productTypes, "Select product type: "), (Position) Util.select(DB.getPositions, "Select stocking position:"));
+		return new Product(
+        		Input.getString("Name: "),
+        		Input.getString("Brand: "), 
+        		Input.getString("Description: "), 
+        		Input.getDouble("Price: "),
+        		(Supplier) Util.select(DB.getSuppliers(),"Select a supplier: "),
+        		(ProductType) Util.select(DB.getProductTypes(), "Select product type: "),
+        		(Position) Util.select(
+        				((Zone)Util.select(DB.getZones(), "Select stocking zone: ")) //select zone of interest
+        				.getPositions(),"Select stocking position:") //completing selection of position
+        		);
     }
 
     /**
@@ -26,7 +38,7 @@ public class ProductCRUD {
      * @since 0.1
      */
     public static void listAllProducts() {
-        Util.printArrayList(products);
+        Util.printArrayList(DB.getProducts());
     }
 
     /**
