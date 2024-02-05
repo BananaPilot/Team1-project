@@ -17,7 +17,7 @@ public class ProductCRUD {
 	 * @since 0.1
 	 */
 	public static Product createProduct() {
-		return new Product(Input.getString("Name: "), Input.getString("Brand: "), Input.getString("Description: "), Input.getDouble("Price: "), (Supplier) Util.select(suppliers, "Select a supplier: "), (ProductType) Util.select(productTypes, "Select product type: "), (StockPosition) Util.select(stockPositions, "Select stocking position:"));
+		return new Product(Input.getString("Name: "), Input.getString("Brand: "), Input.getString("Description: "), Input.getDouble("Price: "), (Supplier) Util.select(suppliers, "Select a supplier: "), (ProductType) Util.select(productTypes, "Select product type: "), (Position) Util.select(DB.getPositions, "Select stocking position:"));
 	}
 
 	/**
