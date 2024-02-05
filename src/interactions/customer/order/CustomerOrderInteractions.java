@@ -1,16 +1,18 @@
 package interactions.customer.order;
+
 import CRUD.customer.order.CustomerOrderCRUD;
 import classes.shared.OrderProduct;
 import classes.customer.CustomerOrder;
 import prompts.customer.order.CustomerOrderPrompts;
+
 import java.util.ArrayList;
 
 public class CustomerOrderInteractions {
     private static ArrayList<CustomerOrder> customerOrder;
     private static ArrayList<OrderProduct> products;
 
-    public static ArrayList<CustomerOrder> getCustomerOrder(){
-        if (customerOrder == null){
+    public static ArrayList<CustomerOrder> getCustomerOrder() {
+        if (customerOrder == null) {
             customerOrder = new ArrayList<>();
         }
         return customerOrder;

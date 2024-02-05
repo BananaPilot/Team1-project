@@ -1,6 +1,7 @@
 package classes.interfaces;
 
 public interface Order {
-  double getTotal();
-  double calculateTotal();
+    double getTotal();
+
+    double calculateTotal();
 }
