@@ -1,5 +1,7 @@
 package classes.interfaces;
 
+import classes.customer.Customer;
+import classes.shared.Contacts;
 import util.Util;
 
 import java.lang.reflect.Field;
@@ -23,5 +25,12 @@ public interface Searchable {
       }
     }
     return !objects.isEmpty();
+  }
+
+  static Searchable search(ArrayList<? extends Searchable> arrayList, Object... values){
+    for (Searchable searchable: arrayList){
+      if (searchable.contains(values)) return searchable;
+    }
+    return null;
   }
 }

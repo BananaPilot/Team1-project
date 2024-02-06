@@ -1,5 +1,6 @@
 package CRUD.customer;
 
+import classes.interfaces.Searchable;
 import classes.shared.Contacts;
 import classes.customer.Customer;
 import in.Input;
@@ -23,9 +24,9 @@ public class CustomerCRUD {
     CustomerPrompts.customerSearchPrompt();
     input = Input.getInput();
     Object object = switch (input) {
-      case 1 -> search(CustomerInteractions.getCustomers(), Input.getString("ID: "));
+      case 1 -> Searchable.search(CustomerInteractions.getCustomers(), Input.getString("ID: "));
       case 2 -> Contacts.search(CustomerInteractions.getCustomers(), Input.getString("Email: "));
-      case 3 -> search(CustomerInteractions.getCustomers(), Input.getString("Name: "), Input.getString("Surname: "));
+      case 3 -> Searchable.search(CustomerInteractions.getCustomers(), Input.getString("Name: "), Input.getString("Surname: "));
       default -> null;
     };
     return (Customer) object;
@@ -52,10 +53,10 @@ public class CustomerCRUD {
     System.out.println("Updated Customer: " + customer);
   }
 
-  public static Customer search(ArrayList<Customer> customers, Object... values){
-    for (Customer customer: customers){
-      if (customer.contains(values)) return customer;
-    }
-    return null;
-  }
+//  public static Customer search(ArrayList<Customer> customers, Object... values){
+//    for (Customer customer: customers){
+//      if (customer.contains(values)) return customer;
+//    }
+//    return null;
+//  }
 }
