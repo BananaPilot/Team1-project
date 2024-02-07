@@ -3,8 +3,12 @@ package CRUD.product;
 import java.util.ArrayList;
 
 import in.Input;
+import prompts.customer.CustomerPrompts;
+import prompts.product.ProductPrompts;
+import classes.customer.Customer;
 import classes.product.Product;
 import classes.productType.ProductType;
+import classes.shared.Contacts;
 import classes.supplier.Supplier;
 import classes.warehouse.*;
 import database.DB;
@@ -49,7 +53,7 @@ public class ProductCRUD {
      */
     public static ArrayList<Product> searchByProductType(ArrayList<Product> products, ArrayList<ProductType> productTypes) {
         Util.printArrayList(productTypes);
-        ProductType productType = ProductType.search(productTypes, Input.getString("ID: "));
+        ProductType productType = ProductType.search(productTypes, Input.getString("Type name: "));
         ArrayList<Product> productsByType = new ArrayList<Product>();
         for (Product product : products) {
             if (product.contains(productType)) {
@@ -64,6 +68,42 @@ public class ProductCRUD {
             if (product.contains(values)) return product;
         }
         return null;
+    }
+    
+    public static Product getProduct() {
+    	int input;
+        ProductPrompts.searchProductPrompt();
+        input = Input.getInput();
+        Object object = switch (input) {
+            case 1 -> search(DB.getProducts(), Input.getString("ID: "));
+            case 2 -> search(DB.getProducts(), Input.getString("Name: "));
+            case 3 -> search(DB.getProducts(), Input.getString("Brand: "));
+            default -> null;
+        };
+        return (Product) object;
+    }
+    
+    public static void updateProduct() {
+        Product product = getProduct();
+        if (product == null) {
+            System.out.println("Something went wrong please try again");
+            return;
+        }
+        int input;
+        do {
+            ProductPrompts.updateProductPrompt();
+            input = Input.getInput();
+            switch (input) {
+                case 1 -> product.setName(Input.getString("New name: "));
+                case 2 -> product.setBrand(Input.getString("New brand: "));
+                case 3 -> product.setDescription(Input.getString("New description: "));
+                case 4 -> product.setPrice(Input.getDouble("New price: "));
+                case 5 -> product.setPosition((Position) Util.select(
+        				((Zone)Util.select(DB.getZones(), "Select new stocking zone: ")) //select zone of interest
+        				.getPositions(),"Select new stocking position:"));
+            }
+        } while (input != 0);
+        System.out.println("Updated product: " + product);
     }
     
 }

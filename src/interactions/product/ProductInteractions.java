@@ -6,7 +6,7 @@ import CRUD.product.ProductCRUD;
 import classes.product.Product;
 import database.DB;
 import in.Input;
-import prompts.productprompts.ProductPrompts;
+import prompts.product.ProductPrompts;
 
 public class ProductInteractions {
     public static void productsHandler() {

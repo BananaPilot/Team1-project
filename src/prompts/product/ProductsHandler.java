@@ -1,4 +1,4 @@
-package prompts.productprompts;
+package prompts.product;
 
 import java.util.Optional;
 

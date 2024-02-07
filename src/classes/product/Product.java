@@ -22,7 +22,6 @@ public class Product implements Searchable {
     private final ProductType productType;
     private Position position;
     private final ArrayList<ProductTracking> productTrackings = new ArrayList<>();
-    private boolean deleted;
 
     public ArrayList<ProductTracking> getProductTrackings() {
         return productTrackings;
@@ -40,7 +39,6 @@ public class Product implements Searchable {
         this.supplier = supplier;
         this.productType = productType;
         this.position = position;
-        this.deleted = false;
     }
 
 	public String getName() {
@@ -122,14 +120,6 @@ public class Product implements Searchable {
 			System.out.println("Nessun movimento registrato per questo prodotto!");
 		}
     }
-
-    public boolean isDeleted() {
-		return deleted;
-	}
-
-	public void setDeleted(boolean deleted) {
-		this.deleted = deleted;
-	}
 
 	@Override
     public String toString() {
