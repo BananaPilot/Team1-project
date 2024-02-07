@@ -2,6 +2,7 @@ package CRUD.customer;
 
 import classes.shared.Contacts;
 import classes.customer.Customer;
+import database.DB;
 import in.Input;
 import interactions.customer.CustomerInteractions;
 import prompts.customer.CustomerPrompts;
@@ -14,7 +15,7 @@ public class CustomerCRUD {
     }
 
     public static void listCustomers() {
-        for (Customer customer : CustomerInteractions.getCustomers()) {
+        for (Customer customer : DB.getCustomers()) {
             System.out.println(customer);
         }
     }
@@ -24,10 +25,9 @@ public class CustomerCRUD {
         CustomerPrompts.customerSearchPrompt();
         input = Input.getInput();
         Object object = switch (input) {
-            case 1 -> search(CustomerInteractions.getCustomers(), Input.getString("ID: "));
-            case 2 -> Contacts.search(CustomerInteractions.getCustomers(), Input.getString("Email: "));
-            case 3 ->
-                    search(CustomerInteractions.getCustomers(), Input.getString("Name: "), Input.getString("Surname: "));
+            case 1 -> search(DB.getCustomers(), Input.getString("ID: "));
+            case 2 -> Contacts.search(DB.getCustomers(), Input.getString("Email: "));
+            case 3 -> search(DB.getCustomers(), Input.getString("Name: "), Input.getString("Surname: "));
             default -> null;
         };
         return (Customer) object;
