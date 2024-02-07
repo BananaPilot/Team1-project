@@ -22,11 +22,12 @@ public class Product implements Searchable {
     private final ProductType productType;
     private Position position;
     private final ArrayList<ProductTracking> productTrackings = new ArrayList<>();
+    private boolean deleted;
 
     public ArrayList<ProductTracking> getProductTrackings() {
         return productTrackings;
     }
-
+    
     public Product(String name, String brand, String description, double price,
                    Supplier supplier, ProductType productType, Position position) {
         this.ID = UUID.randomUUID().toString();
@@ -39,6 +40,7 @@ public class Product implements Searchable {
         this.supplier = supplier;
         this.productType = productType;
         this.position = position;
+        this.deleted = false;
     }
 
 	public String getName() {
@@ -121,7 +123,15 @@ public class Product implements Searchable {
 		}
     }
 
-    @Override
+    public boolean isDeleted() {
+		return deleted;
+	}
+
+	public void setDeleted(boolean deleted) {
+		this.deleted = deleted;
+	}
+
+	@Override
     public String toString() {
         return "Product [ID=" + ID + ", name=" + name + ", brand=" + brand + ", description=" + description
                 + ", price=" + price + ", stockDate=" + stockDate + ", supplierID=" + supplier

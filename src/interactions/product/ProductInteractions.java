@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import CRUD.product.ProductCRUD;
 import classes.product.Product;
+import database.DB;
 import in.Input;
 import prompts.productprompts.ProductPrompts;
 
@@ -16,7 +17,8 @@ public class ProductInteractions {
             switch (input) {
                 case 1 -> ProductCRUD.createProduct();
                 case 2 -> ProductCRUD.listAllProducts();
-                case 3 -> searchMenu(input);
+                case 4 -> searchMenu(input);
+                case 0 -> DB.getProducts().remove(null);
             }
         } while (input != 0);
 
@@ -28,7 +30,7 @@ public class ProductInteractions {
             input = Input.getInt();
             switch (input) {
                 case 1: {
-                    ProductCRUD.search(ProductCRUD.products);
+                    ProductCRUD.search();
                     break;
                 }
                 case 2: {

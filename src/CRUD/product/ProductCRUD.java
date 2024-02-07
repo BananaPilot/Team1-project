@@ -66,8 +66,4 @@ public class ProductCRUD {
         return null;
     }
     
-    public static void deleteProduct(ArrayList<Product> products) {
-    	
-    }
-    
 }
