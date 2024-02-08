@@ -3,7 +3,6 @@ package classes.interfaces;
 import util.Util;
 
 import java.lang.reflect.Field;
-import java.lang.reflect.Method;
 import java.util.ArrayList;
 
 public interface Searchable {
