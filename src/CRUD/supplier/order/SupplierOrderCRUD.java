@@ -5,6 +5,7 @@ import interactions.supplier.order.*;
 import classes.shared.OrderProduct;
 import classes.supplier.SupplierOrder;
 import prompts.supplier.order.*;
+import util.*;
 
 public class SupplierOrderCRUD {
 
@@ -13,9 +14,7 @@ public class SupplierOrderCRUD {
     }
 
     public static void listSupplierOrder(ArrayList<SupplierOrder> supplierOrders){
-        for(SupplierOrder supplierOrder : SuppllierOrderInteractions.getSupplierOrders()){
-            System.out.println(supplierOrder);
-        }
+        Util.printArrayList(supplierOrders);
     }
 
     public static SupplierOrder search(Object... values){
