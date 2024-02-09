@@ -4,6 +4,7 @@ import classes.customer.Customer;
 import classes.product.Product;
 import classes.productType.ProductType;
 import classes.supplier.Supplier;
+import classes.warehouse.Zone;
 
 import java.util.ArrayList;
 
@@ -12,7 +13,7 @@ public class DB {
     private static ArrayList<Product> products;
     private static ArrayList<Supplier> suppliers;
     private static ArrayList<ProductType> productTypes;
-//        private static ArrayList<Zone> zones;
+    private static ArrayList<Zone> zones;
     private static ArrayList<Customer> customers;
 
 
@@ -30,12 +31,12 @@ public class DB {
         return productTypes;
     }
 
-//        public static ArrayList<Zone> getZones() {
-//            if (zones == null) {
-//                zones = new ArrayList<>();
-//            }
-//            return zones;
-//        }
+    public static ArrayList<Zone> getZones() {
+        if (zones == null) {
+            zones = new ArrayList<>();
+        }
+        return zones;
+    }
 
     public static ArrayList<Product> getProducts() {
         if (products == null) {
