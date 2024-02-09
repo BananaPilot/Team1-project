@@ -1,6 +1,5 @@
 package interactions.supplier;
 
-import CRUD.customer.CustomerCRUD;
 import CRUD.supplier.SupplierCRUD;
 import classes.supplier.Supplier;
 import in.Input;

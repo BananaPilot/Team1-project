@@ -31,8 +31,8 @@ public class Contacts implements Searchable {
     this.phoneNumber = phoneNumber;
   }
 
-  public static Object search (ArrayList<?> searchables, Object value){
-    for (Object searchable: searchables){
+  public static Searchable search (ArrayList<? extends Searchable> searchables, Object value){
+    for (Searchable searchable: searchables){
       if (searchable instanceof Customer customer){
         if (customer.getContacts().contains(value)) return customer;
       }
