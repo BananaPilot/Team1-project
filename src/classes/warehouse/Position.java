@@ -1,11 +1,14 @@
 package classes.warehouse;
 
+import classes.interfaces.Searchable;
 import classes.product.Product;
 
-public class Position {
+import java.util.Objects;
+
+public class Position implements Searchable {
     private static int wid = 1;
     private String lot;
-    private boolean isFull = false;
+    private boolean Full = false;
     private Product product;
     private int quantity;
 
@@ -26,8 +29,8 @@ public class Position {
         return lot;
     }
 
-    public boolean isFull() {
-        return isFull;
+    public boolean getFull() {
+        return Full;
     }
 
     public Product getProduct() {
@@ -43,7 +46,7 @@ public class Position {
     }
 
     public void setFull(boolean full) {
-        isFull = full;
+        Full = full;
     }
 
     public void setProduct(Product product) {
@@ -58,7 +61,7 @@ public class Position {
     public String toString() {
         return "Position{" +
                 "lot='" + lot + '\'' +
-                ", isFull=" + isFull +
+                ", isFull=" + Full +
                 ", product=" + product +
                 ", quantity=" + quantity +
                 '}';

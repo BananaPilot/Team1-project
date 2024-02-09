@@ -19,7 +19,7 @@ public class CustomerCRUD {
   }
 
   public void listCustomers(){
-    Util.printArrayList(CustomerInteractions.getCustomers());
+    Util.printArrayList(customers);
   }
 
   public  Customer getCustomer() {

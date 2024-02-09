@@ -1,10 +1,11 @@
 package classes.warehouse;
 
+import classes.interfaces.Searchable;
 import in.Input;
 
 import java.util.ArrayList;
 
-public class Zone {
+public class Zone implements Searchable {
     private String sector;
     private final ArrayList<Position> positions = new ArrayList<>();
 
