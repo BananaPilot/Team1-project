@@ -1,7 +1,6 @@
 package classes.product;
 
 import classes.supplier.Supplier;
-import classes.warehouse.StockPosition;
 import classes.productType.ProductType;
 
 public class ProductTracking extends Product {
