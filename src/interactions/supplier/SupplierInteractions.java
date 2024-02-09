@@ -1,36 +1,23 @@
 package interactions.supplier;
 
-import CRUD.customer.CustomerCRUD;
 import CRUD.supplier.SupplierCRUD;
-import classes.supplier.Supplier;
+import classes.database.DB;
 import in.Input;
 import prompts.supplier.SupplierPrompts;
 
-import java.util.ArrayList;
-
 public class SupplierInteractions {
-  private static ArrayList<Supplier> suppliers;
-
-  private SupplierInteractions(){}
-
-  public static ArrayList<Supplier> getSuppliers() {
-    if (suppliers == null){
-      suppliers = new ArrayList<>();
-    }
-    return suppliers;
-  }
-
-  public static void supplierHandler(){
+  SupplierCRUD supplierCRUD = new SupplierCRUD();
+  public void supplierHandler(){
     int input;
     do {
       SupplierPrompts.supplierMainPrompt();
       input = Input.getInput();
       switch (input) {
-        case 1 -> getSuppliers().add(SupplierCRUD.createSupplier());
-        case 2 -> SupplierCRUD.listSuppliers();
-        case 3 -> System.out.println(SupplierCRUD.getSupplier());
-        case 4 -> SupplierCRUD.updateSupplier();
-        case 5 -> getSuppliers().remove(SupplierCRUD.getSupplier());
+        case 1 -> DB.getSuppliers().add(supplierCRUD.createSupplier());
+        case 2 -> supplierCRUD.listSuppliers();
+        case 3 -> System.out.println(supplierCRUD.getSupplier());
+        case 4 -> supplierCRUD.updateSupplier();
+        case 5 -> DB.getSuppliers().remove(supplierCRUD.getSupplier());
       }
     } while (input != 0);
   }
