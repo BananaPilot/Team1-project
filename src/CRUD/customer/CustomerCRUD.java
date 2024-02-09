@@ -12,14 +12,14 @@ import util.Util;
 import java.util.ArrayList;
 
 public class CustomerCRUD {
-  ArrayList<Customer> customers = DB.getCustomers();
+  private ArrayList<Customer> customers = DB.getCustomers();
 
   public Customer createCustomer(){
     return new Customer(Input.getString("Name: "), Input.getString("Surname: "), Input.getString("Address: "), Input.getString("E-Mail: "), Input.getString("Phone-number: "));
   }
 
   public void listCustomers(){
-    Util.printArrayList(CustomerInteractions.getCustomers());
+    Util.printArrayList(customers);
   }
 
   public  Customer getCustomer() {
