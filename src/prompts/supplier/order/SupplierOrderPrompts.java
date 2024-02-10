@@ -11,9 +11,8 @@ public class SupplierOrderPrompts {
     }
 
     public static void supplierOrderSearchPrompt() {
-        System.out.println("1. Search by order holder");
-        System.out.println("2. Search by order ID");
-        System.out.println("3. Search by date");
+        System.out.println("1. Search by order ID");
+        System.out.println("2. Search by date");
         System.out.println("0. Back to previous menu");
     }
 
