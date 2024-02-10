@@ -1,12 +1,11 @@
 package classes.warehouse;
 
-import java.util.ArrayList;
-import java.util.UUID;
-
-import database.DB;
+import classes.interfaces.Searchable;
 import in.Input;
 
-public class Zone {
+import java.util.ArrayList;
+
+public class Zone implements Searchable {
     private String sector;
     private final ArrayList<Position> positions = new ArrayList<>();
 
@@ -45,4 +44,3 @@ public class Zone {
                 '}';
     }
 }
-

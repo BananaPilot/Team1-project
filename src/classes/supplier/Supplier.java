@@ -4,88 +4,90 @@ import classes.shared.Contacts;
 import classes.shared.Operations;
 import classes.interfaces.Searchable;
 
+import java.util.ArrayList;
 import java.util.UUID;
 
 public class Supplier implements Searchable {
-    private final String ID;
-    private String companyName;
-    private String address;
-    private int suppliedProductType;
-    private String VATNumber;
-    private Operations operations;
-    private Contacts contacts;
+  private final String ID;
+  private String companyName;
+  private String address;
+  private int suppliedProductType;
+  private String VATNumber;
+  private Operations operations;
+  private Contacts contacts;
 
-    public Supplier(String companyName, String address, int suppliedProductType, String VATNumber, String email, String phoneNumber) {
-        this.ID = UUID.randomUUID().toString();
-        this.companyName = companyName;
-        this.address = address;
-        this.suppliedProductType = suppliedProductType;
-        this.VATNumber = VATNumber;
-        this.contacts = new Contacts(email, phoneNumber);
-    }
+  public Supplier(String companyName, String address, int suppliedProductType, String VATNumber, String email, String phoneNumber) {
+    this.ID = UUID.randomUUID().toString();
+    this.companyName = companyName;
+    this.address = address;
+    this.suppliedProductType = suppliedProductType;
+    this.VATNumber = VATNumber;
+    this.contacts = new Contacts(email, phoneNumber);
+    this.operations = new Operations(new ArrayList<>());
+  }
 
-    public String getID() {
-        return ID;
-    }
+  public String getID() {
+    return ID;
+  }
 
-    public String getCompanyName() {
-        return companyName;
-    }
+  public String getCompanyName() {
+    return companyName;
+  }
 
-    public String getAddress() {
-        return address;
-    }
+  public String getAddress() {
+    return address;
+  }
 
-    public int getSuppliedProductType() {
-        return suppliedProductType;
-    }
+  public int getSuppliedProductType() {
+    return suppliedProductType;
+  }
 
-    public String getVATNumber() {
-        return VATNumber;
-    }
+  public String getVATNumber() {
+    return VATNumber;
+  }
 
-    public Operations getOperations() {
-        return operations;
-    }
+  public Operations getOperations() {
+    return operations;
+  }
 
-    public Contacts getContacts() {
-        return contacts;
-    }
+  public Contacts getContacts() {
+    return contacts;
+  }
 
-    public void setCompanyName(String companyName) {
-        this.companyName = companyName;
-    }
+  public void setCompanyName(String companyName) {
+    this.companyName = companyName;
+  }
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
+  public void setAddress(String address) {
+    this.address = address;
+  }
 
-    public void setSuppliedProductType(int suppliedProductType) {
-        this.suppliedProductType = suppliedProductType;
-    }
+  public void setSuppliedProductType(int suppliedProductType) {
+    this.suppliedProductType = suppliedProductType;
+  }
 
-    public void setVATNumber(String VATNumber) {
-        this.VATNumber = VATNumber;
-    }
+  public void setVATNumber(String VATNumber) {
+    this.VATNumber = VATNumber;
+  }
 
-    public void setOperations(Operations operations) {
-        this.operations = operations;
-    }
+  public void setOperations(Operations operations) {
+    this.operations = operations;
+  }
 
-    public void setContacts(Contacts contacts) {
-        this.contacts = contacts;
-    }
+  public void setContacts(Contacts contacts) {
+    this.contacts = contacts;
+  }
 
-    @Override
-    public String toString() {
-        return "Supplier{" +
-                ", ID=" + ID +
-                ", companyName='" + companyName + '\'' +
-                ", address='" + address + '\'' +
-                ", suppliedProductType=" + suppliedProductType +
-                ", VATNumber='" + VATNumber + '\'' +
-                ", operations=" + operations +
-                ", contacts=" + contacts +
-                '}';
-    }
+  @Override
+  public String toString() {
+    return "Supplier{" +
+            ", ID=" + ID +
+            ", companyName='" + companyName + '\'' +
+            ", address='" + address + '\'' +
+            ", suppliedProductType=" + suppliedProductType +
+            ", VATNumber='" + VATNumber + '\'' +
+            ", operations=" + operations +
+            ", contacts=" + contacts +
+            '}';
+  }
 }

@@ -1,9 +1,10 @@
 package classes.warehouse;
 
-import database.DB;
+import classes.database.DB;
+import classes.interfaces.Searchable;
 
 import java.util.ArrayList;
 
-public class Warehouse {
+public class Warehouse implements Searchable {
     private final ArrayList<Zone> zones = DB.getZones();
 }

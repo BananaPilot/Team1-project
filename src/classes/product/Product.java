@@ -26,7 +26,7 @@ public class Product implements Searchable {
     public ArrayList<ProductTracking> getProductTrackings() {
         return productTrackings;
     }
-    
+  
     public Product(String name, String brand, String description, double price,
                    Supplier supplier, ProductType productType, Position position) {
         this.ID = UUID.randomUUID().toString();
@@ -41,7 +41,7 @@ public class Product implements Searchable {
         this.position = position;
     }
 
-	public String getName() {
+    public String getName() {
         return name;
     }
 

@@ -24,17 +24,17 @@ public class CustomerOrderCRUD {
         }
     }
 
-    //3. SEARCH
-    public static CustomerOrder getCustomerOrder(ArrayList<CustomerOrder> customerOrders) {
-        int input;
-        CustomerOrderPrompts.customerOrderSearchPrompt();
-        input = Input.getInput();
-        return switch (input) {
-            case 1 -> SearchCustomerOrder.getCustomerOrderByID(Input.getString("ID: "));
-            case 2 -> SearchCustomerOrder.getCustomerOrderByDate();
-            default -> null;
-        };
-    }
+        //3. SEARCH
+      public static CustomerOrder getCustomerOrder(ArrayList<CustomerOrder> customerOrders) {
+          int input;
+          CustomerOrderPrompts.customerOrderSearchPrompt();
+          input = Input.getInput();
+          return switch (input) {
+              case 1 -> SearchCustomerOrder.getCustomerOrderByID(Input.getString("ID: "));
+              case 2 -> SearchCustomerOrder.getCustomerOrderByDate();
+              default -> null;
+          };
+      }
 
     //4. UPDATE
     //IMPLEMENTARE MODIFICA

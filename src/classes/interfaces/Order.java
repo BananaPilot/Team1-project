@@ -1,7 +1,8 @@
 package classes.interfaces;
 
-public interface Order {
-    double getTotal();
+import java.util.ArrayList;
 
-    double calculateTotal();
+public interface Order {
+  double getTotal();
+  double calculateTotal();
 }

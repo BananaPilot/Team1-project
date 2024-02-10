@@ -3,8 +3,6 @@ package in;
 import java.util.Scanner;
 
 public class Input {
-    private Input() {
-    }
 
     private static Scanner scanner;
 
