@@ -1,4 +1,5 @@
 package classes.supplier;
+
 import classes.shared.OrderProduct;
 import classes.interfaces.Order;
 import classes.interfaces.Searchable;

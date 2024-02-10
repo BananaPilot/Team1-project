@@ -5,8 +5,7 @@ import classes.customer.Customer;
 import classes.database.DB;
 import in.Input;
 import prompts.customer.CustomerPrompts;
-
-import java.util.ArrayList;
+import database.DB;
 
 public class CustomerInteractions {
   CustomerCRUD customerCRUD = new CustomerCRUD();

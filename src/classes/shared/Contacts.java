@@ -40,14 +40,4 @@ public class Contacts implements Searchable {
         if (supplier.getContacts().contains(value)) return supplier;
       }
     }
-    return null;
-  }
-
-  @Override
-  public String toString() {
-    return "Contacts{" +
-            "email='" + email + '\'' +
-            ", phoneNumber='" + phoneNumber + '\'' +
-            '}';
-  }
 }

@@ -20,10 +20,8 @@ public interface Searchable {
         } catch (Exception e) {
           e.printStackTrace();
         }
-      }
+        return !objects.isEmpty();
     }
-    return !objects.isEmpty();
-  }
 
   static Searchable search(ArrayList<? extends Searchable> arrayList, Object... values){
     for (Searchable searchable: arrayList){

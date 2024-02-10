@@ -4,6 +4,7 @@ import classes.database.DB;
 import classes.interfaces.Searchable;
 import classes.shared.Contacts;
 import classes.customer.Customer;
+import database.DB;
 import in.Input;
 import interactions.customer.CustomerInteractions;
 import prompts.customer.CustomerPrompts;
