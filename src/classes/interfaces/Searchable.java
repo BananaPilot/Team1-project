@@ -1,7 +1,5 @@
 package classes.interfaces;
 
-import classes.customer.Customer;
-import classes.shared.Contacts;
 import util.Util;
 
 import java.lang.reflect.Field;
