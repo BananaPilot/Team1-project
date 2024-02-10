@@ -13,12 +13,6 @@ public class Util {
             System.out.println(element);
         }
     }
-    
-//    public static void notDeletedElements(ArrayList<?> arrayList) {
-//    	for (Object object : arrayList) {
-//			object.
-//		}
-//    }
 
     public static String capitalize(String stringToCapitalize) {
         String first = stringToCapitalize.substring(0, 1);

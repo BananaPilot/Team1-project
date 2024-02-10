@@ -20,7 +20,7 @@ public class ZoneCRUD {
         Util.printArrayList(zones);
     }
 
-    public Zone getZone(){
+    public Zone getZone() {
         ZonePrompts.zoneSearchPrompt();
         int input = Input.getInput();
         Searchable searchable = switch (input) {
@@ -30,15 +30,15 @@ public class ZoneCRUD {
         return (Zone) searchable;
     }
 
-    public void updateZone(){
+    public void updateZone() {
         Zone zone = getZone();
-        if (zone == null){
+        if (zone == null) {
             return;
         }
         int input;
         do {
             input = Input.getInput();
-            switch (input){
+            switch (input) {
                 case 1 -> zone.setSector(Input.getString("New sector game: "));
             }
         } while (input != 0);

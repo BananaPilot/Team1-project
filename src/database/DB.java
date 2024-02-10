@@ -11,15 +11,10 @@ import classes.warehouse.Zone;
 
 public class DB {
 
-    private static ArrayList<Product> products = new ArrayList<Product>();
-    private static ArrayList<Supplier> suppliers = new ArrayList<Supplier>(Arrays.asList(
-            new Supplier(null, null, 0, null, null, null),
-            new Supplier(null, null, 0, null, null, null)
-    ));
-    private static ArrayList<ProductType> productTypes = new ArrayList<ProductType>(Arrays.asList(
-            new ProductType(null, null)
-    ));
-    private static ArrayList<Zone> zones = new ArrayList<>();
+    private static ArrayList<Product> products;
+    private static ArrayList<Supplier> suppliers;
+    private static ArrayList<ProductType> productTypes;
+    private static ArrayList<Zone> zones;
     private static ArrayList<Customer> customers;
 
 

@@ -21,32 +21,30 @@ public class ProductCRUD {
      * @since 0.1
      */
     public static Product createProduct() {
-		return new Product(
-        		Input.getString("Name: "),
-        		Input.getString("Brand: "), 
-        		Input.getString("Description: "), 
-        		Input.getDouble("Price: "),
-        		(Supplier) Util.select(DB.getSuppliers(),"Select a supplier: "),
-        		(ProductType) Util.select(DB.getProductTypes(), "Select product type: "),
-        		(Position) Util.select(
-        				((Zone)Util.select(DB.getZones(), "Select stocking zone: ")) //select zone of interest
-        				.getPositions(),"Select stocking position:") //completing selection of position
-        		);
+        return new Product(
+                Input.getString("Name: "),
+                Input.getString("Brand: "),
+                Input.getString("Description: "),
+                Input.getDouble("Price: "),
+                (Supplier) Util.select(DB.getSuppliers(), "Select a supplier: "),
+                (ProductType) Util.select(DB.getProductTypes(), "Select product type: "),
+                (Position) Util.select(
+                        ((Zone) Util.select(DB.getZones(), "Select stocking zone: ")) //select zone of interest
+                                .getPositions(), "Select stocking position:") //completing selection of position
+        );
     }
 
     /**
      * Iterates all products showing them to video
      *
      * @since 0.1
-     * 
      */
-    
+
     public static void listAllProducts() {
         Util.printArrayList(DB.getProducts());
     }
-    
-    
-    
+
+
     /**
      * @param products     of products to search from
      * @param productTypes of product types to select from
@@ -54,7 +52,7 @@ public class ProductCRUD {
      * @since 0.1
      */
     public static ArrayList<Product> searchByProductType(ArrayList<Product> products, ArrayList<ProductType> productTypes) {
-    	Util.printArrayList(productTypes);
+        Util.printArrayList(productTypes);
         ProductType productType = ProductType.search(productTypes, Input.getString("Type name: "));
         ArrayList<Product> productsByType = new ArrayList<Product>();
         for (Product product : products) {
@@ -64,32 +62,30 @@ public class ProductCRUD {
         }
         return productsByType;
     }
-    
+
     /**
-     * 
      * @param products
      * @param values
-     * @return 
+     * @return
      * @since 0.1
      */
-    
+
     public static Product search(ArrayList<Product> products, Object... values) {
         for (Product product : products) {
             if (product.contains(values)) return product;
         }
         return null;
     }
-    
+
     /**
      * Searches for elements including the searched string
-     * 
-     * @see Searchable
-     * 
+     *
      * @return the element(s) corresponding to the searched string
+     * @see Searchable
      */
-    
+
     public static Product getProduct() {
-    	int input;
+        int input;
         ProductPrompts.searchProductPrompt();
         input = Input.getInput();
         Object object = switch (input) {
@@ -101,7 +97,7 @@ public class ProductCRUD {
         };
         return (Product) object;
     }
-    
+
     /**
      * Method used to update values of a Product instance:
      * Name
@@ -109,10 +105,10 @@ public class ProductCRUD {
      * Description
      * Price
      * Position
-     * 
+     *
      * @since 0.1
      */
-    
+
     public static void updateProduct() {
         Product product = getProduct();
         if (product == null) {
@@ -129,11 +125,11 @@ public class ProductCRUD {
                 case 3 -> product.setDescription(Input.getString("New description: "));
                 case 4 -> product.setPrice(Input.getDouble("New price: "));
                 case 5 -> product.setPosition((Position) Util.select(
-        				((Zone)Util.select(DB.getZones(), "Select new stocking zone: ")) //select zone of interest
-        				.getPositions(),"Select new stocking position:"));
+                        ((Zone) Util.select(DB.getZones(), "Select new stocking zone: ")) //select zone of interest
+                                .getPositions(), "Select new stocking position:"));
             }
         } while (input != 0);
         System.out.println("Updated product: " + product);
     }
-    
+
 }

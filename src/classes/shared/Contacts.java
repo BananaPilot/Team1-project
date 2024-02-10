@@ -7,37 +7,39 @@ import classes.supplier.Supplier;
 import java.util.ArrayList;
 
 public class Contacts implements Searchable {
-  private String email;
-  private String phoneNumber;
+    private String email;
+    private String phoneNumber;
 
-  public Contacts(String email, String phoneNumber) {
-    this.email = email;
-    this.phoneNumber = phoneNumber;
-  }
+    public Contacts(String email, String phoneNumber) {
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+    }
 
-  public String getEmail() {
-    return email;
-  }
+    public String getEmail() {
+        return email;
+    }
 
-  public String getPhoneNumber() {
-    return phoneNumber;
-  }
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
 
-  public void setEmail(String email) {
-    this.email = email;
-  }
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-  public void setPhoneNumber(String phoneNumber) {
-    this.phoneNumber = phoneNumber;
-  }
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
 
-  public static Searchable search (ArrayList<? extends Searchable> searchables, Object value){
-    for (Searchable searchable: searchables){
-      if (searchable instanceof Customer customer){
-        if (customer.getContacts().contains(value)) return customer;
-      }
-      if (searchable instanceof Supplier supplier){
-        if (supplier.getContacts().contains(value)) return supplier;
-      }
+    public static Searchable search(ArrayList<? extends Searchable> searchables, Object value) {
+        for (Searchable searchable : searchables) {
+            if (searchable instanceof Customer customer) {
+                if (customer.getContacts().contains(value)) return customer;
+            }
+            if (searchable instanceof Supplier supplier) {
+                if (supplier.getContacts().contains(value)) return supplier;
+            }
+        }
+        return null;
     }
 }

@@ -12,11 +12,12 @@ import java.util.ArrayList;
 
 public class PositionCRUD {
     ZoneCRUD zoneCRUD = new ZoneCRUD();
-    public void listPositions(){
+
+    public void listPositions() {
         Util.printArrayList(zoneCRUD.getZone().getPositions());
     }
 
-    public Position getPosition(){
+    public Position getPosition() {
         PositionPrompts.positionSearchPrompt();
         int input = Input.getInput();
         switch (input) {
@@ -25,15 +26,16 @@ public class PositionCRUD {
             }
             case 2 -> System.out.println(getPositionsByState());
             default -> throw new IllegalStateException("Unexpected value: " + input);
-        };
+        }
+        ;
         return null;
     }
 
-    public ArrayList<Position> getPositionsByState(){
+    public ArrayList<Position> getPositionsByState() {
         ArrayList<Position> positions = new ArrayList<>();
         String state = Input.getString("State: ");
-        if (state.equals("true") || state.equals("false")){
-            for (Position position: zoneCRUD.getZone().getPositions()){
+        if (state.equals("true") || state.equals("false")) {
+            for (Position position : zoneCRUD.getZone().getPositions()) {
                 if (position.contains(state)) positions.add(position);
             }
         } else {

@@ -26,7 +26,7 @@ public class Product implements Searchable {
     public ArrayList<ProductTracking> getProductTrackings() {
         return productTrackings;
     }
-  
+
     public Product(String name, String brand, String description, double price,
                    Supplier supplier, ProductType productType, Position position) {
         this.ID = UUID.randomUUID().toString();
@@ -100,28 +100,25 @@ public class Product implements Searchable {
     public int getCurrentQuantity() {
         return currentQuantity;
     }
-    
+
     /**
      * Calculates the current quantity of <strong>this</strong> product based on the last <strong>instance</strong> of the class
      * {@code Class} <strong>ProductTracking</strong> made.
-     * 
-     * 
-     * @since 0.1 
-     * 
+     *
      * @see ProductTracking
-     * 
+     * @since 0.1
      */
     public void calculateCurrentQuantity() {
         if (!productTrackings.isEmpty()) {
-			this.currentQuantity = getCurrentQuantity() + productTrackings.get(productTrackings.size() - 1).getIn()
-					- productTrackings.get(productTrackings.size() - 1).getOut()
-					- productTrackings.get(productTrackings.size() - 1).getDisposedOf();
-		}else {
-			System.out.println("Nessun movimento registrato per questo prodotto!");
-		}
+            this.currentQuantity = getCurrentQuantity() + productTrackings.get(productTrackings.size() - 1).getIn()
+                    - productTrackings.get(productTrackings.size() - 1).getOut()
+                    - productTrackings.get(productTrackings.size() - 1).getDisposedOf();
+        } else {
+            System.out.println("Nessun movimento registrato per questo prodotto!");
+        }
     }
 
-	@Override
+    @Override
     public String toString() {
         return "Product [ID=" + ID + ", name=" + name + ", brand=" + brand + ", description=" + description
                 + ", price=" + price + ", stockDate=" + stockDate + ", supplierID=" + supplier
@@ -173,9 +170,11 @@ class ProductTracking {
     public LocalDateTime getStockDate() {
         return stockDate;
     }
+
     public int getTrackingQuantity() {
-    	return currentQuantity;
+        return currentQuantity;
     }
+
     public int getCurrentQuantity() {
         return getTrackingQuantity();
     }

@@ -18,7 +18,7 @@ public class ProductPrompts {
     }
 
     public static void updateProductPrompt() {
-    	System.out.println("1. Change name");
+        System.out.println("1. Change name");
         System.out.println("2. Change brand");
         System.out.println("3. Change description");
         System.out.println("4. Change price");
