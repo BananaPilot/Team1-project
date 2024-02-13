@@ -12,17 +12,16 @@ import util.Util;
 import java.util.ArrayList;
 
 public class SupplierCRUD {
-    private ArrayList<Supplier> suppliers = DB.getSuppliers();
 
     public Supplier createSupplier() {
         return new Supplier(Input.getString("Name: "), Input.getString("Address: "), Input.getInt("Supplier product type: "), Input.getString("VAT-number: "), Input.getString("E-mail: "), Input.getString("Phone-number: "));
     }
 
-    public void listSuppliers() {
+    public void listSuppliers(ArrayList<Supplier> suppliers) {
         Util.printArrayList(suppliers);
     }
 
-    public Supplier getSupplier() {
+    public Supplier getSupplier(ArrayList<Supplier> suppliers) {
         int input;
         SupplierPrompts.supplierSearchPrompt();
         input = Input.getInput();
@@ -37,8 +36,8 @@ public class SupplierCRUD {
         return (Supplier) object;
     }
 
-    public void updateSupplier() {
-        Supplier supplier = getSupplier();
+    public void updateSupplier(ArrayList<Supplier> suppliers) {
+        Supplier supplier = getSupplier(suppliers);
         if (supplier == null) {
             System.out.println("Something went wrong please try again");
             return;
