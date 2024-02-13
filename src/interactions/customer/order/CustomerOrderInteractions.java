@@ -1,6 +1,6 @@
 package interactions.customer.order;
 
-import CRUD.customer.order.CustomerOrderCRUD;
+import classes.shared.Order;
 import classes.shared.OrderProduct;
 import classes.customer.CustomerOrder;
 import prompts.customer.order.CustomerOrderPrompts;
@@ -8,10 +8,10 @@ import prompts.customer.order.CustomerOrderPrompts;
 import java.util.ArrayList;
 
 public class CustomerOrderInteractions {
-    private static ArrayList<CustomerOrder> customerOrder;
+    private static ArrayList<Order> customerOrder;
     private static ArrayList<OrderProduct> products;
 
-    public static ArrayList<CustomerOrder> getCustomerOrder() {
+    public static ArrayList<Order> getCustomerOrder() {
         if (customerOrder == null) {
             customerOrder = new ArrayList<>();
         }
@@ -19,7 +19,7 @@ public class CustomerOrderInteractions {
     }
 
     public static void CustomerOrderManager() {
-        ArrayList<CustomerOrder> customerOrder = new ArrayList<>();
+        ArrayList<Order> customerOrder = new ArrayList<>();
         int input;
 
         do {

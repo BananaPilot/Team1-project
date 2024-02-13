@@ -1,6 +1,5 @@
 package classes.shared;
 
-import classes.interfaces.Order;
 import classes.interfaces.Searchable;
 
 import java.util.ArrayList;

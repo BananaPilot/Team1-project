@@ -1,6 +1,6 @@
-package prompts.supplier.order;
+package prompts.order;
 
-public class SupplierOrderPrompts {
+public class OrderPrompts {
     public static void SupplierOrderMainPrompt() {
         System.out.println("1. Create a new supplier order");
         System.out.println("2. List all orders of a supplier");
