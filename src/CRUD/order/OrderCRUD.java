@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class OrderCRUD {
 
     private final DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-    public Order createOrder(ArrayList<Order> orders) {
+    public Order createOrder() {
         ArrayList<OrderProduct> orderProducts = new ArrayList<>();
         int input;
         do{
