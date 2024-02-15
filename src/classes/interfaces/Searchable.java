@@ -2,19 +2,17 @@ package classes.interfaces;
 
 import util.Util;
 
-import java.io.File;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public interface Searchable {
     default boolean contains(Object... values) {
         ArrayList<Object> objects = new ArrayList<>();
         for (Object value : values) {
-            for (Method method: getAllMethods(getAllFields(this.getClass()))){
+            for (Method method : getAllMethods(getAllFields(this.getClass()))) {
                 try {
                     Object object = method.invoke(this);
                     if (object == null) continue;
@@ -28,13 +26,13 @@ public interface Searchable {
         return !objects.isEmpty();
     }
 
-    default ArrayList<Method> getAllMethods(List<String> fields){
+    default ArrayList<Method> getAllMethods(List<String> fields) {
         ArrayList<Method> methods = new ArrayList<>();
-        for (String string: fields){
+        for (String string : fields) {
             if (string == null) continue;
             try {
                 methods.add(this.getClass().getMethod("get" + Util.capitalize(string)));
-            } catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
@@ -44,13 +42,13 @@ public interface Searchable {
     default List<String> getAllFields(Class<? extends Searchable> myClass) {
         ArrayList<String> strings = new ArrayList<>();
         List<Field> fields = Arrays.asList(myClass.getDeclaredFields());
-        if (myClass.getSuperclass() != null){
+        if (myClass.getSuperclass() != null) {
             List<Field> fields1 = Arrays.asList(myClass.getSuperclass().getDeclaredFields());
-            for (Field field1: fields1){
+            for (Field field1 : fields1) {
                 strings.add(field1.getName());
             }
         }
-        for (Field field: fields){
+        for (Field field : fields) {
             strings.add(field.getName());
         }
         return strings;
