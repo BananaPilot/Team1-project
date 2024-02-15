@@ -10,9 +10,17 @@ public class Placeholder {
     private ArrayList<Order> orders = new ArrayList<>();
 
     public Placeholder(String address, String email, String phoneNumber) {
-        ID = UUID.randomUUID().toString();
+        this.ID = UUID.randomUUID().toString();
         this.address = address;
         this.contacts = new Contacts(email, phoneNumber);
+    }
+
+    private double getTotal() {
+        double total = 0;
+        for (Order order: orders){
+            total += order.getTotal();
+        }
+        return total;
     }
 
     public String getID() {
