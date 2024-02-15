@@ -41,9 +41,9 @@ public interface Searchable {
 
     default List<String> getAllFields(Class<? extends Searchable> myClass) {
         ArrayList<String> strings = new ArrayList<>();
-        List<Field> fields = Arrays.asList(myClass.getDeclaredFields());
+        Field[] fields = myClass.getDeclaredFields();
         if (myClass.getSuperclass() != null) {
-            List<Field> fields1 = Arrays.asList(myClass.getSuperclass().getDeclaredFields());
+            Field[] fields1 = myClass.getSuperclass().getDeclaredFields();
             for (Field field1 : fields1) {
                 strings.add(field1.getName());
             }
