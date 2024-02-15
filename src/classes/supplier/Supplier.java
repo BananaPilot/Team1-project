@@ -1,41 +1,27 @@
 package classes.supplier;
 
 import classes.shared.Contacts;
-import classes.shared.Operations;
 import classes.interfaces.Searchable;
+import classes.shared.Order;
+import classes.shared.Placeholder;
 
 import java.util.ArrayList;
 import java.util.UUID;
 
-public class Supplier implements Searchable {
-    private final String ID;
+public class Supplier extends Placeholder implements Searchable {
     private String companyName;
-    private String address;
     private int suppliedProductType;
     private String VATNumber;
-    private Operations operations;
-    private Contacts contacts;
 
     public Supplier(String companyName, String address, int suppliedProductType, String VATNumber, String email, String phoneNumber) {
-        this.ID = UUID.randomUUID().toString();
+        super(address, email, phoneNumber);
         this.companyName = companyName;
-        this.address = address;
         this.suppliedProductType = suppliedProductType;
         this.VATNumber = VATNumber;
-        this.contacts = new Contacts(email, phoneNumber);
-        this.operations = new Operations(new ArrayList<>());
-    }
-
-    public String getID() {
-        return ID;
     }
 
     public String getCompanyName() {
         return companyName;
-    }
-
-    public String getAddress() {
-        return address;
     }
 
     public int getSuppliedProductType() {
@@ -46,48 +32,23 @@ public class Supplier implements Searchable {
         return VATNumber;
     }
 
-    public Operations getOperations() {
-        return operations;
-    }
-
-    public Contacts getContacts() {
-        return contacts;
-    }
-
     public void setCompanyName(String companyName) {
         this.companyName = companyName;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
     }
 
     public void setSuppliedProductType(int suppliedProductType) {
         this.suppliedProductType = suppliedProductType;
     }
-
     public void setVATNumber(String VATNumber) {
         this.VATNumber = VATNumber;
-    }
-
-    public void setOperations(Operations operations) {
-        this.operations = operations;
-    }
-
-    public void setContacts(Contacts contacts) {
-        this.contacts = contacts;
     }
 
     @Override
     public String toString() {
         return "Supplier{" +
-                ", ID=" + ID +
-                ", companyName='" + companyName + '\'' +
-                ", address='" + address + '\'' +
+                "companyName='" + companyName + '\'' +
                 ", suppliedProductType=" + suppliedProductType +
                 ", VATNumber='" + VATNumber + '\'' +
-                ", operations=" + operations +
-                ", contacts=" + contacts +
-                '}';
+                "} " + super.toString();
     }
 }

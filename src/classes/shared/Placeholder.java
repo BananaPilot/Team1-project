@@ -1,0 +1,55 @@
+package classes.shared;
+
+import java.util.ArrayList;
+import java.util.UUID;
+
+public class Placeholder {
+    private final String ID;
+    private String address;
+    private Contacts contacts;
+    private ArrayList<Order> orders = new ArrayList<>();
+
+    public Placeholder(String address, String email, String phoneNumber) {
+        ID = UUID.randomUUID().toString();
+        this.address = address;
+        this.contacts = new Contacts(email, phoneNumber);
+    }
+
+    public String getID() {
+        return ID;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public Contacts getContacts() {
+        return contacts;
+    }
+
+    public ArrayList<Order> getOrders() {
+        return orders;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public void setContacts(Contacts contacts) {
+        this.contacts = contacts;
+    }
+
+    public void setOrders(ArrayList<Order> orders) {
+        this.orders = orders;
+    }
+
+    @Override
+    public String toString() {
+        return "Placeholder{" +
+                "ID='" + ID + '\'' +
+                ", address='" + address + '\'' +
+                ", contacts=" + contacts +
+                ", orders=" + orders +
+                '}';
+    }
+}
