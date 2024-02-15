@@ -20,6 +20,9 @@ public class DB {
     private DB(){}
 
     public static DB getInstance() {
+        if (db == null){
+            db = new DB();
+        }
         return db;
     }
 

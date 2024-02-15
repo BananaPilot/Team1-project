@@ -1,9 +1,11 @@
 package classes.shared;
 
+import classes.interfaces.Searchable;
+
 import java.util.ArrayList;
 import java.util.UUID;
 
-public class Placeholder {
+public class Placeholder implements Searchable {
     private final String ID;
     private String address;
     private Contacts contacts;
