@@ -7,6 +7,7 @@ public class CustomerPrompts {
         System.out.println("3. List a specific customer");
         System.out.println("4. Update a customer");
         System.out.println("5. Delete a customer");
+        System.out.println("6. Select a customer and manage orders");
         System.out.println("0. Back to main menu");
     }
 

@@ -4,6 +4,7 @@ import CRUD.supplier.SupplierCRUD;
 import classes.database.DB;
 import classes.supplier.Supplier;
 import in.Input;
+import interactions.order.OrderInteractions;
 import prompts.supplier.SupplierPrompts;
 
 import java.util.ArrayList;
@@ -11,6 +12,7 @@ import java.util.ArrayList;
 public class SupplierInteractions {
     private final SupplierCRUD supplierCRUD = new SupplierCRUD();
     private final ArrayList<Supplier> suppliers = DB.getInstance().getSuppliers();
+    private final OrderInteractions orderInteractions = new OrderInteractions();
 
     public void supplierHandler() {
         int input;
@@ -23,6 +25,7 @@ public class SupplierInteractions {
                 case 3 -> System.out.println(supplierCRUD.getSupplier(suppliers));
                 case 4 -> supplierCRUD.updateSupplier(suppliers);
                 case 5 -> suppliers.remove(supplierCRUD.getSupplier(suppliers));
+                case 6 -> orderInteractions.orderHandler(supplierCRUD.getSupplier(suppliers));
             }
         } while (input != 0);
     }

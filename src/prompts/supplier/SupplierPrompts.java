@@ -16,6 +16,7 @@ public class SupplierPrompts {
         System.out.println("3. Search by email");
         System.out.println("4. Search by companyName");
         System.out.println("5. Search by supplied product type");
+        System.out.println("6. Select a supplier and manage orders");
         System.out.println("0. Back to previous menu");
     }
 
