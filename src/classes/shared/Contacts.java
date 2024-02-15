@@ -42,4 +42,12 @@ public class Contacts implements Searchable {
         }
         return null;
     }
+
+    @Override
+    public String toString() {
+        return "Contacts{" +
+                "email='" + email + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                '}';
+    }
 }
