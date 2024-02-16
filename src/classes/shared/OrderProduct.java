@@ -1,9 +1,8 @@
 package classes.shared;
 
-import classes.interfaces.Searchable;
 import classes.product.Product;
 
-public class OrderProduct implements Searchable {
+public class OrderProduct extends Searchable {
     private int orderQty;
     private Product product;
 

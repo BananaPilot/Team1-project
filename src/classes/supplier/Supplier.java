@@ -1,14 +1,9 @@
 package classes.supplier;
 
-import classes.shared.Contacts;
-import classes.interfaces.Searchable;
-import classes.shared.Order;
-import classes.shared.Placeholder;
+import classes.shared.Searchable;
+import classes.shared.OrderPlacer;
 
-import java.util.ArrayList;
-import java.util.UUID;
-
-public class Supplier extends Placeholder implements Searchable {
+public class Supplier extends OrderPlacer {
     private String companyName;
     private int suppliedProductType;
     private String VATNumber;

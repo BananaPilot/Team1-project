@@ -1,11 +1,9 @@
 package CRUD.supplier;
 
-import classes.database.DB;
-import classes.interfaces.Searchable;
+import classes.shared.Searchable;
 import classes.shared.Contacts;
 import classes.supplier.Supplier;
 import in.Input;
-import interactions.supplier.SupplierInteractions;
 import prompts.supplier.SupplierPrompts;
 import util.Util;
 

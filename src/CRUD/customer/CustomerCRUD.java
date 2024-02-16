@@ -1,8 +1,7 @@
 package CRUD.customer;
 
 import classes.customer.Customer;
-import classes.database.DB;
-import classes.interfaces.Searchable;
+import classes.shared.Searchable;
 import classes.shared.Contacts;
 import in.Input;
 import prompts.customer.CustomerPrompts;

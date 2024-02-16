@@ -1,7 +1,6 @@
 package CRUD.zone;
 
-import classes.database.DB;
-import classes.interfaces.Searchable;
+import classes.shared.Searchable;
 import classes.warehouse.Zone;
 import in.Input;
 import prompts.zone.ZonePrompts;

@@ -2,9 +2,8 @@ package CRUD.position;
 
 import CRUD.zone.ZoneCRUD;
 import classes.database.DB;
-import classes.interfaces.Searchable;
+import classes.shared.Searchable;
 import classes.warehouse.Position;
-import classes.warehouse.Zone;
 import in.Input;
 import prompts.position.PositionPrompts;
 import util.Util;

@@ -1,17 +1,15 @@
 package classes.shared;
 
-import classes.interfaces.Searchable;
-
 import java.util.ArrayList;
 import java.util.UUID;
 
-public class Placeholder implements Searchable {
+public abstract class OrderPlacer extends Searchable {
     private final String ID;
     private String address;
     private Contacts contacts;
     private ArrayList<Order> orders = new ArrayList<>();
 
-    public Placeholder(String address, String email, String phoneNumber) {
+    public OrderPlacer(String address, String email, String phoneNumber) {
         this.ID = UUID.randomUUID().toString();
         this.address = address;
         this.contacts = new Contacts(email, phoneNumber);

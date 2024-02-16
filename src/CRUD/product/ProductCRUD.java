@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import classes.database.DB;
 import in.Input;
 import prompts.product.ProductPrompts;
-import classes.interfaces.Searchable;
+import classes.shared.Searchable;
 import classes.product.Product;
 import classes.productType.ProductType;
 import classes.supplier.Supplier;

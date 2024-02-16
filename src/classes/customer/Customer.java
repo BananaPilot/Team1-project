@@ -1,9 +1,9 @@
 package classes.customer;
 
-import classes.interfaces.Searchable;
-import classes.shared.Placeholder;
+import classes.shared.Searchable;
+import classes.shared.OrderPlacer;
 
-public class Customer extends Placeholder implements Searchable {
+public class Customer extends OrderPlacer {
     private String name;
     private String surname;
 

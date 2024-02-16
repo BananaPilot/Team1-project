@@ -2,7 +2,7 @@ package CRUD.order;
 
 import CRUD.product.ProductCRUD;
 import classes.database.DB;
-import classes.interfaces.Searchable;
+import classes.shared.Searchable;
 import classes.product.Product;
 import classes.shared.Order;
 import classes.shared.OrderProduct;

@@ -1,14 +1,11 @@
 package classes.shared;
 
-import classes.shared.OrderProduct;
-import classes.interfaces.Searchable;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.UUID;
 
 
-public class Order implements Searchable {
+public class Order extends Searchable {
     private final String ID;
     private ArrayList<OrderProduct> products;
     private final LocalDate date;
