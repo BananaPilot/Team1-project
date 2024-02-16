@@ -4,12 +4,12 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.UUID;
 
-import classes.interfaces.Searchable;
+import classes.shared.Searchable;
 import classes.productType.ProductType;
 import classes.supplier.*;
 import classes.warehouse.Position;
 
-public class Product implements Searchable {
+public class Product extends Searchable {
 
     private final String ID;
     private String name;

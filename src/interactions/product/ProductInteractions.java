@@ -1,21 +1,27 @@
 package interactions.product;
 
 import CRUD.product.ProductCRUD;
-import database.DB;
+import classes.database.DB;
+import classes.product.Product;
 import in.Input;
 import prompts.product.ProductPrompts;
 
+import java.util.ArrayList;
+
 public class ProductInteractions {
-    public static void productsHandler() {
+
+    private final ArrayList<Product> products = DB.getInstance().getProducts();
+    private final ProductCRUD productCRUD = new ProductCRUD();
+    public void productsHandler() {
         int input;
         do {
             ProductPrompts.mainProductPrompt();
             input = Input.getInt(null);
             switch (input) {
-                case 1 -> ProductCRUD.createProduct();
-                case 2 -> ProductCRUD.listAllProducts();
-                case 3 -> ProductCRUD.getProduct();
-                case 4 -> DB.getProducts().remove(ProductCRUD.getProduct());
+                case 1 -> productCRUD.createProduct();
+                case 2 -> productCRUD.listAllProducts(products);
+                case 3 -> productCRUD.getProduct(products);
+                case 4 -> products.remove(productCRUD.getProduct(products));
             }
         } while (input != 0);
     }

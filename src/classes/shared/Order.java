@@ -1,21 +1,18 @@
-package classes.supplier;
-
-import classes.shared.OrderProduct;
-import classes.interfaces.Order;
-import classes.interfaces.Searchable;
+package classes.shared;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.UUID;
 
 
-public class SupplierOrder implements Order, Searchable {
+public class Order extends Searchable {
     private final String ID;
     private ArrayList<OrderProduct> products;
     private final LocalDate date;
     private double total;
 
-    public SupplierOrder(ArrayList<OrderProduct> products) {
+
+    public Order(ArrayList<OrderProduct> products) {
         this.ID = UUID.randomUUID().toString();
         this.products = products;
         this.date = LocalDate.now();
@@ -34,12 +31,10 @@ public class SupplierOrder implements Order, Searchable {
         return date;
     }
 
-    @Override
     public double getTotal() {
         return total;
     }
 
-    @Override
     public double calculateTotal() {
         double calculatedTotal = 0;
         for (OrderProduct product : products) {
@@ -59,7 +54,7 @@ public class SupplierOrder implements Order, Searchable {
 
     @Override
     public String toString() {
-        return "SupplierOrder{" +
+        return "CustomerOrder{" +
                 "ID=" + ID +
                 ", orderedProducts=" + products +
                 ", date=" + date +

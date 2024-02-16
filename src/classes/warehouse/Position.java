@@ -1,11 +1,9 @@
 package classes.warehouse;
 
-import classes.interfaces.Searchable;
+import classes.shared.Searchable;
 import classes.product.Product;
 
-import java.util.Objects;
-
-public class Position implements Searchable {
+public class Position extends Searchable {
     private static int wid = 1;
     private String lot;
     private boolean Full = false;
