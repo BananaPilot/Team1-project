@@ -1,8 +1,8 @@
-import classes.in.Input;
+import in.Input;
+
 
 public class Main {
-  public static void main(String[] args) {
-    Input.scanner.close();
-  }
+    public static void main(String[] args) {
+        Input.getScanner().close();
+    }
 }
-
