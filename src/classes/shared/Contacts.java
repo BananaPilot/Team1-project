@@ -1,12 +1,11 @@
 package classes.shared;
 
-import classes.interfaces.Searchable;
 import classes.customer.Customer;
 import classes.supplier.Supplier;
 
 import java.util.ArrayList;
 
-public class Contacts implements Searchable {
+public class Contacts extends Searchable {
     private String email;
     private String phoneNumber;
 
@@ -41,5 +40,13 @@ public class Contacts implements Searchable {
             }
         }
         return null;
+    }
+
+    @Override
+    public String toString() {
+        return "Contacts{" +
+                "email='" + email + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                '}';
     }
 }

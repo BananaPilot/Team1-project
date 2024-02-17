@@ -2,10 +2,7 @@ package util;
 
 import in.Input;
 
-import java.lang.reflect.Field;
 import java.util.ArrayList;
-
-import classes.interfaces.Searchable;
 
 public class Util {
     public static void printArrayList(ArrayList<?> arrayList) {

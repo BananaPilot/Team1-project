@@ -1,11 +1,11 @@
 package classes.productType;
 
-import classes.interfaces.Searchable;
+import classes.shared.Searchable;
 
 import java.util.ArrayList;
 import java.util.UUID;
 
-public class ProductType implements Searchable {
+public class ProductType extends Searchable {
 
     private final String ID;
 

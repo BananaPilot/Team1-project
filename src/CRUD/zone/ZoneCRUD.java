@@ -1,7 +1,6 @@
 package CRUD.zone;
 
-import classes.database.DB;
-import classes.interfaces.Searchable;
+import classes.shared.Searchable;
 import classes.warehouse.Zone;
 import in.Input;
 import prompts.zone.ZonePrompts;
@@ -10,7 +9,6 @@ import util.Util;
 import java.util.ArrayList;
 
 public class ZoneCRUD {
-    private ArrayList<Zone> zones = DB.getZones();
 
     public Zone createZone() {
         return new Zone(Input.getString("Sector name: "));
@@ -20,7 +18,7 @@ public class ZoneCRUD {
         Util.printArrayList(zones);
     }
 
-    public Zone getZone() {
+    public Zone getZone(ArrayList<Zone> zones) {
         ZonePrompts.zoneSearchPrompt();
         int input = Input.getInput();
         Searchable searchable = switch (input) {
@@ -30,8 +28,8 @@ public class ZoneCRUD {
         return (Zone) searchable;
     }
 
-    public void updateZone() {
-        Zone zone = getZone();
+    public void updateZone(ArrayList<Zone> zones) {
+        Zone zone = getZone(zones);
         if (zone == null) {
             return;
         }

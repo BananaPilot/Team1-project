@@ -2,14 +2,14 @@ package CRUD.product;
 
 import java.util.ArrayList;
 
+import classes.database.DB;
 import in.Input;
 import prompts.product.ProductPrompts;
-import classes.interfaces.Searchable;
+import classes.shared.Searchable;
 import classes.product.Product;
 import classes.productType.ProductType;
 import classes.supplier.Supplier;
 import classes.warehouse.*;
-import database.DB;
 import util.Util;
 
 public class ProductCRUD {
@@ -20,16 +20,16 @@ public class ProductCRUD {
      *
      * @since 0.1
      */
-    public static Product createProduct() {
+    public Product createProduct() {
         return new Product(
                 Input.getString("Name: "),
                 Input.getString("Brand: "),
                 Input.getString("Description: "),
                 Input.getDouble("Price: "),
-                (Supplier) Util.select(DB.getSuppliers(), "Select a supplier: "),
-                (ProductType) Util.select(DB.getProductTypes(), "Select product type: "),
+                (Supplier) Util.select(DB.getInstance().getSuppliers(), "Select a supplier: "),
+                (ProductType) Util.select(DB.getInstance().getProductTypes(), "Select product type: "),
                 (Position) Util.select(
-                        ((Zone) Util.select(DB.getZones(), "Select stocking zone: ")) //select zone of interest
+                        ((Zone) Util.select(DB.getInstance().getZones(), "Select stocking zone: ")) //select zone of interest
                                 .getPositions(), "Select stocking position:") //completing selection of position
         );
     }
@@ -40,8 +40,8 @@ public class ProductCRUD {
      * @since 0.1
      */
 
-    public static void listAllProducts() {
-        Util.printArrayList(DB.getProducts());
+    public void listAllProducts(ArrayList<Product> products) {
+        Util.printArrayList(products);
     }
 
 
@@ -51,7 +51,7 @@ public class ProductCRUD {
      * @return arraylist with products with the selected type
      * @since 0.1
      */
-    public static ArrayList<Product> searchByProductType(ArrayList<Product> products, ArrayList<ProductType> productTypes) {
+    public ArrayList<Product> searchByProductType(ArrayList<Product> products, ArrayList<ProductType> productTypes) {
         Util.printArrayList(productTypes);
         ProductType productType = ProductType.search(productTypes, Input.getString("Type name: "));
         ArrayList<Product> productsByType = new ArrayList<Product>();
@@ -64,37 +64,24 @@ public class ProductCRUD {
     }
 
     /**
-     * @param products
-     * @param values
-     * @return
-     * @since 0.1
-     */
-
-    public static Product search(ArrayList<Product> products, Object... values) {
-        for (Product product : products) {
-            if (product.contains(values)) return product;
-        }
-        return null;
-    }
-
-    /**
      * Searches for elements including the searched string
      *
      * @return the element(s) corresponding to the searched string
      * @see Searchable
      */
 
-    public static Product getProduct() {
+    public Product getProduct(ArrayList<Product> products) {
         int input;
         ProductPrompts.searchProductPrompt();
         input = Input.getInput();
         Object object = switch (input) {
-            case 1 -> search(DB.getProducts(), Input.getString("ID: "));
-            case 2 -> search(DB.getProducts(), Input.getString("Name: "));
-            case 3 -> search(DB.getProducts(), Input.getString("Brand: "));
-            case 4 -> searchByProductType(DB.getProducts(), DB.getProductTypes());
+            case 1 -> Searchable.search(products, Input.getString("ID: "));
+            case 2 -> Searchable.search(products, Input.getString("Name: "));
+            case 3 -> Searchable.search(products, Input.getString("Brand: "));
+            case 4 -> searchByProductType(products, DB.getInstance().getProductTypes());
             default -> null;
         };
+        assert object instanceof Product;
         return (Product) object;
     }
 
@@ -109,8 +96,8 @@ public class ProductCRUD {
      * @since 0.1
      */
 
-    public static void updateProduct() {
-        Product product = getProduct();
+    public void updateProduct(ArrayList<Product> products) {
+        Product product = getProduct(products);
         if (product == null) {
             System.out.println("Something went wrong please try again");
             return;
@@ -125,7 +112,7 @@ public class ProductCRUD {
                 case 3 -> product.setDescription(Input.getString("New description: "));
                 case 4 -> product.setPrice(Input.getDouble("New price: "));
                 case 5 -> product.setPosition((Position) Util.select(
-                        ((Zone) Util.select(DB.getZones(), "Select new stocking zone: ")) //select zone of interest
+                        ((Zone) Util.select(DB.getInstance().getZones(), "Select new stocking zone: ")) //select zone of interest
                                 .getPositions(), "Select new stocking position:"));
             }
         } while (input != 0);

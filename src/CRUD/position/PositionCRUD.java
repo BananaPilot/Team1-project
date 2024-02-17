@@ -1,9 +1,9 @@
 package CRUD.position;
 
 import CRUD.zone.ZoneCRUD;
-import classes.interfaces.Searchable;
+import classes.database.DB;
+import classes.shared.Searchable;
 import classes.warehouse.Position;
-import classes.warehouse.Zone;
 import in.Input;
 import prompts.position.PositionPrompts;
 import util.Util;
@@ -14,7 +14,7 @@ public class PositionCRUD {
     ZoneCRUD zoneCRUD = new ZoneCRUD();
 
     public void listPositions() {
-        Util.printArrayList(zoneCRUD.getZone().getPositions());
+        Util.printArrayList(zoneCRUD.getZone(DB.getInstance().getZones()).getPositions());
     }
 
     public Position getPosition() {
@@ -22,7 +22,7 @@ public class PositionCRUD {
         int input = Input.getInput();
         switch (input) {
             case 1 -> {
-                return (Position) Searchable.search(zoneCRUD.getZone().getPositions(), Input.getString("Lot: "));
+                return (Position) Searchable.search(zoneCRUD.getZone(DB.getInstance().getZones()).getPositions(), Input.getString("Lot: "));
             }
             case 2 -> System.out.println(getPositionsByState());
             default -> throw new IllegalStateException("Unexpected value: " + input);
@@ -35,7 +35,7 @@ public class PositionCRUD {
         ArrayList<Position> positions = new ArrayList<>();
         String state = Input.getString("State: ");
         if (state.equals("true") || state.equals("false")) {
-            for (Position position : zoneCRUD.getZone().getPositions()) {
+            for (Position position : zoneCRUD.getZone(DB.getInstance().getZones()).getPositions()) {
                 if (position.contains(state)) positions.add(position);
             }
         } else {

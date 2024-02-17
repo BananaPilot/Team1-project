@@ -10,42 +10,52 @@ import java.util.ArrayList;
 
 public class DB {
 
-    private static ArrayList<Product> products;
-    private static ArrayList<Supplier> suppliers;
-    private static ArrayList<ProductType> productTypes;
-    private static ArrayList<Zone> zones;
-    private static ArrayList<Customer> customers;
+    private static DB db;
+    private ArrayList<Product> products;
+    private ArrayList<Supplier> suppliers;
+    private ArrayList<ProductType> productTypes;
+    private ArrayList<Zone> zones;
+    private ArrayList<Customer> customers;
+
+    private DB(){}
+
+    public static DB getInstance() {
+        if (db == null){
+            db = new DB();
+        }
+        return db;
+    }
 
 
-    public static ArrayList<Supplier> getSuppliers() {
+    public ArrayList<Supplier> getSuppliers() {
         if (suppliers == null) {
             suppliers = new ArrayList<>();
         }
         return suppliers;
     }
 
-    public static ArrayList<ProductType> getProductTypes() {
+    public ArrayList<ProductType> getProductTypes() {
         if (productTypes == null) {
             productTypes = new ArrayList<>();
         }
         return productTypes;
     }
 
-    public static ArrayList<Zone> getZones() {
+    public ArrayList<Zone> getZones() {
         if (zones == null) {
             zones = new ArrayList<>();
         }
         return zones;
     }
 
-    public static ArrayList<Product> getProducts() {
+    public ArrayList<Product> getProducts() {
         if (products == null) {
             products = new ArrayList<>();
         }
         return products;
     }
 
-    public static ArrayList<Customer> getCustomers() {
+    public ArrayList<Customer> getCustomers() {
         if (customers == null) {
             customers = new ArrayList<>();
         }
