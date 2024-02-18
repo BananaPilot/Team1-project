@@ -8,7 +8,6 @@ import prompts.product.ProductPrompts;
 import classes.shared.Searchable;
 import classes.product.Product;
 import classes.productType.ProductType;
-import classes.supplier.Supplier;
 import classes.warehouse.*;
 import util.Util;
 
@@ -20,18 +19,28 @@ public class ProductCRUD {
      *
      * @since 0.1
      */
-    public Product createProduct() {
-        return new Product(
-                Input.getString("Name: "),
-                Input.getString("Brand: "),
-                Input.getString("Description: "),
-                Input.getDouble("Price: "),
-                (Supplier) Util.select(DB.getInstance().getSuppliers(), "Select a supplier: "),
-                (ProductType) Util.select(DB.getInstance().getProductTypes(), "Select product type: "),
-                (Position) Util.select(
-                        ((Zone) Util.select(DB.getInstance().getZones(), "Select stocking zone: ")) //select zone of interest
-                                .getPositions(), "Select stocking position:") //completing selection of position
-        );
+    public Product createProduct() throws IllegalArgumentException{
+        Product product;
+        try {
+            product = new Product(
+                    Input.getString("Name: "),
+                    Input.getString("Brand: "),
+                    Input.getString("Description: "),
+                    Input.getDouble("Price: "),
+                    Util.select(DB.getInstance().getSuppliers(), "Select a supplier: "),
+                    Util.select(DB.getInstance().getProductTypes(), "Select product type: "),
+                    Util.select(
+                            Util.select(DB.getInstance().getZones(), "Select stocking zone: ") //select zone of interest
+                            .getPositions(),"Select stocking position:") //completing selection of position
+            );
+        } catch (IllegalArgumentException e) {
+            product = null;
+            e.getMessage();
+        }
+        if(product == null) {
+            throw new IllegalArgumentException("Couldn't create product because of empty lists of suppliers, product types or stocking positions.");
+        }
+        return product;
     }
 
     /**
