@@ -17,12 +17,19 @@ public class Util {
         return first.toUpperCase() + rest;
     }
 
-    public static Object select(ArrayList<?> genericCollection, String description) {
+    public static <T> T select(ArrayList<T> genericCollection, String description) throws IllegalArgumentException{
         System.out.print(description);
+        if(genericCollection.isEmpty()) {
+            throw new IllegalArgumentException("This list is empty!");
+        }
         for (int i = 0; i < genericCollection.size(); i++) {
             System.out.println((i + 1) + ". " + genericCollection.get(i));
         }
-        int index = Input.getInput();
+        int index;
+        index = Input.getInput();
+        if(genericCollection.size() < index) {
+            throw new IllegalArgumentException("The selected value is not in the list.");
+        }
         return genericCollection.get(index - 1);
     }
 }
