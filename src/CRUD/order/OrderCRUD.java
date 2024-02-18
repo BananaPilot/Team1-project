@@ -39,12 +39,11 @@ public class OrderCRUD {
     public Order getOrder(ArrayList<Order> orders) {
         OrderPrompts.orderSearchPrompt();
         int input = Input.getInput();
-        Searchable searchable = switch (input) {
+        return switch (input) {
             case 1 -> Searchable.search(orders, Input.getString("ID: "));
             case 2 -> Searchable.search(orders, LocalDate.parse(Input.getString("Date in format DD-MM-YYYY"), dateFormat));
             default -> throw new IllegalStateException("Unexpected value: " + input);
         };
-        return (Order) searchable;
     }
 
     public void updateOrder(ArrayList<Order> orders) {

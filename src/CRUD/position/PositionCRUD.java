@@ -26,8 +26,7 @@ public class PositionCRUD {
             }
             case 2 -> System.out.println(getPositionsByState());
             default -> throw new IllegalStateException("Unexpected value: " + input);
-        }
-        ;
+        };
         return null;
     }
 

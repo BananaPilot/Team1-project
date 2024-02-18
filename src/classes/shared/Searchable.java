@@ -54,8 +54,8 @@ public abstract class Searchable {
     }
 
 
-    static Searchable search(ArrayList<? extends Searchable> arrayList, Object... values) {
-        for (Searchable searchable : arrayList) {
+    public static <T extends Searchable> T search(ArrayList<T> arrayList, Object... values) {
+        for (T searchable : arrayList) {
             if (searchable.contains(values)) return searchable;
         }
         return null;

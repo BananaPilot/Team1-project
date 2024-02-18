@@ -23,15 +23,14 @@ public class SupplierCRUD {
         int input;
         SupplierPrompts.supplierSearchPrompt();
         input = Input.getInput();
-        Object object = switch (input) {
+        return switch (input) {
             case 1 -> Searchable.search(suppliers, Input.getString("ID: "));
             case 2 -> Searchable.search(suppliers, Input.getString("VAT-number: "));
-            case 3 -> Contacts.search(suppliers, Input.getString("E-mail: "));
+            case 3 -> (Supplier) Contacts.search(suppliers, Input.getString("E-mail: "));
             case 4 -> Searchable.search(suppliers, Input.getString("Company name: "));
             case 5 -> Searchable.search(suppliers, Input.getInt("Supplied product type: "));
             default -> null;
         };
-        return (Supplier) object;
     }
 
     public void updateSupplier(ArrayList<Supplier> suppliers) {

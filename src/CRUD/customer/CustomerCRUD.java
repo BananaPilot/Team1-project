@@ -22,13 +22,12 @@ public class CustomerCRUD {
         int input;
         CustomerPrompts.customerSearchPrompt();
         input = Input.getInput();
-        Object object = switch (input) {
+        return switch (input) {
             case 1 -> Searchable.search(customers, Input.getString("ID: "));
-            case 2 -> Contacts.search(customers, Input.getString("Email: "));
+            case 2 -> (Customer) Contacts.search(customers, Input.getString("Email: "));
             case 3 -> Searchable.search(customers, Input.getString("Name: "), Input.getString("Surname: "));
             default -> null;
         };
-        return (Customer) object;
     }
 
     public void updateCustomer(ArrayList<Customer> customers) {

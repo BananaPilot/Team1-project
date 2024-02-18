@@ -30,7 +30,7 @@ public class Contacts extends Searchable {
         this.phoneNumber = phoneNumber;
     }
 
-    public static Searchable search(ArrayList<? extends Searchable> searchables, Object value) {
+    public static OrderPlacer search(ArrayList<? extends Searchable> searchables, Object value) {
         for (Searchable searchable : searchables) {
             if (searchable instanceof Customer customer) {
                 if (customer.getContacts().contains(value)) return customer;

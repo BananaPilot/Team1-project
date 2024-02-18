@@ -21,11 +21,10 @@ public class ZoneCRUD {
     public Zone getZone(ArrayList<Zone> zones) {
         ZonePrompts.zoneSearchPrompt();
         int input = Input.getInput();
-        Searchable searchable = switch (input) {
+        return switch (input) {
             case 1 -> Searchable.search(zones, Input.getString("Sector name: "));
             default -> throw new IllegalStateException("Unexpected value: " + input);
         };
-        return (Zone) searchable;
     }
 
     public void updateZone(ArrayList<Zone> zones) {
