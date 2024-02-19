@@ -19,8 +19,8 @@ public class MainInteraction {
     public void mainHandler() {
         int input;
         do {
-            input = Input.getInput();
             MainPrompt.mainPrompt();
+            input = Input.getInput();
             switch (input) {
                 case 1 -> customerInteractions.CustomerHandler();
                 case 2 -> supplierInteractions.supplierHandler();

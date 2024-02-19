@@ -15,7 +15,7 @@ public class ProductCRUD {
 
 
     /**
-     * requests an input for every attribute of a product and creates it, adding it to the products arraylist
+     * Requests an input for every attribute of a product and creates it, adding it to the products arraylist
      *
      * @since 0.1
      */
@@ -35,7 +35,7 @@ public class ProductCRUD {
             );
         } catch (IllegalArgumentException e) {
             product = null;
-            e.getMessage();
+            System.out.println(e.getMessage());
         }
         if(product == null) {
             throw new IllegalArgumentException("Couldn't create product because of empty lists of suppliers, product types or stocking positions.");

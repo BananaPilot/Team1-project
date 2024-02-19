@@ -16,9 +16,9 @@ public class ProductInteractions {
         int input;
         do {
             ProductPrompts.mainProductPrompt();
-            input = Input.getInt(null);
+            input = Input.getInt("Input: ");
             switch (input) {
-                case 1 -> productCRUD.createProduct();
+                case 1 -> {try{productCRUD.createProduct();} catch (IllegalArgumentException e) {System.out.println(e.getMessage());}}
                 case 2 -> productCRUD.listAllProducts(products);
                 case 3 -> productCRUD.getProduct(products);
                 case 4 -> products.remove(productCRUD.getProduct(products));
