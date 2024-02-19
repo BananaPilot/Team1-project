@@ -13,7 +13,7 @@ public class MainInteraction {
     SupplierInteractions supplierInteractions = new SupplierInteractions();
     ProductInteractions productInteractions = new ProductInteractions();
 
-    //TODO prductType interactions
+    //TODO productType interactions
     ZoneInteractions zoneInteractions = new ZoneInteractions();
     PositionInteractions positionInteractions = new PositionInteractions();
     public void mainHandler() {
