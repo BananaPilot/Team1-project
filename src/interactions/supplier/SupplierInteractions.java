@@ -8,6 +8,7 @@ import interactions.order.OrderInteractions;
 import prompts.supplier.SupplierPrompts;
 
 import java.util.ArrayList;
+import java.util.NoSuchElementException;
 
 public class SupplierInteractions {
     private final SupplierCRUD supplierCRUD = new SupplierCRUD();
@@ -16,17 +17,41 @@ public class SupplierInteractions {
 
     public void supplierHandler() {
         int input;
-        do {
-            SupplierPrompts.supplierMainPrompt();
-            input = Input.getInput();
-            switch (input) {
-                case 1 -> suppliers.add(supplierCRUD.createSupplier());
-                case 2 -> supplierCRUD.listSuppliers(suppliers);
-                case 3 -> System.out.println(supplierCRUD.getSupplier(suppliers));
-                case 4 -> supplierCRUD.updateSupplier(suppliers);
-                case 5 -> suppliers.remove(supplierCRUD.getSupplier(suppliers));
-                case 6 -> orderInteractions.orderHandler(supplierCRUD.getSupplier(suppliers));
-            }
-        } while (input != 0);
+        try {
+            do {
+                SupplierPrompts.supplierMainPrompt();
+                input = Input.getInput();
+                switch (input) {
+                    case 1 -> {
+                        Supplier supplier = supplierCRUD.createSupplier();
+                        if (supplier != null) {
+                            suppliers.add(supplier);
+                        }
+                    }
+                    case 2 -> supplierCRUD.listSuppliers(suppliers);
+                    case 3 -> {
+                        Supplier supplier = supplierCRUD.getSupplier(suppliers);
+                        if (supplier != null) {
+                            System.out.println(supplier);
+                        }
+                    }
+                    case 4 -> supplierCRUD.updateSupplier(suppliers);
+                    case 5 -> {
+                        Supplier supplier = supplierCRUD.getSupplier(suppliers);
+                        if (supplier != null) {
+                            suppliers.remove(supplier);
+                        }
+                    }
+                    case 6 -> {
+                        Supplier supplier = supplierCRUD.getSupplier(suppliers);
+                        if (supplier != null) {
+                            orderInteractions.orderHandler(supplier);
+                        }
+                    }
+                }
+            } while (input != 0);
+        } catch (NoSuchElementException e) {
+            System.out.println("Invalid input. Please enter a valid choice.");
+        }
     }
 }
