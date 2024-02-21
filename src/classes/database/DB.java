@@ -4,7 +4,7 @@ import classes.customer.Customer;
 import classes.product.Product;
 import classes.productType.ProductType;
 import classes.supplier.Supplier;
-import classes.warehouse.Zone;
+import classes.zone.Zone;
 
 import java.util.ArrayList;
 
