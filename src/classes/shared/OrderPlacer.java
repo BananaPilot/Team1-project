@@ -1,5 +1,7 @@
 package classes.shared;
 
+import classes.order.Order;
+
 import java.util.ArrayList;
 import java.util.UUID;
 

@@ -7,7 +7,7 @@ import java.util.UUID;
 import classes.shared.Searchable;
 import classes.productType.ProductType;
 import classes.supplier.*;
-import classes.warehouse.Position;
+import classes.position.Position;
 
 public class Product extends Searchable {
 
