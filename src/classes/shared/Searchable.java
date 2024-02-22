@@ -15,7 +15,7 @@ public abstract class Searchable {
                 try {
                     Object object = method.invoke(this);
                     if (object == null) continue;
-                    if (object.equals(value)) if (!objects.contains(this)) objects.add(this);
+                    if (object.equals(value) && !objects.contains(this)) objects.add(this);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
