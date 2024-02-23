@@ -16,7 +16,7 @@ public class CustomerInteractions {
         int input;
         do {
             CustomerPrompts.customerMainPrompt();
-            input = Input.getInput();
+            input = Input.getInstance().getInput();
             switch (input) {
                 case 1 -> customers.add(customerCRUD.createCustomer());
                 case 2 -> customerCRUD.listCustomers(customers);

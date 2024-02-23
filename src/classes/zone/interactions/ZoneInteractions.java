@@ -14,7 +14,7 @@ public class ZoneInteractions {
         int input;
         do {
             ZonePrompts.zoneMainPrompt();
-            input = Input.getInput();
+            input = Input.getInstance().getInput();
             switch (input) {
                 case 1 -> zones.add(zoneCRUD.createZone());
                 case 2 -> zoneCRUD.listZones(zones);

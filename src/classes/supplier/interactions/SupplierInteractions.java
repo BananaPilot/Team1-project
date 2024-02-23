@@ -16,7 +16,7 @@ public class SupplierInteractions {
         int input;
         do {
             SupplierPrompts.supplierMainPrompt();
-            input = Input.getInput();
+            input = Input.getInstance().getInput();
             switch (input) {
                 case 1 -> suppliers.add(supplierCRUD.createSupplier());
                 case 2 -> supplierCRUD.listSuppliers(suppliers);

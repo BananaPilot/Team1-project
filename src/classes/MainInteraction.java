@@ -19,7 +19,7 @@ public class MainInteraction {
         int input;
         do {
             MainPrompt.mainPrompt();
-            input = Input.getInput();
+            input = Input.getInstance().getInput();
             switch (input) {
                 case 1 -> customerInteractions.CustomerHandler();
                 case 2 -> supplierInteractions.supplierHandler();

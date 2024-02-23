@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class CustomerCRUD {
     public Customer createCustomer() {
-        return new Customer(Input.getString("Name: "), Input.getString("Surname: "), Input.getString("Address: "), Input.getString("E-Mail: "), Input.getString("Phone-number: "));
+        return new Customer(Input.getInstance().getString("Name: "), Input.getInstance().getString("Surname: "), Input.getInstance().getString("Address: "), Input.getInstance().getString("E-Mail: "), Input.getInstance().getString("Phone-number: "));
     }
 
     public void listCustomers(ArrayList<Customer> customers) {
@@ -20,11 +20,11 @@ public class CustomerCRUD {
     public Customer getCustomer(ArrayList<Customer> customers) {
         int input;
         CustomerPrompts.customerSearchPrompt();
-        input = Input.getInput();
+        input = Input.getInstance().getInput();
         return switch (input) {
-            case 1 -> Searchable.search(customers, Input.getString("ID: "));
-            case 2 -> (Customer) Contacts.search(customers, Input.getString("Email: "));
-            case 3 -> Searchable.search(customers, Input.getString("Name: "), Input.getString("Surname: "));
+            case 1 -> Searchable.search(customers, Input.getInstance().getString("ID: "));
+            case 2 -> (Customer) Contacts.search(customers, Input.getInstance().getString("Email: "));
+            case 3 -> Searchable.search(customers, Input.getInstance().getString("Name: "), Input.getInstance().getString("Surname: "));
             default -> null;
         };
     }
@@ -38,13 +38,13 @@ public class CustomerCRUD {
         int input;
         do {
             CustomerPrompts.customerUpdatePrompt();
-            input = Input.getInput();
+            input = Input.getInstance().getInput();
             switch (input) {
-                case 1 -> customer.setName(Input.getString("New name: "));
-                case 2 -> customer.setSurname(Input.getString("New Surname: "));
-                case 3 -> customer.setAddress(Input.getString("New address: "));
-                case 4 -> customer.getContacts().setEmail(Input.getString("New E-mail: "));
-                case 5 -> customer.getContacts().setEmail(Input.getString("New Phone-number: "));
+                case 1 -> customer.setName(Input.getInstance().getString("New name: "));
+                case 2 -> customer.setSurname(Input.getInstance().getString("New Surname: "));
+                case 3 -> customer.setAddress(Input.getInstance().getString("New address: "));
+                case 4 -> customer.getContacts().setEmail(Input.getInstance().getString("New E-mail: "));
+                case 5 -> customer.getContacts().setEmail(Input.getInstance().getString("New Phone-number: "));
             }
         } while (input != 0);
         System.out.println("Updated Customer: " + customer);

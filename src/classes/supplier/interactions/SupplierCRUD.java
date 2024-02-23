@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class SupplierCRUD {
 
     public Supplier createSupplier() {
-        return new Supplier(Input.getString("Name: "), Input.getString("Address: "), Input.getInt("Supplier product type: "), Input.getString("VAT-number: "), Input.getString("E-mail: "), Input.getString("Phone-number: "));
+        return new Supplier(Input.getInstance().getString("Name: "), Input.getInstance().getString("Address: "), Input.getInstance().getInt("Supplier product type: "), Input.getInstance().getString("VAT-number: "), Input.getInstance().getString("E-mail: "), Input.getInstance().getString("Phone-number: "));
     }
 
     public void listSuppliers(ArrayList<Supplier> suppliers) {
@@ -21,13 +21,13 @@ public class SupplierCRUD {
     public Supplier getSupplier(ArrayList<Supplier> suppliers) {
         int input;
         SupplierPrompts.supplierSearchPrompt();
-        input = Input.getInput();
+        input = Input.getInstance().getInput();
         return switch (input) {
-            case 1 -> Searchable.search(suppliers, Input.getString("ID: "));
-            case 2 -> Searchable.search(suppliers, Input.getString("VAT-number: "));
-            case 3 -> (Supplier) Contacts.search(suppliers, Input.getString("E-mail: "));
-            case 4 -> Searchable.search(suppliers, Input.getString("Company name: "));
-            case 5 -> Searchable.search(suppliers, Input.getInt("Supplied product type: "));
+            case 1 -> Searchable.search(suppliers, Input.getInstance().getString("ID: "));
+            case 2 -> Searchable.search(suppliers, Input.getInstance().getString("VAT-number: "));
+            case 3 -> (Supplier) Contacts.search(suppliers, Input.getInstance().getString("E-mail: "));
+            case 4 -> Searchable.search(suppliers, Input.getInstance().getString("Company name: "));
+            case 5 -> Searchable.search(suppliers, Input.getInstance().getInt("Supplied product type: "));
             default -> null;
         };
     }
@@ -41,12 +41,12 @@ public class SupplierCRUD {
         int input;
         do {
             SupplierPrompts.supplierUpdatePrompt();
-            input = Input.getInput();
+            input = Input.getInstance().getInput();
             switch (input) {
-                case 1 -> supplier.setCompanyName(Input.getString("New company name:"));
-                case 2 -> supplier.setAddress(Input.getString("New address: "));
-                case 3 -> supplier.getContacts().setEmail(Input.getString("New e-mail: "));
-                case 4 -> supplier.getContacts().setPhoneNumber(Input.getString("New phone-number"));
+                case 1 -> supplier.setCompanyName(Input.getInstance().getString("New company name:"));
+                case 2 -> supplier.setAddress(Input.getInstance().getString("New address: "));
+                case 3 -> supplier.getContacts().setEmail(Input.getInstance().getString("New e-mail: "));
+                case 4 -> supplier.getContacts().setPhoneNumber(Input.getInstance().getString("New phone-number"));
             }
         } while (input != 0);
         System.out.println("Updated supplier: " + supplier);

@@ -21,10 +21,10 @@ public class OrderCRUD {
         int input;
         do{
             OrderPrompts.orderCreationPrompt();
-            input = Input.getInput();
+            input = Input.getInstance().getInput();
             switch (input) {
-                case 1 -> orderProducts.add(new OrderProduct(Input.getInt("Quantity: "),(Product) Util.select(DB.getInstance().getProducts(), "Select a product to add")));
-                case 2 -> orderProducts.add(new OrderProduct(Input.getInt("Quantity: "), productCRUD.createProduct()));
+                case 1 -> orderProducts.add(new OrderProduct(Input.getInstance().getInt("Quantity: "),(Product) Util.select(DB.getInstance().getProducts(), "Select a product to add")));
+                case 2 -> orderProducts.add(new OrderProduct(Input.getInstance().getInt("Quantity: "), productCRUD.createProduct()));
             }
         } while (input != 0);
         if (orderProducts.isEmpty()) return null;
@@ -37,10 +37,10 @@ public class OrderCRUD {
 
     public Order getOrder(ArrayList<Order> orders) {
         OrderPrompts.orderSearchPrompt();
-        int input = Input.getInput();
+        int input = Input.getInstance().getInput();
         return switch (input) {
-            case 1 -> Searchable.search(orders, Input.getString("ID: "));
-            case 2 -> Searchable.search(orders, LocalDate.parse(Input.getString("Date in format DD-MM-YYYY"), dateFormat));
+            case 1 -> Searchable.search(orders, Input.getInstance().getString("ID: "));
+            case 2 -> Searchable.search(orders, LocalDate.parse(Input.getInstance().getString("Date in format DD-MM-YYYY"), dateFormat));
             default -> throw new IllegalStateException("Unexpected value: " + input);
         };
     }
@@ -52,9 +52,9 @@ public class OrderCRUD {
         do {
             OrderProduct orderProduct = (OrderProduct) Util.select(order.getProducts(), "Select a product to change");
             OrderPrompts.orderUpdatePrompt();
-            input = Input.getInput();
+            input = Input.getInstance().getInput();
             switch (input) {
-                case 1 -> orderProduct.setOrderQty(Input.getInt("New quantity: "));
+                case 1 -> orderProduct.setOrderQty(Input.getInstance().getInt("New quantity: "));
                 case 2 -> orderProduct.setProduct((Product) Util.select(DB.getInstance().getProducts(), "Select a new product"));
             }
         } while (input != 0);

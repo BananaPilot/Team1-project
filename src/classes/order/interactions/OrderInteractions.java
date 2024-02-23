@@ -11,7 +11,7 @@ public class OrderInteractions {
         int input;
         do {
             OrderPrompts.orderMainPrompt();
-            input = Input.getInput();
+            input = Input.getInstance().getInput();
             switch (input) {
                 case 1 -> orderPlacer.getOrders().add(orderCRUD.createOrder());
                 case 2 -> orderCRUD.listOrders(orderPlacer.getOrders());
