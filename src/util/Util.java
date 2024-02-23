@@ -28,7 +28,7 @@ public class Util {
         int index = -1;
         boolean outOfBoundIndex = false;
         do{
-            index = Input.getInput();
+            index = Input.getInstance().getInput();
             if(genericCollection.size() < index) {
                 System.out.println("The number you selected is not into the list." +
                         "Please select again or press 0 to skip the selection.");

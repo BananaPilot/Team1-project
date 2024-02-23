@@ -22,9 +22,9 @@ public class ProductCRUD {
      */
     public Product createProduct() {
         return new Product(
-                Input.getString("Name: "),
-                Input.getString("Brand: "),
-                Input.getString("Description: "),
+                Input.getInstance().getString("Name: "),
+                Input.getInstance().getString("Brand: "),
+                Input.getInstance().getString("Description: "),
                 Input.getInstance().getDouble("Price: "),
                 (Supplier) Util.select(DB.getInstance().getSuppliers(), "Select a supplier: "),
                 (ProductType) Util.select(DB.getInstance().getProductTypes(), "Select product type: "),
@@ -53,7 +53,7 @@ public class ProductCRUD {
      */
     public ArrayList<Product> searchByProductType(ArrayList<Product> products, ArrayList<ProductType> productTypes) {
         Util.printArrayList(productTypes);
-        ProductType productType = ProductType.search(productTypes, Input.getString("Type name: "));
+        ProductType productType = ProductType.search(productTypes, Input.getInstance().getString("Type name: "));
         ArrayList<Product> productsByType = new ArrayList<Product>();
         for (Product product : products) {
             if (product.contains(productType)) {
