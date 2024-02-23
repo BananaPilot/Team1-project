@@ -1,5 +1,6 @@
 package classes.supplier.interactions;
 
+import classes.database.DB;
 import classes.shared.Searchable;
 import classes.shared.Contacts;
 import classes.supplier.Supplier;
@@ -11,7 +12,7 @@ import java.util.ArrayList;
 public class SupplierCRUD {
 
     public Supplier createSupplier() {
-        return new Supplier(Input.getInstance().getString("Name: "), Input.getInstance().getString("Address: "), Input.getInstance().getInt("Supplier product type: "), Input.getInstance().getString("VAT-number: "), Input.getInstance().getString("E-mail: "), Input.getInstance().getString("Phone-number: "));
+        return new Supplier(Input.getInstance().getString("Name: "), Input.getInstance().getString("Address: "), Util.select(DB.getInstance().getProductTypes(), "Select product type supplied: "), Input.getInstance().getString("VAT-number: "), Input.getInstance().getString("E-mail: "), Input.getInstance().getString("Phone-number: "));
     }
 
     public void listSuppliers(ArrayList<Supplier> suppliers) {
