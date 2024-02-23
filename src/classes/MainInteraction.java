@@ -1,5 +1,6 @@
 package classes;
 
+import classes.shared.ExceptionHandler;
 import in.Input;
 import classes.customer.inteactions.CustomerInteractions;
 import classes.position.interactions.PositionInteractions;
@@ -20,14 +21,18 @@ public class MainInteraction {
         do {
             MainPrompt.mainPrompt();
             input = Input.getInstance().getInput();
-            switch (input) {
-                case 1 -> customerInteractions.CustomerHandler();
-                case 2 -> supplierInteractions.supplierHandler();
-                case 3 -> productInteractions.productsHandler();
-                case 4 -> System.out.println("todo");
-                case 5 -> zoneInteractions.zoneHandler();
-                case 6 -> positionInteractions.positionHandler();
-                default -> throw new IllegalStateException("Unexpected value: " + input);
+            try {
+                switch (input) {
+                    case 1 -> customerInteractions.CustomerHandler();
+                    case 2 -> supplierInteractions.supplierHandler();
+                    case 3 -> productInteractions.productsHandler();
+                    case 4 -> System.out.println("todo");
+                    case 5 -> zoneInteractions.zoneHandler();
+                    case 6 -> positionInteractions.positionHandler();
+                    default -> throw new IllegalStateException("Unexpected value: " + input);
+                }
+            } catch (Exception e){
+                new ExceptionHandler().handle(e);
             }
         } while (input != 0);
     }
