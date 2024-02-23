@@ -24,7 +24,7 @@ public class CustomerInteractions {
                 case 4 -> customerCRUD.updateCustomer(customers);
                 case 5 -> customers.remove(customerCRUD.getCustomer(customers));
                 case 6 -> orderInteractions.orderHandler(customerCRUD.getCustomer(customers));
-                default -> throw new IllegalArgumentException("There was a input mismatch please select a correct action");
+                default -> throw new IllegalStateException("Unexpected value: " + input);
             }
         } while (input != 0);
     }
