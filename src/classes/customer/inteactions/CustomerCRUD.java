@@ -25,7 +25,7 @@ public class CustomerCRUD {
             case 1 -> Searchable.search(customers, Input.getInstance().getString("ID: "));
             case 2 -> (Customer) Contacts.search(customers, Input.getInstance().getString("Email: "));
             case 3 -> Searchable.search(customers, Input.getInstance().getString("Name: "), Input.getInstance().getString("Surname: "));
-            default -> null;
+            default -> throw new IllegalStateException("Unexpected value: " + input);
         };
     }
 
@@ -45,6 +45,7 @@ public class CustomerCRUD {
                 case 3 -> customer.setAddress(Input.getInstance().getString("New address: "));
                 case 4 -> customer.getContacts().setEmail(Input.getInstance().getString("New E-mail: "));
                 case 5 -> customer.getContacts().setEmail(Input.getInstance().getString("New Phone-number: "));
+                default -> throw new IllegalStateException("Unexpected value: " + input);
             }
         } while (input != 0);
         System.out.println("Updated Customer: " + customer);

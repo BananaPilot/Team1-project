@@ -79,7 +79,7 @@ public class ProductCRUD {
             case 2 -> Searchable.search(products, Input.getInstance().getString("Name: "));
             case 3 -> Searchable.search(products, Input.getInstance().getString("Brand: "));
             case 4 -> searchByProductType(products, DB.getInstance().getProductTypes());
-            default -> null;
+            default -> throw new IllegalStateException("Unexpected value: " + input);
         };
         assert object instanceof Product;
         return (Product) object;
@@ -111,9 +111,9 @@ public class ProductCRUD {
                 case 2 -> product.setBrand(Input.getInstance().getString("New brand: "));
                 case 3 -> product.setDescription(Input.getInstance().getString("New description: "));
                 case 4 -> product.setPrice(Input.getInstance().getDouble("New price: "));
-                case 5 -> product.setPosition((Position) Util.select(
-                        ((Zone) Util.select(DB.getInstance().getZones(), "Select new stocking zone: ")) //select zone of interest
+                case 5 -> product.setPosition(Util.select((Util.select(DB.getInstance().getZones(), "Select new stocking zone: ")) //select zone of interest
                                 .getPositions(), "Select new stocking position:"));
+                default -> throw new IllegalStateException("Unexpected value: " + input);
             }
         } while (input != 0);
         System.out.println("Updated product: " + product);

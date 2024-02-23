@@ -27,6 +27,7 @@ public class MainInteraction {
                 case 4 -> System.out.println("todo");
                 case 5 -> zoneInteractions.zoneHandler();
                 case 6 -> positionInteractions.positionHandler();
+                default -> throw new IllegalStateException("Unexpected value: " + input);
             }
         } while (input != 0);
     }

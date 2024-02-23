@@ -28,7 +28,7 @@ public class SupplierCRUD {
             case 3 -> (Supplier) Contacts.search(suppliers, Input.getInstance().getString("E-mail: "));
             case 4 -> Searchable.search(suppliers, Input.getInstance().getString("Company name: "));
             case 5 -> Searchable.search(suppliers, Input.getInstance().getInt("Supplied product type: "));
-            default -> null;
+            default -> throw new IllegalStateException("Unexpected value: " + input);
         };
     }
 
@@ -47,6 +47,7 @@ public class SupplierCRUD {
                 case 2 -> supplier.setAddress(Input.getInstance().getString("New address: "));
                 case 3 -> supplier.getContacts().setEmail(Input.getInstance().getString("New e-mail: "));
                 case 4 -> supplier.getContacts().setPhoneNumber(Input.getInstance().getString("New phone-number"));
+                default -> throw new IllegalStateException("Unexpected value: " + input);
             }
         } while (input != 0);
         System.out.println("Updated supplier: " + supplier);

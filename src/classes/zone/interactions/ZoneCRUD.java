@@ -36,6 +36,7 @@ public class ZoneCRUD {
             input = Input.getInstance().getInput();
             switch (input) {
                 case 1 -> zone.setSector(Input.getInstance().getString("New sector game: "));
+                default -> throw new IllegalStateException("Unexpected value: " + input);
             }
         } while (input != 0);
 

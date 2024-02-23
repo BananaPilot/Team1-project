@@ -18,7 +18,7 @@ public class Util {
     }
 
     public static <T> T select(ArrayList<T> genericCollection, String description) throws IllegalArgumentException{
-        System.out.print(description);
+        System.out.println(description);
         if(genericCollection.isEmpty()) {
             throw new IllegalArgumentException("This list is empty!");
         }

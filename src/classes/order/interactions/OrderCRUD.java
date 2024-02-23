@@ -25,6 +25,7 @@ public class OrderCRUD {
             switch (input) {
                 case 1 -> orderProducts.add(new OrderProduct(Input.getInstance().getInt("Quantity: "),(Product) Util.select(DB.getInstance().getProducts(), "Select a product to add")));
                 case 2 -> orderProducts.add(new OrderProduct(Input.getInstance().getInt("Quantity: "), productCRUD.createProduct()));
+                default -> throw new IllegalStateException("Unexpected value: " + input);
             }
         } while (input != 0);
         if (orderProducts.isEmpty()) return null;
@@ -56,6 +57,7 @@ public class OrderCRUD {
             switch (input) {
                 case 1 -> orderProduct.setOrderQty(Input.getInstance().getInt("New quantity: "));
                 case 2 -> orderProduct.setProduct((Product) Util.select(DB.getInstance().getProducts(), "Select a new product"));
+                default -> throw new IllegalStateException("Unexpected value: " + input);
             }
         } while (input != 0);
     }
