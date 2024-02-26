@@ -58,10 +58,10 @@ public class Position extends Searchable {
     @Override
     public String toString() {
         return "Position{" +
-                "lot='" + lot + '\'' +
-                ", isFull=" + Full +
-                ", product=" + product +
-                ", quantity=" + quantity +
+                "lot: " + lot +
+                "isFull: " + Full + '\n' +
+                "product: "  + product + '\n' +
+                "quantity: " + quantity +
                 '}';
     }
 }

@@ -2,6 +2,7 @@ package classes.order;
 
 import classes.shared.OrderProduct;
 import classes.shared.Searchable;
+import util.Util;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -57,11 +58,9 @@ public class Order extends Searchable {
 
     @Override
     public String toString() {
-        return "CustomerOrder{" +
-                "ID=" + ID +
-                ", orderedProducts=" + products +
-                ", date=" + date +
-                ", totalOrder=" + total +
-                '}';
+        return  "ID: " + ID + '\n' +
+                "orderedProducts :" + Util.splitter(products) + '\n' +
+                "date: " + date + '\n' +
+                "totalOrder: " + total + '\n';
     }
 }

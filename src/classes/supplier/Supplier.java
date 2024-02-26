@@ -41,10 +41,11 @@ public class Supplier extends OrderPlacer {
 
     @Override
     public String toString() {
-        return "Supplier{" +
-                "companyName='" + companyName + '\'' +
-                ", suppliedProductType=" + suppliedProductType +
-                ", VATNumber='" + VATNumber + '\'' +
-                "} " + super.toString();
+        return "Supplier{" + '\n' +
+                super.toString() +
+                "companyName: " + companyName + '\n' +
+                "suppliedProductType: " + suppliedProductType + '\n' +
+                "VATNumber: " + VATNumber + '\n' +
+                "} ";
     }
 }

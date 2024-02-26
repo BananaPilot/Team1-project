@@ -44,9 +44,7 @@ public class Contacts extends Searchable {
 
     @Override
     public String toString() {
-        return "Contacts{" +
-                "email='" + email + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                '}';
+        return  "email: " + email +
+                "phoneNumber: " + phoneNumber;
     }
 }

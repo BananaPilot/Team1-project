@@ -3,6 +3,7 @@ package classes.zone;
 import classes.position.Position;
 import classes.shared.Searchable;
 import in.Input;
+import util.Util;
 
 import java.util.ArrayList;
 
@@ -41,7 +42,7 @@ public class Zone extends Searchable {
     public String toString() {
         return "Zone{" +
                 "sector='" + sector + '\'' +
-                ", positions=" + positions +
+                ", positions=" + Util.splitter(positions) +
                 '}';
     }
 }
