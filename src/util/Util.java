@@ -40,4 +40,12 @@ public class Util {
         }
         return genericCollection.get(index - 1);
     }
+
+    public static String splitter(ArrayList<?> arrayList) {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (Object o: arrayList){
+            stringBuilder.append("\n").append(o);
+        }
+        return stringBuilder.toString();
+    }
 }
