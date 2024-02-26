@@ -9,10 +9,11 @@ public class PositionInteractions {
         int input;
         do {
             PositionPrompts.positionMainPrompt();
-            input = Input.getInput();
+            input = Input.getInstance().getInput();
             switch (input) {
                 case 1 -> positionCRUD.listPositions();
                 case 2 -> positionCRUD.getPosition();
+                default -> throw new IllegalStateException("Unexpected value: " + input);
             }
         } while (input != 0);
     }

@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class ZoneCRUD {
 
     public Zone createZone() {
-        return new Zone(Input.getString("Sector name: "));
+        return new Zone(Input.getInstance().getString("Sector name: "));
     }
 
     public void listZones(ArrayList<Zone> zones) {
@@ -19,9 +19,9 @@ public class ZoneCRUD {
 
     public Zone getZone(ArrayList<Zone> zones) {
         ZonePrompts.zoneSearchPrompt();
-        int input = Input.getInput();
+        int input = Input.getInstance().getInput();
         return switch (input) {
-            case 1 -> Searchable.search(zones, Input.getString("Sector name: "));
+            case 1 -> Searchable.search(zones, Input.getInstance().getString("Sector name: "));
             default -> throw new IllegalStateException("Unexpected value: " + input);
         };
     }
@@ -33,9 +33,10 @@ public class ZoneCRUD {
         }
         int input;
         do {
-            input = Input.getInput();
+            input = Input.getInstance().getInput();
             switch (input) {
-                case 1 -> zone.setSector(Input.getString("New sector game: "));
+                case 1 -> zone.setSector(Input.getInstance().getString("New sector game: "));
+                default -> throw new IllegalStateException("Unexpected value: " + input);
             }
         } while (input != 0);
 

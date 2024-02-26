@@ -22,10 +22,10 @@ public class ProductCRUD {
      */
     public Product createProduct() {
         return new Product(
-                Input.getString("Name: "),
-                Input.getString("Brand: "),
-                Input.getString("Description: "),
-                Input.getDouble("Price: "),
+                Input.getInstance().getString("Name: "),
+                Input.getInstance().getString("Brand: "),
+                Input.getInstance().getString("Description: "),
+                Input.getInstance().getDouble("Price: "),
                 (Supplier) Util.select(DB.getInstance().getSuppliers(), "Select a supplier: "),
                 (ProductType) Util.select(DB.getInstance().getProductTypes(), "Select product type: "),
                 (Position) Util.select(
@@ -53,7 +53,7 @@ public class ProductCRUD {
      */
     public ArrayList<Product> searchByProductType(ArrayList<Product> products, ArrayList<ProductType> productTypes) {
         Util.printArrayList(productTypes);
-        ProductType productType = ProductType.search(productTypes, Input.getString("Type name: "));
+        ProductType productType = ProductType.search(productTypes, Input.getInstance().getString("Type name: "));
         ArrayList<Product> productsByType = new ArrayList<Product>();
         for (Product product : products) {
             if (product.contains(productType)) {
@@ -73,13 +73,13 @@ public class ProductCRUD {
     public Product getProduct(ArrayList<Product> products) {
         int input;
         ProductPrompts.searchProductPrompt();
-        input = Input.getInput();
+        input = Input.getInstance().getInput();
         Object object = switch (input) {
-            case 1 -> Searchable.search(products, Input.getString("ID: "));
-            case 2 -> Searchable.search(products, Input.getString("Name: "));
-            case 3 -> Searchable.search(products, Input.getString("Brand: "));
+            case 1 -> Searchable.search(products, Input.getInstance().getString("ID: "));
+            case 2 -> Searchable.search(products, Input.getInstance().getString("Name: "));
+            case 3 -> Searchable.search(products, Input.getInstance().getString("Brand: "));
             case 4 -> searchByProductType(products, DB.getInstance().getProductTypes());
-            default -> null;
+            default -> throw new IllegalStateException("Unexpected value: " + input);
         };
         assert object instanceof Product;
         return (Product) object;
@@ -105,15 +105,15 @@ public class ProductCRUD {
         int input;
         do {
             ProductPrompts.updateProductPrompt();
-            input = Input.getInput();
+            input = Input.getInstance().getInput();
             switch (input) {
-                case 1 -> product.setName(Input.getString("New name: "));
-                case 2 -> product.setBrand(Input.getString("New brand: "));
-                case 3 -> product.setDescription(Input.getString("New description: "));
-                case 4 -> product.setPrice(Input.getDouble("New price: "));
-                case 5 -> product.setPosition((Position) Util.select(
-                        ((Zone) Util.select(DB.getInstance().getZones(), "Select new stocking zone: ")) //select zone of interest
+                case 1 -> product.setName(Input.getInstance().getString("New name: "));
+                case 2 -> product.setBrand(Input.getInstance().getString("New brand: "));
+                case 3 -> product.setDescription(Input.getInstance().getString("New description: "));
+                case 4 -> product.setPrice(Input.getInstance().getDouble("New price: "));
+                case 5 -> product.setPosition(Util.select((Util.select(DB.getInstance().getZones(), "Select new stocking zone: ")) //select zone of interest
                                 .getPositions(), "Select new stocking position:"));
+                default -> throw new IllegalStateException("Unexpected value: " + input);
             }
         } while (input != 0);
         System.out.println("Updated product: " + product);

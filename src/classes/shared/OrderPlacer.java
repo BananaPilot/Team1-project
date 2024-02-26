@@ -1,6 +1,7 @@
 package classes.shared;
 
 import classes.order.Order;
+import util.Util;
 
 import java.util.ArrayList;
 import java.util.UUID;
@@ -59,7 +60,7 @@ public abstract class OrderPlacer extends Searchable {
                 "ID='" + ID + '\'' +
                 ", address='" + address + '\'' +
                 ", contacts=" + contacts +
-                ", orders=" + orders +
+                ", orders=" + Util.splitter(this.orders) + "\n" +
                 '}';
     }
 }

@@ -11,13 +11,14 @@ public class OrderInteractions {
         int input;
         do {
             OrderPrompts.orderMainPrompt();
-            input = Input.getInput();
+            input = Input.getInstance().getInput();
             switch (input) {
                 case 1 -> orderPlacer.getOrders().add(orderCRUD.createOrder());
                 case 2 -> orderCRUD.listOrders(orderPlacer.getOrders());
                 case 3 -> System.out.println(orderCRUD.getOrder(orderPlacer.getOrders()));
                 case 4 -> orderCRUD.updateOrder(orderPlacer.getOrders());
                 case 5 -> orderPlacer.getOrders().remove(orderCRUD.getOrder(orderPlacer.getOrders()));
+                default -> throw new IllegalStateException("Unexpected value: " + input);
             }
         } while (input != 0);
     }

@@ -18,7 +18,7 @@ public class Util {
     }
 
     public static <T> T select(ArrayList<T> genericCollection, String description) throws IllegalArgumentException{
-        System.out.print(description);
+        System.out.println(description);
         if(genericCollection.isEmpty()) {
             throw new IllegalArgumentException("This list is empty!");
         }
@@ -28,7 +28,7 @@ public class Util {
         int index = -1;
         boolean outOfBoundIndex = false;
         do{
-            index = Input.getInput();
+            index = Input.getInstance().getInput();
             if(genericCollection.size() < index) {
                 System.out.println("The number you selected is not into the list." +
                         "Please select again or press 0 to skip the selection.");
@@ -39,5 +39,13 @@ public class Util {
            throw new IllegalArgumentException("You skipped the current selection.");
         }
         return genericCollection.get(index - 1);
+    }
+
+    public static String splitter(ArrayList<?> arrayList) {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (Object o: arrayList){
+            stringBuilder.append("\n").append(o);
+        }
+        return stringBuilder.toString();
     }
 }

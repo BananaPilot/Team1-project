@@ -16,7 +16,7 @@ public class SupplierInteractions {
         int input;
         do {
             SupplierPrompts.supplierMainPrompt();
-            input = Input.getInput();
+            input = Input.getInstance().getInput();
             switch (input) {
                 case 1 -> suppliers.add(supplierCRUD.createSupplier());
                 case 2 -> supplierCRUD.listSuppliers(suppliers);
@@ -24,6 +24,7 @@ public class SupplierInteractions {
                 case 4 -> supplierCRUD.updateSupplier(suppliers);
                 case 5 -> suppliers.remove(supplierCRUD.getSupplier(suppliers));
                 case 6 -> orderInteractions.orderHandler(supplierCRUD.getSupplier(suppliers));
+                default -> throw new IllegalStateException("Unexpected value: " + input);
             }
         } while (input != 0);
     }

@@ -1,14 +1,15 @@
 package classes.supplier;
 
+import classes.productType.ProductType;
 import classes.shared.Searchable;
 import classes.shared.OrderPlacer;
 
 public class Supplier extends OrderPlacer {
     private String companyName;
-    private int suppliedProductType;
+    private ProductType suppliedProductType;
     private String VATNumber;
 
-    public Supplier(String companyName, String address, int suppliedProductType, String VATNumber, String email, String phoneNumber) {
+    public Supplier(String companyName, String address, ProductType suppliedProductType, String VATNumber, String email, String phoneNumber) {
         super(address, email, phoneNumber);
         this.companyName = companyName;
         this.suppliedProductType = suppliedProductType;
@@ -19,7 +20,7 @@ public class Supplier extends OrderPlacer {
         return companyName;
     }
 
-    public int getSuppliedProductType() {
+    public ProductType getSuppliedProductType() {
         return suppliedProductType;
     }
 
@@ -31,7 +32,7 @@ public class Supplier extends OrderPlacer {
         this.companyName = companyName;
     }
 
-    public void setSuppliedProductType(int suppliedProductType) {
+    public void setSuppliedProductType(ProductType suppliedProductType) {
         this.suppliedProductType = suppliedProductType;
     }
     public void setVATNumber(String VATNumber) {

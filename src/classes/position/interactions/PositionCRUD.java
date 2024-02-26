@@ -18,10 +18,10 @@ public class PositionCRUD {
 
     public Position getPosition() {
         PositionPrompts.positionSearchPrompt();
-        int input = Input.getInput();
+        int input = Input.getInstance().getInput();
         switch (input) {
             case 1 -> {
-                return (Position) Searchable.search(zoneCRUD.getZone(DB.getInstance().getZones()).getPositions(), Input.getString("Lot: "));
+                return (Position) Searchable.search(zoneCRUD.getZone(DB.getInstance().getZones()).getPositions(), Input.getInstance().getString("Lot: "));
             }
             case 2 -> System.out.println(getPositionsByState());
             default -> throw new IllegalStateException("Unexpected value: " + input);
@@ -31,7 +31,7 @@ public class PositionCRUD {
 
     public ArrayList<Position> getPositionsByState() {
         ArrayList<Position> positions = new ArrayList<>();
-        String state = Input.getString("State: ");
+        String state = Input.getInstance().getString("State: ");
         if (state.equals("true") || state.equals("false")) {
             for (Position position : zoneCRUD.getZone(DB.getInstance().getZones()).getPositions()) {
                 if (position.contains(state)) positions.add(position);

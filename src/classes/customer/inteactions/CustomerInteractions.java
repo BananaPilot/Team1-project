@@ -16,7 +16,7 @@ public class CustomerInteractions {
         int input;
         do {
             CustomerPrompts.customerMainPrompt();
-            input = Input.getInput();
+            input = Input.getInstance().getInput();
             switch (input) {
                 case 1 -> customers.add(customerCRUD.createCustomer());
                 case 2 -> customerCRUD.listCustomers(customers);
@@ -24,6 +24,7 @@ public class CustomerInteractions {
                 case 4 -> customerCRUD.updateCustomer(customers);
                 case 5 -> customers.remove(customerCRUD.getCustomer(customers));
                 case 6 -> orderInteractions.orderHandler(customerCRUD.getCustomer(customers));
+                default -> throw new IllegalStateException("Unexpected value: " + input);
             }
         } while (input != 0);
     }
