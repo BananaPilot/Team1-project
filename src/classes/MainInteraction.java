@@ -18,9 +18,10 @@ public class MainInteraction {
     //TODO productType interactions
     ZoneInteractions zoneInteractions = new ZoneInteractions();
     PositionInteractions positionInteractions = new PositionInteractions();
-    public void mainHandler() {
+    public void mainHandler() throws InterruptedException {
         int input;
         do {
+            TimeUnit.MILLISECONDS.sleep(200);
             MainPrompt.mainPrompt();
             input = Input.getInstance().getInput();
             try {
