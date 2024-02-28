@@ -23,11 +23,11 @@ public class OrderCRUD {
             OrderPrompts.orderCreationPrompt();
             input = Input.getInstance().getInput();
             switch (input) {
-                case 1 -> orderProducts.add(new OrderProduct(Input.getInstance().getInt("Quantity: "),(Product) Util.select(DB.getInstance().getProducts(), "Select a product to add")));
+                case 1 -> orderProducts.add(new OrderProduct(Input.getInstance().getInt("Quantity: "), Util.select(DB.getInstance().getProducts(), "Select a product to add")));
                 case 2 -> orderProducts.add(new OrderProduct(Input.getInstance().getInt("Quantity: "), productCRUD.createProduct()));
                 default -> throw new IllegalStateException("Unexpected value: " + input);
             }
-        } while (input != 0);
+        } while (input > 0);
         if (orderProducts.isEmpty()) return null;
         return new Order(orderProducts);
     }
@@ -51,14 +51,14 @@ public class OrderCRUD {
         if (order == null) return;
         int input;
         do {
-            OrderProduct orderProduct = (OrderProduct) Util.select(order.getProducts(), "Select a product to change");
+            OrderProduct orderProduct = Util.select(order.getProducts(), "Select a product to change");
             OrderPrompts.orderUpdatePrompt();
             input = Input.getInstance().getInput();
             switch (input) {
                 case 1 -> orderProduct.setOrderQty(Input.getInstance().getInt("New quantity: "));
-                case 2 -> orderProduct.setProduct((Product) Util.select(DB.getInstance().getProducts(), "Select a new product"));
+                case 2 -> orderProduct.setProduct(Util.select(DB.getInstance().getProducts(), "Select a new product"));
                 default -> throw new IllegalStateException("Unexpected value: " + input);
             }
-        } while (input != 0);
+        } while (input > 0);
     }
 }

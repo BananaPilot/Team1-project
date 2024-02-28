@@ -20,6 +20,6 @@ public class OrderInteractions {
                 case 5 -> orderPlacer.getOrders().remove(orderCRUD.getOrder(orderPlacer.getOrders()));
                 default -> throw new IllegalStateException("Unexpected value: " + input);
             }
-        } while (input != 0);
+        } while (input > 0);
     }
 }

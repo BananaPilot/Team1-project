@@ -26,6 +26,6 @@ public class SupplierInteractions {
                 case 6 -> orderInteractions.orderHandler(supplierCRUD.getSupplier(suppliers));
                 default -> throw new IllegalStateException("Unexpected value: " + input);
             }
-        } while (input != 0);
+        } while (input > 0);
     }
 }

@@ -1,6 +1,8 @@
 package classes.customer.inteactions;
 
 public class CustomerPrompts {
+
+    private CustomerPrompts(){}
     public static void customerMainPrompt() {
         System.out.println("1. Create a new customer");
         System.out.println("2. List all customers");

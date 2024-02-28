@@ -46,7 +46,7 @@ public class CustomerCRUD {
                 case 5 -> customer.getContacts().setEmail(Input.getInstance().getString("New Phone-number: "));
                 default -> throw new IllegalStateException("Unexpected value: " + input);
             }
-        } while (input != 0);
+        } while (input > 0);
         System.out.println("Updated Customer: " + customer);
     }
 }

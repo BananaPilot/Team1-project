@@ -26,6 +26,6 @@ public class CustomerInteractions {
                 case 6 -> orderInteractions.orderHandler(customerCRUD.getCustomer(customers));
                 default -> throw new IllegalStateException("Unexpected value: " + input);
             }
-        } while (input != 0);
+        } while (input > 0);
     }
 }

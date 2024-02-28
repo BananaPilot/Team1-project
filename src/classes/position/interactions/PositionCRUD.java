@@ -21,11 +21,11 @@ public class PositionCRUD {
         int input = Input.getInstance().getInput();
         switch (input) {
             case 1 -> {
-                return (Position) Searchable.search(zoneCRUD.getZone(DB.getInstance().getZones()).getPositions(), Input.getInstance().getString("Lot: "));
+                return Searchable.search(zoneCRUD.getZone(DB.getInstance().getZones()).getPositions(), Input.getInstance().getString("Lot: "));
             }
             case 2 -> System.out.println(getPositionsByState());
             default -> throw new IllegalStateException("Unexpected value: " + input);
-        };
+        }
         return null;
     }
 
