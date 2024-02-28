@@ -15,7 +15,7 @@ public class PositionInteractions {
                 case 2 -> positionCRUD.getPosition();
                 default -> throw new IllegalStateException("Unexpected value: " + input);
             }
-        } while (input != 0);
+        } while (input > 0);
     }
 }
 

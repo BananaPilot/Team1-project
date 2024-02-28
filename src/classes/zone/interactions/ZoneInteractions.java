@@ -23,6 +23,6 @@ public class ZoneInteractions {
                 case 5 -> zones.remove(zoneCRUD.getZone(zones));
                 default -> throw new IllegalStateException("Unexpected value: " + input);
             }
-        } while (input != 0);
+        } while (input > 0);
     }
 }

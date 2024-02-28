@@ -37,6 +37,6 @@ public class MainInteraction {
             } catch (Exception e){
                 new ExceptionHandler().handle(e);
             }
-        } while (input != 0);
+        } while (input > 0);
     }
 }

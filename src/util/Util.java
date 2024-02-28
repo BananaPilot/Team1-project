@@ -5,6 +5,8 @@ import in.Input;
 import java.util.ArrayList;
 
 public class Util {
+
+    private Util() {}
     public static void printArrayList(ArrayList<?> arrayList) {
         for (Object element : arrayList) {
             System.out.println(element);
