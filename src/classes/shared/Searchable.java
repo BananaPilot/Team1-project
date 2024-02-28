@@ -9,7 +9,7 @@ import java.util.List;
 
 public abstract class Searchable {
     public boolean contains(Object... values) {
-        ArrayList<Object> objects = new ArrayList<>();
+        List<Object> objects = new ArrayList<>();
         for (Object value : values) {
             for (Method method : getAllMethods(getAllFields(this.getClass()))) {
                 try {
@@ -25,7 +25,7 @@ public abstract class Searchable {
         return !objects.isEmpty();
     }
 
-    public ArrayList<Method> getAllMethods(List<String> fields) {
+    public List<Method> getAllMethods(List<String> fields) {
         ArrayList<Method> methods = new ArrayList<>();
         for (String string : fields) {
             if (string == null) continue;
@@ -54,7 +54,7 @@ public abstract class Searchable {
     }
 
 
-    public static <T extends Searchable> T search(ArrayList<T> arrayList, Object... values) {
+    public static <T extends Searchable> T search(List<T> arrayList, Object... values) {
         for (T searchable : arrayList) {
             if (searchable.contains(values)) return searchable;
         }

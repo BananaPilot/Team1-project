@@ -3,11 +3,12 @@ package util;
 import in.Input;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Util {
 
     private Util() {}
-    public static void printArrayList(ArrayList<?> arrayList) {
+    public static void printArrayList(List<?> arrayList) {
         for (Object element : arrayList) {
             System.out.println(element);
         }
@@ -19,7 +20,7 @@ public class Util {
         return first.toUpperCase() + rest;
     }
 
-    public static <T> T select(ArrayList<T> genericCollection, String description) throws IllegalArgumentException{
+    public static <T> T select(List<T> genericCollection, String description) throws IllegalArgumentException{
         System.out.println(description);
         if(genericCollection.isEmpty()) {
             throw new IllegalArgumentException("This list is empty!");
@@ -43,7 +44,7 @@ public class Util {
         return genericCollection.get(index - 1);
     }
 
-    public static String splitter(ArrayList<?> arrayList) {
+    public static String splitter(List<?> arrayList) {
         StringBuilder stringBuilder = new StringBuilder();
         for (Object o: arrayList){
             stringBuilder.append("\n").append(o);

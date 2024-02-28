@@ -5,10 +5,11 @@ import classes.productType.ProductType;
 import in.Input;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ProductTypeInteractions {
     private final ProductTypeCRUD productTypeCRUD = new ProductTypeCRUD();
-    private final ArrayList<ProductType> productTypes = DB.getInstance().getProductTypes();
+    private final List<ProductType> productTypes = DB.getInstance().getProductTypes();
 
     public void productTypeHandler() {
         int input;
@@ -21,6 +22,7 @@ public class ProductTypeInteractions {
                 case 3 -> System.out.println(productTypeCRUD.getProductType(productTypes));
                 case 4 -> productTypeCRUD.updateProductType(productTypes);
                 case 5 -> productTypes.remove(productTypeCRUD.getProductType(productTypes));
+                default -> throw new IllegalStateException("Unexpected value: " + input);
             }
         } while (input > 0);
     }

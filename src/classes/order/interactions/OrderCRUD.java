@@ -12,6 +12,7 @@ import util.Util;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.List;
 
 public class OrderCRUD {
     private final ProductCRUD productCRUD = new ProductCRUD();
@@ -32,11 +33,11 @@ public class OrderCRUD {
         return new Order(orderProducts);
     }
 
-    public void listOrders(ArrayList<Order> orders) {
+    public void listOrders(List<Order> orders) {
         Util.printArrayList(orders);
     }
 
-    public Order getOrder(ArrayList<Order> orders) {
+    public Order getOrder(List<Order> orders) {
         OrderPrompts.orderSearchPrompt();
         int input = Input.getInstance().getInput();
         return switch (input) {
@@ -46,7 +47,7 @@ public class OrderCRUD {
         };
     }
 
-    public void updateOrder(ArrayList<Order> orders) {
+    public void updateOrder(List<Order> orders) {
         Order order = getOrder(orders);
         if (order == null) return;
         int input;

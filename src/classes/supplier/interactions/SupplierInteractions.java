@@ -6,10 +6,11 @@ import classes.supplier.Supplier;
 import in.Input;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class SupplierInteractions {
     private final SupplierCRUD supplierCRUD = new SupplierCRUD();
-    private final ArrayList<Supplier> suppliers = DB.getInstance().getSuppliers();
+    private final List<Supplier> suppliers = DB.getInstance().getSuppliers();
     private final OrderInteractions orderInteractions = new OrderInteractions();
 
     public void supplierHandler() {

@@ -6,6 +6,7 @@ import in.Input;
 import util.Util;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ZoneCRUD {
 
@@ -13,11 +14,11 @@ public class ZoneCRUD {
         return new Zone(Input.getInstance().getString("Sector name: "));
     }
 
-    public void listZones(ArrayList<Zone> zones) {
+    public void listZones(List<Zone> zones) {
         Util.printArrayList(zones);
     }
 
-    public Zone getZone(ArrayList<Zone> zones) {
+    public Zone getZone(List<Zone> zones) {
         ZonePrompts.zoneSearchPrompt();
         int input = Input.getInstance().getInput();
         return switch (input) {
@@ -26,7 +27,7 @@ public class ZoneCRUD {
         };
     }
 
-    public void updateZone(ArrayList<Zone> zones) {
+    public void updateZone(List<Zone> zones) {
         Zone zone = getZone(zones);
         if (zone == null) {
             return;

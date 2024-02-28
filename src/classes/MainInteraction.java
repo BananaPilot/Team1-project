@@ -26,7 +26,7 @@ public class MainInteraction {
             input = Input.getInstance().getInput();
             try {
                 switch (input) {
-                    case 1 -> customerInteractions.CustomerHandler();
+                    case 1 -> customerInteractions.customerHandler();
                     case 2 -> supplierInteractions.supplierHandler();
                     case 3 -> productInteractions.productsHandler();
                     case 4 -> productTypeInteractions.productTypeHandler();

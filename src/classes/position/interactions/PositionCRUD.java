@@ -8,6 +8,7 @@ import in.Input;
 import util.Util;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class PositionCRUD {
     ZoneCRUD zoneCRUD = new ZoneCRUD();
@@ -29,7 +30,7 @@ public class PositionCRUD {
         return null;
     }
 
-    public ArrayList<Position> getPositionsByState() {
+    public List<Position> getPositionsByState() {
         ArrayList<Position> positions = new ArrayList<>();
         String state = Input.getInstance().getString("State: ");
         if (state.equals("true") || state.equals("false")) {

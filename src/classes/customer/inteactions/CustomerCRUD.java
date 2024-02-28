@@ -7,28 +7,29 @@ import in.Input;
 import util.Util;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class CustomerCRUD {
     public Customer createCustomer() {
         return new Customer(Input.getInstance().getString("Name: "), Input.getInstance().getString("Surname: "), Input.getInstance().getString("Address: "), Input.getInstance().getString("E-Mail: "), Input.getInstance().getString("Phone-number: "));
     }
 
-    public void listCustomers(ArrayList<Customer> customers) {
+    public void listCustomers(List<Customer> customers) {
         Util.printArrayList(customers);
     }
 
-    public Customer getCustomer(ArrayList<Customer> customers) {
+    public Customer getCustomer(List<Customer> customers) {
         CustomerPrompts.customerSearchPrompt();
         int input = Input.getInstance().getInput();
         return switch (input) {
             case 1 -> Searchable.search(customers, Input.getInstance().getString("ID: "));
-            case 2 -> (Customer) Contacts.search(customers, Input.getInstance().getString("Email: "));
+            case 2 -> Contacts.search(customers, Input.getInstance().getString("Email: "));
             case 3 -> Searchable.search(customers, Input.getInstance().getString("Name: "), Input.getInstance().getString("Surname: "));
             default -> throw new IllegalStateException("Unexpected value: " + input);
         };
     }
 
-    public void updateCustomer(ArrayList<Customer> customers) {
+    public void updateCustomer(List<Customer> customers) {
         Customer customer = getCustomer(customers);
         if (customer == null) {
             System.out.println("Something went wrong please try again");

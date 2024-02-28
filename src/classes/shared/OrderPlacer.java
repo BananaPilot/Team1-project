@@ -4,15 +4,16 @@ import classes.order.Order;
 import util.Util;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 public abstract class OrderPlacer extends Searchable {
     private final String ID;
     private String address;
     private Contacts contacts;
-    private ArrayList<Order> orders = new ArrayList<>();
+    private List<Order> orders = new ArrayList<>();
 
-    public OrderPlacer(String address, String email, String phoneNumber) {
+    protected OrderPlacer(String address, String email, String phoneNumber) {
         this.ID = UUID.randomUUID().toString();
         this.address = address;
         this.contacts = new Contacts(email, phoneNumber);
@@ -38,7 +39,7 @@ public abstract class OrderPlacer extends Searchable {
         return contacts;
     }
 
-    public ArrayList<Order> getOrders() {
+    public List<Order> getOrders() {
         return orders;
     }
 
@@ -50,7 +51,7 @@ public abstract class OrderPlacer extends Searchable {
         this.contacts = contacts;
     }
 
-    public void setOrders(ArrayList<Order> orders) {
+    public void setOrders(List<Order> orders) {
         this.orders = orders;
     }
 
