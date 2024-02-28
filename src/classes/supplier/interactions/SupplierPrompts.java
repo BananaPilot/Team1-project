@@ -1,6 +1,7 @@
 package classes.supplier.interactions;
 
 public class SupplierPrompts {
+    private SupplierPrompts(){}
     public static void supplierMainPrompt() {
         System.out.println("1. Create a new supplier");
         System.out.println("2. List all suppliers");

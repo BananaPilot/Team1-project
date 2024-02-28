@@ -1,6 +1,7 @@
 package classes;
 
 public class MainPrompt {
+    private MainPrompt(){}
     public static void mainPrompt() {
         System.out.println("1. Manage customers");
         System.out.println("2. Manage suppliers");

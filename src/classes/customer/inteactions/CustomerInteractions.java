@@ -6,13 +6,14 @@ import in.Input;
 import classes.order.interactions.OrderInteractions;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class CustomerInteractions {
-    private final ArrayList<Customer> customers = DB.getInstance().getCustomers();
+    private final List<Customer> customers = DB.getInstance().getCustomers();
     private final CustomerCRUD customerCRUD = new CustomerCRUD();
     private final OrderInteractions orderInteractions = new OrderInteractions();
 
-    public void CustomerHandler() {
+    public void customerHandler() {
         int input;
         do {
             CustomerPrompts.customerMainPrompt();

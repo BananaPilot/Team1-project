@@ -1,6 +1,7 @@
 package classes.product.interactions;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import classes.database.DB;
 import classes.position.Position;
@@ -26,10 +27,10 @@ public class ProductCRUD {
                 Input.getInstance().getString("Brand: "),
                 Input.getInstance().getString("Description: "),
                 Input.getInstance().getDouble("Price: "),
-                (Supplier) Util.select(DB.getInstance().getSuppliers(), "Select a supplier: "),
-                (ProductType) Util.select(DB.getInstance().getProductTypes(), "Select product type: "),
-                (Position) Util.select(
-                        ((Zone) Util.select(DB.getInstance().getZones(), "Select stocking zone: ")) //select zone of interest
+                Util.select(DB.getInstance().getSuppliers(), "Select a supplier: "),
+                Util.select(DB.getInstance().getProductTypes(), "Select product type: "),
+                Util.select(
+                        (Util.select(DB.getInstance().getZones(), "Select stocking zone: ")) //select zone of interest
                                 .getPositions(), "Select stocking position:") //completing selection of position
         );
     }
@@ -40,7 +41,7 @@ public class ProductCRUD {
      * @since 0.1
      */
 
-    public void listAllProducts(ArrayList<Product> products) {
+    public void listAllProducts(List<Product> products) {
         Util.printArrayList(products);
     }
 
@@ -51,7 +52,7 @@ public class ProductCRUD {
      * @return arraylist with products with the selected type
      * @since 0.1
      */
-    public ArrayList<Product> searchByProductType(ArrayList<Product> products, ArrayList<ProductType> productTypes) {
+    public List<Product> searchByProductType(List<Product> products, List<ProductType> productTypes) {
         Util.printArrayList(productTypes);
         ProductType productType = ProductType.search(productTypes, Input.getInstance().getString("Type name: "));
         ArrayList<Product> productsByType = new ArrayList<Product>();
@@ -70,7 +71,7 @@ public class ProductCRUD {
      * @see Searchable
      */
 
-    public Product getProduct(ArrayList<Product> products) {
+    public Product getProduct(List<Product> products) {
         int input;
         ProductPrompts.searchProductPrompt();
         input = Input.getInstance().getInput();
@@ -96,7 +97,7 @@ public class ProductCRUD {
      * @since 0.1
      */
 
-    public void updateProduct(ArrayList<Product> products) {
+    public void updateProduct(List<Product> products) {
         Product product = getProduct(products);
         if (product == null) {
             System.out.println("Something went wrong please try again");
@@ -115,7 +116,7 @@ public class ProductCRUD {
                                 .getPositions(), "Select new stocking position:"));
                 default -> throw new IllegalStateException("Unexpected value: " + input);
             }
-        } while (input != 0);
+        } while (input > 0);
         System.out.println("Updated product: " + product);
     }
 

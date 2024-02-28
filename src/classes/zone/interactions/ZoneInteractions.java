@@ -5,9 +5,10 @@ import classes.zone.Zone;
 import in.Input;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ZoneInteractions {
-    private final ArrayList<Zone> zones = DB.getInstance().getZones();
+    private final List<Zone> zones = DB.getInstance().getZones();
     private final ZoneCRUD zoneCRUD = new ZoneCRUD();
 
     public void zoneHandler(){

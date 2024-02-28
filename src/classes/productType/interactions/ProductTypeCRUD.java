@@ -7,17 +7,18 @@ import in.Input;
 import util.Util;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ProductTypeCRUD {
     public ProductType createProductType() {
         return new ProductType(Input.getInstance().getString("Name of the product type: "), Input.getInstance().getString("Description: ") );
     }
 
-    public void listProductTypes(ArrayList<ProductType> productTypes) {
+    public void listProductTypes(List<ProductType> productTypes) {
         Util.printArrayList(productTypes);
     }
 
-    public ProductType getProductType(ArrayList<ProductType> productTypes) {
+    public ProductType getProductType(List<ProductType> productTypes) {
         ProductTypePrompts.productTypeSearchPrompt();
         int input = Input.getInstance().getInput();
         return switch (input){
@@ -27,7 +28,7 @@ public class ProductTypeCRUD {
         };
     }
 
-    public void updateProductType(ArrayList<ProductType> productTypes) {
+    public void updateProductType(List<ProductType> productTypes) {
         ProductType productType = getProductType(productTypes);
         if (productType == null) {
             return;
@@ -40,6 +41,7 @@ public class ProductTypeCRUD {
             switch (input) {
                 case 1 -> productType.setName(Input.getInstance().getString("New name: "));
                 case 2 -> productType.setDescription(Input.getInstance().getString("New description: "));
+                default -> throw new IllegalStateException("Unexpected value: " + input);
             }
         } while (input > 0);
 

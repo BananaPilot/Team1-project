@@ -1,6 +1,7 @@
 package classes.productType.interactions;
 
 public class ProductTypePrompts {
+    private ProductTypePrompts() {}
     public static void productTypeMainPrompt() {
         System.out.println("1. Create a new product type");
         System.out.println("2. List all product type");

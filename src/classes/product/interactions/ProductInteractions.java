@@ -5,10 +5,11 @@ import classes.product.Product;
 import in.Input;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ProductInteractions {
 
-    private final ArrayList<Product> products = DB.getInstance().getProducts();
+    private final List<Product> products = DB.getInstance().getProducts();
     private final ProductCRUD productCRUD = new ProductCRUD();
     public void productsHandler() {
         int input;
@@ -22,6 +23,6 @@ public class ProductInteractions {
                 case 4 -> products.remove(productCRUD.getProduct(products));
                 default -> throw new IllegalStateException("Unexpected value: " + input);
             }
-        } while (input != 0);
+        } while (input > 0);
     }
 }

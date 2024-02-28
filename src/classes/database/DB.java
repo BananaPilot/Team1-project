@@ -7,6 +7,7 @@ import classes.supplier.Supplier;
 import classes.zone.Zone;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class DB {
 
@@ -27,35 +28,35 @@ public class DB {
     }
 
 
-    public ArrayList<Supplier> getSuppliers() {
+    public List<Supplier> getSuppliers() {
         if (suppliers == null) {
             suppliers = new ArrayList<>();
         }
         return suppliers;
     }
 
-    public ArrayList<ProductType> getProductTypes() {
+    public List<ProductType> getProductTypes() {
         if (productTypes == null) {
             productTypes = new ArrayList<>();
         }
         return productTypes;
     }
 
-    public ArrayList<Zone> getZones() {
+    public List<Zone> getZones() {
         if (zones == null) {
             zones = new ArrayList<>();
         }
         return zones;
     }
 
-    public ArrayList<Product> getProducts() {
+    public List<Product> getProducts() {
         if (products == null) {
             products = new ArrayList<>();
         }
         return products;
     }
 
-    public ArrayList<Customer> getCustomers() {
+    public List<Customer> getCustomers() {
         if (customers == null) {
             customers = new ArrayList<>();
         }

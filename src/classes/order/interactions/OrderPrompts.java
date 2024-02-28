@@ -1,6 +1,7 @@
 package classes.order.interactions;
 
 public class OrderPrompts {
+    private OrderPrompts() {}
     public static void orderMainPrompt() {
         System.out.println("1. Create a new supplier order");
         System.out.println("2. List all orders of a supplier");

@@ -1,6 +1,7 @@
 package classes.zone.interactions;
 
 public class ZonePrompts {
+    private ZonePrompts(){}
     public static void zoneMainPrompt(){
         System.out.println("1. Create zone");
         System.out.println("2. List all zones");
