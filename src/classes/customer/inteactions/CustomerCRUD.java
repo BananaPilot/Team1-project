@@ -18,9 +18,8 @@ public class CustomerCRUD {
     }
 
     public Customer getCustomer(ArrayList<Customer> customers) {
-        int input;
         CustomerPrompts.customerSearchPrompt();
-        input = Input.getInstance().getInput();
+        int input = Input.getInstance().getInput();
         return switch (input) {
             case 1 -> Searchable.search(customers, Input.getInstance().getString("ID: "));
             case 2 -> (Customer) Contacts.search(customers, Input.getInstance().getString("Email: "));
