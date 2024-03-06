@@ -1,5 +1,4 @@
-if (Test-Path -Path ".\target")
-{
+if (Test-Path -Path ".\target") {
     "running ..."
     clear
 } else {
@@ -7,4 +6,11 @@ if (Test-Path -Path ".\target")
     clear
 }
 
-java -jar .\target\Team1-project-1.0-SNAPSHOT.jar
+try
+{
+    java -jar .\target\Team1-project-1.0-SNAPSHOT.jar
+}
+catch {
+    winget install -e --id Oracle.JDK.17
+    java -jar .\target\Team1-project-1.0-SNAPSHOT.jar
+}
