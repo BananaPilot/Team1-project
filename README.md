@@ -24,7 +24,7 @@ As a user of the application you are able to create and manage customer informat
 ### Key Features:
 -- Customer Account Management: 
 - Create new customer accounts with essential details (name, address, email, phone number).
-- List all customers in the system for easy overview.
+- List all customers com.team1.app.classes.in the system for easy overview.
 - Search for specific customers using various criteria: ID, email, or name and surname.
 - View detailed information about a selected customer.
 - Update a customer's details (name, address, email, phone number) as needed.
@@ -65,7 +65,7 @@ As the application user you are able to create and manage supplier information, 
 
 
 ## Product
-As an application user, you can manage product related information in order to track product levels, generate reports, and make informed decisions about ordering and stocking.
+As an application user, you can manage product related information com.team1.app.classes.in order to track product levels, generate reports, and make informed decisions about ordering and stocking.
 
 ### Key Features:
 -- Product Class:
@@ -93,13 +93,13 @@ As an application user, you can manage product related information in order to t
 
 
 ## Order
-As an application user you are able to manage orders in a system that offers functionalities like creating, listing, searching, updating, and deleting orders.
+As an application user you are able to manage orders com.team1.app.classes.in a system that offers functionalities like creating, listing, searching, updating, and deleting orders.
 
 ### Key Features:
 - Order Creation: create new orders by adding existing products from the database or creating new ones on-the-fly.
 - Order Management: list existing orders, search for them by ID or date, update individual order items (quantity or product), and delete unwanted orders.
 - User Interaction: Employ a user-friendly menu-driven interface for interacting with the system through prompts and user input.
-- Order Persistence: The current version of the application focuses on in-memory storage; nevertheless integration with a database (e.g., MySQL, SQLite) can be implemented for persistence.
+- Order Persistence: The current version of the application focuses on com.team1.app.classes.in-memory storage; nevertheless integration with a database (e.g., MySQL, SQLite) can be implemented for persistence.
 
 ### Benefits:
 - Improved Order Handling: Streamlines order creation, management, and tracking within your application.
@@ -109,7 +109,7 @@ As an application user you are able to manage orders in a system that offers fun
 
 
 ## Storage (Position/Zone)
-As an application user you can create zones within the warehouse to organize products efficiently, define the size and number of racks within each zone for optimized storage, easily identify the location (lot) of a specific product in the warehouse and track the availability (full or empty) of individual positions within the zone.
+As an application user you can create zones within the warehouse to organize products efficiently, define the size and number of racks within each zone for optimized storage, easily identify the location (lot) of a specific product com.team1.app.classes.in the warehouse and track the availability (full or empty) of individual positions within the zone.
 
 ### Key Features:
 - Zone Creation: Allows defining named zones (sectors) within the warehouse for organizational purposes.
@@ -125,25 +125,25 @@ As an application user you can create zones within the warehouse to organize pro
 
 
 ## Database
-As an application user you will use an in-Memory Data Storage: rather than using a traditional database system like MySQL or SQLite, the applications database employs Java's ArrayLists to store data directly in memory during program execution.
+As an application user you will use an com.team1.app.classes.in-Memory Data Storage: rather than using a traditional database system like MySQL or SQLite, the applications database employs Java's ArrayLists to store data directly com.team1.app.classes.in memory during program execution.
 
 ### Data Organization:
-- Products: Stored in an ArrayList of Product objects.
-- Suppliers: Stored in an ArrayList of Supplier objects.
-- Product Types: Stored in an ArrayList of ProductType objects.
-- Zones: Stored in an ArrayList of Zone objects.
-- Customers: Stored in an ArrayList of Customer objects.
+- Products: Stored com.team1.app.classes.in an ArrayList of Product objects.
+- Suppliers: Stored com.team1.app.classes.in an ArrayList of Supplier objects.
+- Product Types: Stored com.team1.app.classes.in an ArrayList of ProductType objects.
+- Zones: Stored com.team1.app.classes.in an ArrayList of Zone objects.
+- Customers: Stored com.team1.app.classes.in an ArrayList of Customer objects.
 
 ### Key Features:
 - Unified Data Access: Provides a single point of access to various data entities within your application, including products, suppliers, product types, zones, and customers.
 - Singleton Pattern: Ensures only one instance of the DB class exists, promoting code efficiency and simplified access.
-- Lazy Initialization: Optimizes memory usage by creating data lists (products, suppliers, etc.) only when needed, improving performance in scenarios where not all data is required immediately.
+- Lazy Initialization: Optimizes memory usage by creating data lists (products, suppliers, etc.) only when needed, improving performance com.team1.app.classes.in scenarios where not all data is required immediately.
 - Type Safety: Utilizes Java's type system to enforce data integrity and prevent runtime errors by ensuring specific data types are used with corresponding methods.
 
 ### Benefits:
-- Improved Code Organization: Concentrates data management in a dedicated class, enhancing code maintainability and readability.
+- Improved Code Organization: Concentrates data management com.team1.app.classes.in a dedicated class, enhancing code maintainability and readability.
 - Simplified Data Access: Enables easy retrieval of different data types using dedicated getter methods.
-- Memory Efficiency: Delays list creation until necessary, reducing memory overhead in situations where complete data isn't always essential.
-- Reduced Errors: Type safety helps to catch potential type-related errors early in the development process, leading to more robust and reliable code.
+- Memory Efficiency: Delays list creation until necessary, reducing memory overhead com.team1.app.classes.in situations where complete data isn't always essential.
+- Reduced Errors: Type safety helps to catch potential type-related errors early com.team1.app.classes.in the development process, leading to more robust and reliable code.
 ## 🔗 Links
 [![github](https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/GitHub_logo_2013.svg/120px-GitHub_logo_2013.svg.png)](https://github.com/BananaPilot/Team1-project) Managment Application code on GitHub
