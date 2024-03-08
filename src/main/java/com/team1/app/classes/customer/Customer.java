@@ -31,10 +31,12 @@ public class Customer extends OrderPlacer {
 
     @Override
     public String toString() {
-        return "Customer {" + '\n' +
-                super.toString() +
-                "name: " + name + '\n' +
-                "surname: " + surname + '\n' +
-                "} ";
+        return "-------------------------------" + '\n' +
+                "### Customer" + '\n' +
+                "-------------------------------" + '\n' +
+                "Name: " + name + '\n' +
+                "Surname: " + surname + '\n' +
+                super.toString() + '\n' +
+                "-------------------------------";
     }
 }
