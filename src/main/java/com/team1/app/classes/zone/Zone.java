@@ -40,9 +40,10 @@ public class Zone extends Searchable {
 
     @Override
     public String toString() {
-        return "Zone{" +
-                "sector='" + sector + '\'' +
-                ", positions=" + Util.splitter(positions) +
-                '}';
+        return  "-------------------------------" + '\n' +
+                "### Zones " + '\n' +
+                "-------------------------------" + '\n' +
+                "Sector = '" + sector + '\''
+                + Util.splitter(positions);
     }
 }
