@@ -58,7 +58,7 @@ public abstract class OrderPlacer extends Searchable {
     @Override
     public String toString() {
         return  "ID: " + ID + '\n' +
-                "Address: " + address + '\n' +
+                "Address (Str., str.n. - CAP, city: " + address + '\n' +
                 "Contact Information: " + '\n' + contacts + '\n' +
                 "Orders: " + '\n' + Util.splitter(orders);
     }
