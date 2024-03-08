@@ -59,8 +59,8 @@ public class Order extends Searchable {
     @Override
     public String toString() {
         return  "ID: " + ID + '\n' +
-                "orderedProducts :" + Util.splitter(products) + '\n' +
-                "date: " + date + '\n' +
-                "totalOrder: " + total + '\n';
+                "Ordered Products :" + Util.splitter(products) + '\n' +
+                "Date: " + date + '\n' +
+                "Order Total: " + total + '\n';
     }
 }
