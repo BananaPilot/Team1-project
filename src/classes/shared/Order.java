@@ -54,11 +54,18 @@ public class Order extends Searchable {
 
     @Override
     public String toString() {
+<<<<<<< Updated upstream:src/classes/shared/Order.java
         return "CustomerOrder{" +
                 "ID=" + ID +
                 ", orderedProducts=" + products +
                 ", date=" + date +
                 ", totalOrder=" + total +
                 '}';
+=======
+        return  "ID: " + ID + '\n' +
+                "Ordered Products :" + Util.splitter(products) + '\n' +
+                "Date: " + date + '\n' +
+                "Order Total: " + total + '\n';
+>>>>>>> Stashed changes:src/main/java/com/team1/app/classes/order/Order.java
     }
 }

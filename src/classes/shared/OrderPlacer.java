@@ -53,11 +53,18 @@ public abstract class OrderPlacer extends Searchable {
 
     @Override
     public String toString() {
+<<<<<<< Updated upstream:src/classes/shared/OrderPlacer.java
         return "Placeholder{" +
                 "ID='" + ID + '\'' +
                 ", address='" + address + '\'' +
                 ", contacts=" + contacts +
                 ", orders=" + orders +
                 '}';
+=======
+        return  "ID: " + ID + '\n' +
+                "Address: " + address + '\n' +
+                "Contact Information: " + '\n' + contacts + '\n' +
+                "Orders: " + '\n' + Util.splitter(orders);
+>>>>>>> Stashed changes:src/main/java/com/team1/app/classes/shared/OrderPlacer.java
     }
 }

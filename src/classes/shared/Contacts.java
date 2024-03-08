@@ -44,9 +44,14 @@ public class Contacts extends Searchable {
 
     @Override
     public String toString() {
+<<<<<<< Updated upstream:src/classes/shared/Contacts.java
         return "Contacts{" +
                 "email='" + email + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 '}';
+=======
+        return  "E-mail: " + email + " - " +
+                "Phone Number: " + phoneNumber;
+>>>>>>> Stashed changes:src/main/java/com/team1/app/classes/shared/Contacts.java
     }
 }
