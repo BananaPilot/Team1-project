@@ -2,7 +2,7 @@ package com.team1.app.classes.zone.interactions;
 
 import com.team1.app.classes.shared.Searchable;
 import com.team1.app.classes.zone.Zone;
-import com.team1.app.classes.in.Input;
+import com.team1.app.classes.in.In;
 import com.team1.app.classes.util.Util;
 
 import java.util.List;
@@ -10,7 +10,7 @@ import java.util.List;
 public class ZoneCRUD {
 
     public Zone createZone() {
-        return new Zone(Input.getInstance().getString("Sector name: "));
+        return new Zone(In.getInstance().getString("Sector name: "));
     }
 
     public void listZones(List<Zone> zones) {
@@ -19,9 +19,9 @@ public class ZoneCRUD {
 
     public Zone getZone(List<Zone> zones) {
         ZonePrompts.zoneSearchPrompt();
-        int input = Input.getInstance().getInput();
+        int input = In.getInstance().getInput();
         return switch (input) {
-            case 1 -> Searchable.search(zones, Input.getInstance().getString("Sector name: "));
+            case 1 -> Searchable.search(zones, In.getInstance().getString("Sector name: "));
             default -> throw new IllegalStateException("Unexpected value: " + input);
         };
     }
@@ -33,9 +33,9 @@ public class ZoneCRUD {
         }
         int input;
         do {
-            input = Input.getInstance().getInput();
+            input = In.getInstance().getInput();
             switch (input) {
-                case 1 -> zone.setSector(Input.getInstance().getString("New sector game: "));
+                case 1 -> zone.setSector(In.getInstance().getString("New sector game: "));
                 default -> throw new IllegalStateException("Unexpected value: " + input);
             }
         } while (input > 0);
