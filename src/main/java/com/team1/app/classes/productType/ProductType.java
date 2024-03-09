@@ -48,10 +48,8 @@ public class ProductType extends Searchable {
 
     @Override
     public String toString() {
-        return "ProductType{" +
-                "ID=" + ID +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                '}';
+        return "Product Type [ID = " + ID +
+                ", Name = " + name +
+                ", Description = " + description + "]";
     }
 }
