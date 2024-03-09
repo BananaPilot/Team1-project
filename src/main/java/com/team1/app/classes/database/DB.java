@@ -7,6 +7,7 @@ import com.team1.app.classes.productType.interactions.ProductTypeCRUD;
 import com.team1.app.classes.supplier.Supplier;
 import com.team1.app.classes.supplier.interactions.SupplierCRUD;
 import com.team1.app.classes.zone.Zone;
+import com.team1.app.classes.zone.interactions.ZoneCRUD;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,6 +54,9 @@ public class DB {
     public List<Zone> getZones() {
         if (zones == null) {
             zones = new ArrayList<>();
+        }
+        if (zones.isEmpty()){
+            zones.add(new ZoneCRUD().createZone());
         }
         return zones;
     }
