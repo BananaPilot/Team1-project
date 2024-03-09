@@ -41,7 +41,7 @@ public class DB {
             productTypes = new ArrayList<>();
         }
         if (products.isEmpty()){
-            new ProductTypeCRUD().createProductType();
+            productTypes.add(new ProductTypeCRUD().createProductType());
         }
         return productTypes;
     }
