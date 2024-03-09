@@ -2,7 +2,7 @@ package com.team1.app.classes.productType.interactions;
 
 import com.team1.app.classes.database.DB;
 import com.team1.app.classes.productType.ProductType;
-import com.team1.app.classes.in.Input;
+import com.team1.app.classes.in.In;
 
 import java.util.List;
 
@@ -14,7 +14,7 @@ public class ProductTypeInteractions {
         int input;
         do {
             ProductTypePrompts.productTypeMainPrompt();
-            input = Input.getInstance().getInput();
+            input = In.getInstance().getInput();
             switch (input) {
                 case 1 -> productTypes.add(productTypeCRUD.createProductType());
                 case 2 -> productTypeCRUD.listProductTypes(productTypes);

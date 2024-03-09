@@ -2,7 +2,7 @@ package com.team1.app.classes.zone.interactions;
 
 import com.team1.app.classes.database.DB;
 import com.team1.app.classes.zone.Zone;
-import com.team1.app.classes.in.Input;
+import com.team1.app.classes.in.In;
 
 import java.util.List;
 
@@ -14,7 +14,7 @@ public class ZoneInteractions {
         int input;
         do {
             ZonePrompts.zoneMainPrompt();
-            input = Input.getInstance().getInput();
+            input = In.getInstance().getInput();
             switch (input) {
                 case 1 -> zones.add(zoneCRUD.createZone());
                 case 2 -> zoneCRUD.listZones(zones);
