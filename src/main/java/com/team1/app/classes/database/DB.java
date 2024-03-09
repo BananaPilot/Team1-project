@@ -34,7 +34,7 @@ public class DB {
             suppliers = new ArrayList<>();
         }
         if (suppliers.isEmpty()){
-            new SupplierCRUD().createSupplier();
+            supplier.add(new SupplierCRUD().createSupplier());
         }
         return suppliers;
     }
