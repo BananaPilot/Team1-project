@@ -24,12 +24,12 @@ public class SupplierCRUD {
         SupplierPrompts.supplierSearchPrompt();
         input = In.getInstance().getInput();
         return switch (input) {
-            case 1 -> Searchable.search(suppliers, Input.getInstance().getString("ID: "));
-            case 2 -> Searchable.search(suppliers, Input.getInstance().getString("VAT-number: "));
-            case 3 -> Contacts.search(suppliers, Input.getInstance().getString("E-mail: "));
-            case 4 -> Searchable.search(suppliers, Input.getInstance().getString("Address: "));
-            case 5 -> Searchable.search(suppliers, Input.getInstance().getString("Company name: "));
-            case 6 -> Searchable.search(suppliers, Input.getInstance().getInt("Supplied product type: "));
+            case 1 -> Searchable.search(suppliers, In.getInstance().getString("ID: "));
+            case 2 -> Searchable.search(suppliers, In.getInstance().getString("VAT-number: "));
+            case 3 -> Contacts.search(suppliers, In.getInstance().getString("E-mail: "));
+            case 4 -> Searchable.search(suppliers, In.getInstance().getString("Address: "));
+            case 5 -> Searchable.search(suppliers, In.getInstance().getString("Company name: "));
+            case 6 -> Searchable.search(suppliers, In.getInstance().getInt("Supplied product type: "));
             default -> throw new IllegalStateException("Unexpected value: " + input);
         };
     }

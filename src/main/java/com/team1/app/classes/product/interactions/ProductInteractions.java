@@ -14,7 +14,7 @@ public class ProductInteractions {
         int input;
         do {
             ProductPrompts.mainProductPrompt();
-            input = Input.getInstance().getInt("Input: ");
+            input = In.getInstance().getInt("Input: ");
             switch (input) {
                 case 1 -> productCRUD.createProduct();
                 case 2 -> productCRUD.listAllProducts(products);

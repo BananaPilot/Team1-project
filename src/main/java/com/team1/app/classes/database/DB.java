@@ -35,9 +35,6 @@ public class DB {
         if (suppliers == null) {
             suppliers = new ArrayList<>();
         }
-        if (suppliers.isEmpty()){
-            supplier.add(new SupplierCRUD().createSupplier());
-        }
         return suppliers;
     }
 
@@ -45,18 +42,12 @@ public class DB {
         if (productTypes == null) {
             productTypes = new ArrayList<>();
         }
-        if (products.isEmpty()){
-            productTypes.add(new ProductTypeCRUD().createProductType());
-        }
         return productTypes;
     }
 
     public List<Zone> getZones() {
         if (zones == null) {
             zones = new ArrayList<>();
-        }
-        if (zones.isEmpty()){
-            zones.add(new ZoneCRUD().createZone());
         }
         return zones;
     }
