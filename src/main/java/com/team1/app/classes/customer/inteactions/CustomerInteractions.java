@@ -2,7 +2,7 @@ package com.team1.app.classes.customer.inteactions;
 
 import com.team1.app.classes.customer.Customer;
 import com.team1.app.classes.database.DB;
-import com.team1.app.classes.in.Input;
+import com.team1.app.classes.in.In;
 import com.team1.app.classes.order.interactions.OrderInteractions;
 
 import java.util.List;
@@ -16,7 +16,7 @@ public class CustomerInteractions {
         int input;
         do {
             CustomerPrompts.customerMainPrompt();
-            input = Input.getInstance().getInput();
+            input = In.getInstance().getInput();
             switch (input) {
                 case 1 -> customers.add(customerCRUD.createCustomer());
                 case 2 -> customerCRUD.listCustomers(customers);

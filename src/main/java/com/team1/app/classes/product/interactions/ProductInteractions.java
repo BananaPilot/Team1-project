@@ -2,7 +2,7 @@ package com.team1.app.classes.product.interactions;
 
 import com.team1.app.classes.database.DB;
 import com.team1.app.classes.product.Product;
-import com.team1.app.classes.in.Input;
+import com.team1.app.classes.in.In;
 
 import java.util.List;
 

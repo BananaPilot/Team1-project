@@ -3,8 +3,11 @@ package com.team1.app.classes.database;
 import com.team1.app.classes.customer.Customer;
 import com.team1.app.classes.product.Product;
 import com.team1.app.classes.productType.ProductType;
+import com.team1.app.classes.productType.interactions.ProductTypeCRUD;
 import com.team1.app.classes.supplier.Supplier;
+import com.team1.app.classes.supplier.interactions.SupplierCRUD;
 import com.team1.app.classes.zone.Zone;
+import com.team1.app.classes.zone.interactions.ZoneCRUD;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +35,9 @@ public class DB {
         if (suppliers == null) {
             suppliers = new ArrayList<>();
         }
+        if (suppliers.isEmpty()){
+            supplier.add(new SupplierCRUD().createSupplier());
+        }
         return suppliers;
     }
 
@@ -39,12 +45,18 @@ public class DB {
         if (productTypes == null) {
             productTypes = new ArrayList<>();
         }
+        if (products.isEmpty()){
+            productTypes.add(new ProductTypeCRUD().createProductType());
+        }
         return productTypes;
     }
 
     public List<Zone> getZones() {
         if (zones == null) {
             zones = new ArrayList<>();
+        }
+        if (zones.isEmpty()){
+            zones.add(new ZoneCRUD().createZone());
         }
         return zones;
     }

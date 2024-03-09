@@ -1,6 +1,6 @@
 package com.team1.app.classes.util;
 
-import com.team1.app.classes.in.Input;
+import com.team1.app.classes.in.In;
 
 import java.util.List;
 
@@ -30,7 +30,7 @@ public class Util {
         int index = -1;
         boolean outOfBoundIndex = false;
         do{
-            index = Input.getInstance().getInput();
+            index = In.getInstance().getInput();
             if(genericCollection.size() < index) {
                 System.out.println("The number you selected is not into the list." +
                         "Please select again or press 0 to skip the selection.");
