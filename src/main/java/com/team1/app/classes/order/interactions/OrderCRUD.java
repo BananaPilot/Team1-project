@@ -28,7 +28,7 @@ public class OrderCRUD {
                     try{
                         orderProducts.add(new OrderProduct(Input.getInstance().getInt("Quantity: "), Util.select(DB.getInstance().getProducts(), "Select a product to add")));
                     }catch (IllegalArgumentException e){
-                        System.out.println("\u001B[31m" + "This list is empty!" + "\u001B[0m");
+                        new ExceptionHandler().handle(e);
                     }
                 }
                 case 2 -> orderProducts.add(new OrderProduct(Input.getInstance().getInt("Quantity: "), productCRUD.createProduct()));
