@@ -3,6 +3,7 @@ package com.team1.app.classes.order.interactions;
 import com.team1.app.classes.product.interactions.ProductCRUD;
 import com.team1.app.classes.database.DB;
 import com.team1.app.classes.order.Order;
+import com.team1.app.classes.shared.ExceptionHandler;
 import com.team1.app.classes.shared.OrderProduct;
 import com.team1.app.classes.shared.Searchable;
 import com.team1.app.classes.in.In;
@@ -23,8 +24,15 @@ public class OrderCRUD {
             OrderPrompts.orderCreationPrompt();
             input = In.getInstance().getInput();
             switch (input) {
-                case 1 -> orderProducts.add(new OrderProduct(In.getInstance().getInt("Quantity: "), Util.select(DB.getInstance().getProducts(), "Select a product to add")));
-                case 2 -> orderProducts.add(new OrderProduct(In.getInstance().getInt("Quantity: "), productCRUD.createProduct()));
+                case 1 -> {
+                    try{
+                        orderProducts.add(new OrderProduct(Input.getInstance().getInt("Quantity: "), Util.select(DB.getInstance().getProducts(), "Select a product to add")));
+                    }catch (IllegalArgumentException e){
+                        new ExceptionHandler().handle(e);
+                    }
+                }
+                case 2 -> orderProducts.add(new OrderProduct(Input.getInstance().getInt("Quantity: "), productCRUD.createProduct()));
+
                 default -> throw new IllegalStateException("Unexpected value: " + input);
             }
         } while (input > 0);
