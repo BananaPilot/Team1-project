@@ -2,7 +2,7 @@ package com.team1.app.classes.zone;
 
 import com.team1.app.classes.position.Position;
 import com.team1.app.classes.shared.Searchable;
-import com.team1.app.classes.in.Input;
+import com.team1.app.classes.in.In;
 import com.team1.app.classes.util.Util;
 
 import java.util.ArrayList;
@@ -13,7 +13,7 @@ public class Zone extends Searchable {
 
     public Zone(String sector) {
         this.sector = sector;
-        buildZone(Input.getInstance().getInt("Total number of racks: "), Input.getInstance().getInt("With : "), Input.getInstance().getInt("Height: "));
+        buildZone(In.getInstance().getInt("Total number of racks: "), In.getInstance().getInt("With : "), In.getInstance().getInt("Height: "));
     }
 
     public void buildZone(int totalNumberOfRacks, int widthOfRack, int heightOfRack) {
