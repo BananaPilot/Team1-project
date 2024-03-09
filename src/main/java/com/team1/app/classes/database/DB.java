@@ -4,6 +4,7 @@ import com.team1.app.classes.customer.Customer;
 import com.team1.app.classes.product.Product;
 import com.team1.app.classes.productType.ProductType;
 import com.team1.app.classes.supplier.Supplier;
+import com.team1.app.classes.supplier.interactions.SupplierCRUD;
 import com.team1.app.classes.zone.Zone;
 
 import java.util.ArrayList;
@@ -31,6 +32,9 @@ public class DB {
     public List<Supplier> getSuppliers() {
         if (suppliers == null) {
             suppliers = new ArrayList<>();
+        }
+        if (suppliers.isEmpty()){
+            new SupplierCRUD().createSupplier();
         }
         return suppliers;
     }
