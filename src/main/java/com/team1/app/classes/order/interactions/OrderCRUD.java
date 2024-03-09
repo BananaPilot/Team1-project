@@ -3,6 +3,7 @@ package com.team1.app.classes.order.interactions;
 import com.team1.app.classes.product.interactions.ProductCRUD;
 import com.team1.app.classes.database.DB;
 import com.team1.app.classes.order.Order;
+import com.team1.app.classes.shared.ExceptionHandler;
 import com.team1.app.classes.shared.OrderProduct;
 import com.team1.app.classes.shared.Searchable;
 import com.team1.app.classes.in.Input;
@@ -23,7 +24,13 @@ public class OrderCRUD {
             OrderPrompts.orderCreationPrompt();
             input = Input.getInstance().getInput();
             switch (input) {
-                case 1 -> orderProducts.add(new OrderProduct(Input.getInstance().getInt("Quantity: "), Util.select(DB.getInstance().getProducts(), "Select a product to add")));
+                case 1 -> {
+                    try{
+                        orderProducts.add(new OrderProduct(Input.getInstance().getInt("Quantity: "), Util.select(DB.getInstance().getProducts(), "Select a product to add")));
+                    }catch (IllegalArgumentException e){
+                        System.out.println("\u001B[31m" + "This list is empty!" + "\u001B[0m");
+                    }
+                }
                 case 2 -> orderProducts.add(new OrderProduct(Input.getInstance().getInt("Quantity: "), productCRUD.createProduct()));
                 default -> throw new IllegalStateException("Unexpected value: " + input);
             }
