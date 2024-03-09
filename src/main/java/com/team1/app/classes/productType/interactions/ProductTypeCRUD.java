@@ -2,14 +2,14 @@ package com.team1.app.classes.productType.interactions;
 
 import com.team1.app.classes.productType.ProductType;
 import com.team1.app.classes.shared.Searchable;
-import com.team1.app.classes.in.Input;
+import com.team1.app.classes.in.In;
 import com.team1.app.classes.util.Util;
 
 import java.util.List;
 
 public class ProductTypeCRUD {
     public ProductType createProductType() {
-        return new ProductType(Input.getInstance().getString("Name of the product type: "), Input.getInstance().getString("Description: ") );
+        return new ProductType(In.getInstance().getString("Name of the product type: "), In.getInstance().getString("Description: ") );
     }
 
     public void listProductTypes(List<ProductType> productTypes) {
@@ -18,10 +18,10 @@ public class ProductTypeCRUD {
 
     public ProductType getProductType(List<ProductType> productTypes) {
         ProductTypePrompts.productTypeSearchPrompt();
-        int input = Input.getInstance().getInput();
+        int input = In.getInstance().getInput();
         return switch (input){
-            case 1 -> Searchable.search(productTypes, Input.getInstance().getString("ID: "));
-            case 2 -> Searchable.search(productTypes, Input.getInstance().getString("Name: "));
+            case 1 -> Searchable.search(productTypes, In.getInstance().getString("ID: "));
+            case 2 -> Searchable.search(productTypes, In.getInstance().getString("Name: "));
             default -> throw new IllegalStateException("Unexpected value: " + input);
         };
     }
@@ -35,10 +35,10 @@ public class ProductTypeCRUD {
         int input;
         do {
             ProductTypePrompts.productTypeUpdatePrompt();
-            input = Input.getInstance().getInput();
+            input = In.getInstance().getInput();
             switch (input) {
-                case 1 -> productType.setName(Input.getInstance().getString("New name: "));
-                case 2 -> productType.setDescription(Input.getInstance().getString("New description: "));
+                case 1 -> productType.setName(In.getInstance().getString("New name: "));
+                case 2 -> productType.setDescription(In.getInstance().getString("New description: "));
                 default -> throw new IllegalStateException("Unexpected value: " + input);
             }
         } while (input > 0);

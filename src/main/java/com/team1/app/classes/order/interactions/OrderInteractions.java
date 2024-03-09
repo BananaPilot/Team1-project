@@ -1,7 +1,7 @@
 package com.team1.app.classes.order.interactions;
 
 import com.team1.app.classes.shared.OrderPlacer;
-import com.team1.app.classes.in.Input;
+import com.team1.app.classes.in.In;
 
 public class OrderInteractions {
     private final OrderCRUD orderCRUD = new OrderCRUD();
@@ -11,7 +11,7 @@ public class OrderInteractions {
         int input;
         do {
             OrderPrompts.orderMainPrompt();
-            input = Input.getInstance().getInput();
+            input = In.getInstance().getInput();
             switch (input) {
                 case 1 -> orderPlacer.getOrders().add(orderCRUD.createOrder());
                 case 2 -> orderCRUD.listOrders(orderPlacer.getOrders());
