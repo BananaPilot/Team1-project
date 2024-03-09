@@ -1,6 +1,10 @@
 package com.team1.app.classes.util;
 
+import com.team1.app.classes.database.DB;
 import com.team1.app.classes.in.In;
+import com.team1.app.classes.shared.Searchable;
+import com.team1.app.classes.supplier.Supplier;
+import com.team1.app.classes.supplier.interactions.SupplierCRUD;
 
 import java.util.List;
 
@@ -22,7 +26,8 @@ public class Util {
     public static <T> T select(List<T> genericCollection, String description) throws IllegalArgumentException{
         System.out.println(description);
         if(genericCollection.isEmpty()) {
-            throw new IllegalArgumentException("This list is empty!");
+            System.out.println("List is empty will be replaced by null");
+            return null;
         }
         for (int i = 0; i < genericCollection.size(); i++) {
             System.out.println((i + 1) + ". " + genericCollection.get(i));
