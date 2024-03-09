@@ -3,6 +3,7 @@ package com.team1.app.classes.database;
 import com.team1.app.classes.customer.Customer;
 import com.team1.app.classes.product.Product;
 import com.team1.app.classes.productType.ProductType;
+import com.team1.app.classes.productType.interactions.ProductTypeCRUD;
 import com.team1.app.classes.supplier.Supplier;
 import com.team1.app.classes.supplier.interactions.SupplierCRUD;
 import com.team1.app.classes.zone.Zone;
@@ -42,6 +43,9 @@ public class DB {
     public List<ProductType> getProductTypes() {
         if (productTypes == null) {
             productTypes = new ArrayList<>();
+        }
+        if (products.isEmpty()){
+            productTypes.add(new ProductTypeCRUD().createProductType());
         }
         return productTypes;
     }
