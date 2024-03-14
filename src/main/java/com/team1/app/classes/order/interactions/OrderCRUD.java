@@ -26,12 +26,12 @@ public class OrderCRUD {
             switch (input) {
                 case 1 -> {
                     try{
-                        orderProducts.add(new OrderProduct(Input.getInstance().getInt("Quantity: "), Util.select(DB.getInstance().getProducts(), "Select a product to add")));
+                        orderProducts.add(new OrderProduct(In.getInstance().getInt("Quantity: "), Util.select(DB.getInstance().getProducts(), "Select a product to add")));
                     }catch (IllegalArgumentException e){
                         new ExceptionHandler().handle(e);
                     }
                 }
-                case 2 -> orderProducts.add(new OrderProduct(Input.getInstance().getInt("Quantity: "), productCRUD.createProduct()));
+                case 2 -> orderProducts.add(new OrderProduct(In.getInstance().getInt("Quantity: "), productCRUD.createProduct()));
 
                 default -> throw new IllegalStateException("Unexpected value: " + input);
             }
