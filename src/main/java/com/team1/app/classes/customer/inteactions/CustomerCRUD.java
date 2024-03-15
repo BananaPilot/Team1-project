@@ -22,7 +22,7 @@ public class CustomerCRUD {
         int input = In.getInstance().getInput();
         return switch (input) {
             case 1 -> Searchable.search(customers, In.getInstance().getString("ID: "));
-            case 2 -> Contacts.search(customers, In.getInstance().getString("Email: "));
+            case 2 -> (Customer) Contacts.searchByContacts(customers, In.getInstance().getString("Email: "));
             case 3 -> Searchable.search(customers, In.getInstance().getString("Name: "), In.getInstance().getString("Surname: "));
             default -> throw new IllegalStateException("Unexpected value: " + input);
         };

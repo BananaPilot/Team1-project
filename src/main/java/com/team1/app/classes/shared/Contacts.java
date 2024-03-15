@@ -3,7 +3,7 @@ package com.team1.app.classes.shared;
 import com.team1.app.classes.customer.Customer;
 import com.team1.app.classes.supplier.Supplier;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class Contacts extends Searchable {
     private String email;
@@ -30,7 +30,7 @@ public class Contacts extends Searchable {
         this.phoneNumber = phoneNumber;
     }
 
-    public static OrderPlacer search(ArrayList<? extends Searchable> searchables, Object value) {
+    public static <T extends Searchable> OrderPlacer searchByContacts (List<T> searchables, Object value) {
         for (Searchable searchable : searchables) {
             if (searchable instanceof Customer customer) {
                 if (customer.getContacts().contains(value)) return customer;
