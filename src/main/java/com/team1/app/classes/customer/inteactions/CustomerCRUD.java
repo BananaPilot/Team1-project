@@ -24,14 +24,20 @@ public class CustomerCRUD {
             case 1 -> Searchable.search(customers, In.getInstance().getString("ID: "));
             case 2 -> (Customer) Contacts.searchByContacts(customers, In.getInstance().getString("Email: "));
             case 3 -> Searchable.search(customers, In.getInstance().getString("Name: "), In.getInstance().getString("Surname: "));
-            default -> throw new IllegalStateException("Unexpected value: " + input);
+            case 0 -> throw new IllegalArgumentException();
+            default -> null;
         };
     }
 
     public void updateCustomer(List<Customer> customers) {
-        Customer customer = getCustomer(customers);
-        if (customer == null) {
-            System.out.println("Something went wrong please try again");
+        Customer customer;
+        try{
+            customer = getCustomer(customers);
+            if (customer == null) {
+                System.out.println("Something went wrong please try again");
+                return;
+            }
+        }catch (IllegalArgumentException e){
             return;
         }
         int input;
@@ -44,9 +50,9 @@ public class CustomerCRUD {
                 case 3 -> customer.setAddress(In.getInstance().getString("New address: "));
                 case 4 -> customer.getContacts().setEmail(In.getInstance().getString("New E-mail: "));
                 case 5 -> customer.getContacts().setEmail(In.getInstance().getString("New Phone-number: "));
-                default -> throw new IllegalStateException("Unexpected value: " + input);
+                default -> System.out.println("Unexpected value: " + input);
             }
-        } while (input > 0);
+        } while (input != 0);
         System.out.println("Updated Customer: " + customer);
     }
 }
