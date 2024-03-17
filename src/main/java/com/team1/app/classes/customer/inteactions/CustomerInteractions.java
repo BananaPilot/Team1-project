@@ -29,7 +29,7 @@ public class CustomerInteractions {
                     default -> System.out.println("Unexpected value: " + input);
                 }
             } while (input != 0);
-        }catch(IllegalArgumentException e){
+        }catch(Exception e){
             new ExceptionHandler().handle(e);
         }
     }

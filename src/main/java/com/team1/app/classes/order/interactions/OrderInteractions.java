@@ -19,10 +19,10 @@ public class OrderInteractions {
                     case 3 -> System.out.println(orderCRUD.getOrder(orderPlacer.getOrders()));
                     case 4 -> orderCRUD.updateOrder(orderPlacer.getOrders());
                     case 5 -> orderPlacer.getOrders().remove(orderCRUD.getOrder(orderPlacer.getOrders()));
-                    default -> throw new IllegalStateException("Unexpected value: " + input);
+                    default -> System.out.println("Unexpected value: " + input);
                 }
-            } while (input > 0);
-        }catch(IllegalArgumentException e){
+            } while (input != 0);
+        }catch(Exception e){
             new ExceptionHandler().handle(e);
         }
     }

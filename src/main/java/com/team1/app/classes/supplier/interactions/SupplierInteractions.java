@@ -26,10 +26,10 @@ public class SupplierInteractions {
                     case 4 -> supplierCRUD.updateSupplier(suppliers);
                     case 5 -> suppliers.remove(supplierCRUD.getSupplier(suppliers));
                     case 6 -> orderInteractions.orderHandler(supplierCRUD.getSupplier(suppliers));
-                    default -> throw new IllegalStateException("Unexpected value: " + input);
+                    default -> System.out.println("Unexpected value: " + input);
                 }
-            } while (input > 0);
-        }catch (IllegalArgumentException e){
+            } while (input != 0);
+        }catch (Exception e){
             new ExceptionHandler().handle(e);
         }
     }

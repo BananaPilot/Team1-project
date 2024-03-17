@@ -23,10 +23,10 @@ public class ProductTypeInteractions {
                     case 3 -> System.out.println(productTypeCRUD.getProductType(productTypes));
                     case 4 -> productTypeCRUD.updateProductType(productTypes);
                     case 5 -> productTypes.remove(productTypeCRUD.getProductType(productTypes));
-                    default -> throw new IllegalStateException("Unexpected value: " + input);
+                    default -> System.out.println("Unexpected value: " + input);
                 }
-            } while (input > 0);
-        }catch (IllegalArgumentException e){
+            } while (input != 0);
+        }catch (Exception e){
             new ExceptionHandler().handle(e);
         }
     }
