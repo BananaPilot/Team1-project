@@ -8,19 +8,21 @@ public class PositionInteractions {
 
     public void positionHandler() {
         int input;
-        try{
-            do {
-                PositionPrompts.positionMainPrompt();
-                input = In.getInstance().getInput();
+
+        do {
+            PositionPrompts.positionMainPrompt();
+            input = In.getInstance().getInput();
+            try {
                 switch (input) {
                     case 1 -> positionCRUD.listPositions();
                     case 2 -> positionCRUD.getPosition();
                     default -> System.out.println("Unexpected value: " + input);
                 }
-            } while (input != 0);
-        }catch(Exception e){
-            new ExceptionHandler().handle(e);
-        }
+            } catch (Exception e) {
+                new ExceptionHandler().handle(e);
+            }
+        } while (input != 0);
+
     }
 }
 

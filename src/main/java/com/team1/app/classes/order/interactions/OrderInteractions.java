@@ -9,10 +9,11 @@ public class OrderInteractions {
 
     public void orderHandler(OrderPlacer orderPlacer) {
         int input;
-        try{
-            do {
-                OrderPrompts.orderMainPrompt();
-                input = In.getInstance().getInput();
+
+        do {
+            OrderPrompts.orderMainPrompt();
+            input = In.getInstance().getInput();
+            try {
                 switch (input) {
                     case 1 -> orderPlacer.getOrders().add(orderCRUD.createOrder());
                     case 2 -> orderCRUD.listOrders(orderPlacer.getOrders());
@@ -21,9 +22,10 @@ public class OrderInteractions {
                     case 5 -> orderPlacer.getOrders().remove(orderCRUD.getOrder(orderPlacer.getOrders()));
                     default -> System.out.println("Unexpected value: " + input);
                 }
-            } while (input != 0);
-        }catch(Exception e){
-            new ExceptionHandler().handle(e);
-        }
+            } catch (Exception e) {
+                new ExceptionHandler().handle(e);
+            }
+        } while (input != 0);
+
     }
 }

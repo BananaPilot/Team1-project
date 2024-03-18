@@ -15,10 +15,11 @@ public class SupplierInteractions {
 
     public void supplierHandler() {
         int input;
-        try{
-            do {
-                SupplierPrompts.supplierMainPrompt();
-                input = In.getInstance().getInput();
+
+        do {
+            SupplierPrompts.supplierMainPrompt();
+            input = In.getInstance().getInput();
+            try {
                 switch (input) {
                     case 1 -> suppliers.add(supplierCRUD.createSupplier());
                     case 2 -> supplierCRUD.listSuppliers(suppliers);
@@ -28,9 +29,10 @@ public class SupplierInteractions {
                     case 6 -> orderInteractions.orderHandler(supplierCRUD.getSupplier(suppliers));
                     default -> System.out.println("Unexpected value: " + input);
                 }
-            } while (input != 0);
-        }catch (Exception e){
-            new ExceptionHandler().handle(e);
-        }
+            } catch (Exception e) {
+                new ExceptionHandler().handle(e);
+            }
+        } while (input != 0);
+
     }
 }

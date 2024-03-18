@@ -13,10 +13,11 @@ public class ProductTypeInteractions {
 
     public void productTypeHandler() {
         int input;
-        try {
-            do {
-                ProductTypePrompts.productTypeMainPrompt();
-                input = In.getInstance().getInput();
+
+        do {
+            ProductTypePrompts.productTypeMainPrompt();
+            input = In.getInstance().getInput();
+            try {
                 switch (input) {
                     case 1 -> productTypes.add(productTypeCRUD.createProductType());
                     case 2 -> productTypeCRUD.listProductTypes(productTypes);
@@ -25,9 +26,10 @@ public class ProductTypeInteractions {
                     case 5 -> productTypes.remove(productTypeCRUD.getProductType(productTypes));
                     default -> System.out.println("Unexpected value: " + input);
                 }
-            } while (input != 0);
-        }catch (Exception e){
-            new ExceptionHandler().handle(e);
-        }
+            } catch (Exception e) {
+                new ExceptionHandler().handle(e);
+            }
+        } while (input != 0);
+
     }
 }
