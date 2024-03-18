@@ -51,7 +51,7 @@ public class SupplierCRUD {
                 case 4 -> supplier.getContacts().setPhoneNumber(In.getInstance().getString("New phone-number"));
                 default -> throw new IllegalStateException("Unexpected value: " + input);
             }
-        } while (input > 0);
+        } while (input != 0);
         System.out.println("Updated supplier: " + supplier);
     }
 }
