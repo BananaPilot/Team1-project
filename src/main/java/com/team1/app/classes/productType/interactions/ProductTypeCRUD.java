@@ -39,6 +39,7 @@ public class ProductTypeCRUD {
             switch (input) {
                 case 1 -> productType.setName(In.getInstance().getString("New name: "));
                 case 2 -> productType.setDescription(In.getInstance().getString("New description: "));
+                case 0 -> System.out.println("Going back");
                 default -> throw new IllegalStateException("Unexpected value: " + input);
             }
         } while (input != 0);

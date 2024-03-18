@@ -25,6 +25,7 @@ public class PositionCRUD {
                 return Searchable.search(zoneCRUD.getZone(DB.getInstance().getZones()).getPositions(), In.getInstance().getString("Lot: "));
             }
             case 2 -> System.out.println(getPositionsByState());
+            case 0 -> System.out.println("Going back");
             default -> throw new IllegalStateException("Unexpected value: " + input);
         }
         return null;

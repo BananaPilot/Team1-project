@@ -16,6 +16,7 @@ public class PositionInteractions {
                 switch (input) {
                     case 1 -> positionCRUD.listPositions();
                     case 2 -> positionCRUD.getPosition();
+                    case 0 -> System.out.println("Going back");
                     default -> System.out.println("Unexpected value: " + input);
                 }
             } catch (Exception e) {

@@ -27,6 +27,7 @@ public class CustomerInteractions {
                     case 4 -> customerCRUD.updateCustomer(customers);
                     case 5 -> customers.remove(customerCRUD.getCustomer(customers));
                     case 6 -> orderInteractions.orderHandler(customerCRUD.getCustomer(customers));
+                    case 0 -> System.out.println("Going back");
                     default -> System.out.println("Unexpected value: " + input);
                 }
             } catch (Exception e) {

@@ -23,6 +23,7 @@ public class ZoneInteractions {
                     case 3 -> System.out.println(zoneCRUD.getZone(zones));
                     case 4 -> zoneCRUD.updateZone(zones);
                     case 5 -> zones.remove(zoneCRUD.getZone(zones));
+                    case 0 -> System.out.println("Going back");
                     default -> System.out.println("Unexpected value: " + input);
                 }
             } catch (Exception e) {

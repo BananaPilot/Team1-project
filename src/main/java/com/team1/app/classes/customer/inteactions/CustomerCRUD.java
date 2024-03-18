@@ -46,6 +46,7 @@ public class CustomerCRUD {
                 case 3 -> customer.setAddress(In.getInstance().getString("New address: "));
                 case 4 -> customer.getContacts().setEmail(In.getInstance().getString("New E-mail: "));
                 case 5 -> customer.getContacts().setPhoneNumber(In.getInstance().getString("New Phone-number: "));
+                case 0 -> System.out.println("Going back");
                 default -> System.out.println("Unexpected value: " + input);
             }
         } while (input != 0);

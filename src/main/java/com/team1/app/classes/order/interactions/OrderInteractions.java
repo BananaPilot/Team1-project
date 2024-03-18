@@ -20,6 +20,7 @@ public class OrderInteractions {
                     case 3 -> System.out.println(orderCRUD.getOrder(orderPlacer.getOrders()));
                     case 4 -> orderCRUD.updateOrder(orderPlacer.getOrders());
                     case 5 -> orderPlacer.getOrders().remove(orderCRUD.getOrder(orderPlacer.getOrders()));
+                    case 0 -> System.out.println("Going back");
                     default -> System.out.println("Unexpected value: " + input);
                 }
             } catch (Exception e) {

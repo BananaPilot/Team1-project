@@ -25,6 +25,7 @@ public class ProductInteractions {
                     case 3 -> productCRUD.getProduct(products);
                     case 4 -> productCRUD.updateProduct(products);
                     case 5 -> products.remove(productCRUD.getProduct(products));
+                    case 0 -> System.out.println("Going back");
                     default -> System.out.println("Unexpected value: " + input);
                 }
             } catch (Exception e) {

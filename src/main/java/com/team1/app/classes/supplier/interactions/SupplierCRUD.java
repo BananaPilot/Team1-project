@@ -49,6 +49,7 @@ public class SupplierCRUD {
                 case 2 -> supplier.setAddress(In.getInstance().getString("New address: "));
                 case 3 -> supplier.getContacts().setEmail(In.getInstance().getString("New e-mail: "));
                 case 4 -> supplier.getContacts().setPhoneNumber(In.getInstance().getString("New phone-number"));
+                case 0 -> System.out.println("Going back");
                 default -> throw new IllegalStateException("Unexpected value: " + input);
             }
         } while (input != 0);

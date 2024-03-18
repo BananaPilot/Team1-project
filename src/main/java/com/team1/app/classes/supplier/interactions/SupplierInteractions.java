@@ -27,6 +27,7 @@ public class SupplierInteractions {
                     case 4 -> supplierCRUD.updateSupplier(suppliers);
                     case 5 -> suppliers.remove(supplierCRUD.getSupplier(suppliers));
                     case 6 -> orderInteractions.orderHandler(supplierCRUD.getSupplier(suppliers));
+                    case 0 -> System.out.println("Going back");
                     default -> System.out.println("Unexpected value: " + input);
                 }
             } catch (Exception e) {

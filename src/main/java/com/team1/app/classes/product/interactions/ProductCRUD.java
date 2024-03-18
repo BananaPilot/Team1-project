@@ -111,6 +111,7 @@ public class ProductCRUD {
                 case 4 -> product.setPrice(In.getInstance().getDouble("New price: "));
                 case 5 -> product.setPosition(Util.select((Util.select(DB.getInstance().getZones(), "Select new stocking zone: ")) //select zone of interest
                                 .getPositions(), "Select new stocking position:"));
+                case 0 -> System.out.println("Going back");
                 default -> throw new IllegalStateException("Unexpected value: " + input);
             }
         } while (input != 0);

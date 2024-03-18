@@ -32,7 +32,7 @@ public class OrderCRUD {
                     }
                 }
                 case 2 -> orderProducts.add(new OrderProduct(In.getInstance().getInt("Quantity: "), productCRUD.createProduct()));
-
+                case 0 -> System.out.println("Going back");
                 default -> throw new IllegalStateException("Unexpected value: " + input);
             }
         } while (input != 0);

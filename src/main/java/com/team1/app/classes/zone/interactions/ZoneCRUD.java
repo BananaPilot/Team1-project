@@ -37,6 +37,7 @@ public class ZoneCRUD {
             input = In.getInstance().getInput();
             switch (input) {
                 case 1 -> zone.setSector(In.getInstance().getString("New sector name: "));
+                case 0 -> System.out.println("Going back");
                 default -> throw new IllegalStateException("Unexpected value: " + input);
             }
         } while (input != 0);
