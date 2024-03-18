@@ -18,10 +18,11 @@ public class ProductInteractions {
                 ProductPrompts.mainProductPrompt();
                 input = In.getInstance().getInt("Input: ");
                 switch (input) {
-                    case 1 -> productCRUD.createProduct();
+                    case 1 -> products.add(productCRUD.createProduct());
                     case 2 -> productCRUD.listAllProducts(products);
                     case 3 -> productCRUD.getProduct(products);
-                    case 4 -> products.remove(productCRUD.getProduct(products));
+                    case 4 -> productCRUD.updateProduct(products);
+                    case 5 -> products.remove(productCRUD.getProduct(products));
                     default -> System.out.println("Unexpected value: " + input);
                 }
             } while (input != 0);

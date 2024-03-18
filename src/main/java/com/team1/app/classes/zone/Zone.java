@@ -13,7 +13,7 @@ public class Zone extends Searchable {
 
     public Zone(String sector) {
         this.sector = sector;
-        buildZone(In.getInstance().getInt("Total number of racks: "), In.getInstance().getInt("With : "), In.getInstance().getInt("Height: "));
+        buildZone(In.getInstance().getInt("Total number of racks: "), In.getInstance().getInt("Width : "), In.getInstance().getInt("Height: "));
     }
 
     public void buildZone(int totalNumberOfRacks, int widthOfRack, int heightOfRack) {

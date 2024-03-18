@@ -13,9 +13,11 @@ public class ZonePrompts {
 
     public static void zoneSearchPrompt(){
         System.out.println("1. Search by Sector name");
+        System.out.println("0. Back to previous menu");
     }
 
     public static void zoneUpdatePrompt(){
         System.out.println("1. Update Sector name");
+        System.out.println("0. Back to previous menu");
     }
 }
