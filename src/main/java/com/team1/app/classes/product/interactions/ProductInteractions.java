@@ -11,12 +11,14 @@ public class ProductInteractions {
 
     private final List<Product> products = DB.getInstance().getProducts();
     private final ProductCRUD productCRUD = new ProductCRUD();
+
     public void productsHandler() {
         int input;
-        try{
-            do {
-                ProductPrompts.mainProductPrompt();
-                input = In.getInstance().getInt("Input: ");
+
+        do {
+            ProductPrompts.mainProductPrompt();
+            input = In.getInstance().getInt("Input: ");
+            try {
                 switch (input) {
                     case 1 -> products.add(productCRUD.createProduct());
                     case 2 -> productCRUD.listAllProducts(products);
@@ -25,9 +27,10 @@ public class ProductInteractions {
                     case 5 -> products.remove(productCRUD.getProduct(products));
                     default -> System.out.println("Unexpected value: " + input);
                 }
-            } while (input != 0);
-        }catch (Exception e){
-            new ExceptionHandler().handle(e);
-        }
+            } catch (Exception e) {
+                new ExceptionHandler().handle(e);
+            }
+        } while (input != 0);
+
     }
 }

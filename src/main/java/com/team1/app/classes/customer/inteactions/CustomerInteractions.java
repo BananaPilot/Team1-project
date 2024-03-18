@@ -15,10 +15,11 @@ public class CustomerInteractions {
 
     public void customerHandler() {
         int input;
-        try{
-            do {
-                CustomerPrompts.customerMainPrompt();
-                input = In.getInstance().getInput();
+
+        do {
+            CustomerPrompts.customerMainPrompt();
+            input = In.getInstance().getInput();
+            try {
                 switch (input) {
                     case 1 -> customers.add(customerCRUD.createCustomer());
                     case 2 -> customerCRUD.listCustomers(customers);
@@ -28,9 +29,10 @@ public class CustomerInteractions {
                     case 6 -> orderInteractions.orderHandler(customerCRUD.getCustomer(customers));
                     default -> System.out.println("Unexpected value: " + input);
                 }
-            } while (input != 0);
-        }catch(Exception e){
-            new ExceptionHandler().handle(e);
-        }
+            } catch (Exception e) {
+                new ExceptionHandler().handle(e);
+            }
+        } while (input != 0);
+
     }
 }

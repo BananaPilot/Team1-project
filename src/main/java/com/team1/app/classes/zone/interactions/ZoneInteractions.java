@@ -11,12 +11,12 @@ public class ZoneInteractions {
     private final List<Zone> zones = DB.getInstance().getZones();
     private final ZoneCRUD zoneCRUD = new ZoneCRUD();
 
-    public void zoneHandler(){
+    public void zoneHandler() {
         int input;
-        try {
-            do {
-                ZonePrompts.zoneMainPrompt();
-                input = In.getInstance().getInput();
+        do {
+            ZonePrompts.zoneMainPrompt();
+            input = In.getInstance().getInput();
+            try {
                 switch (input) {
                     case 1 -> zones.add(zoneCRUD.createZone());
                     case 2 -> zoneCRUD.listZones(zones);
@@ -25,9 +25,9 @@ public class ZoneInteractions {
                     case 5 -> zones.remove(zoneCRUD.getZone(zones));
                     default -> System.out.println("Unexpected value: " + input);
                 }
-            } while (input != 0);
-        }catch (Exception e){
-            new ExceptionHandler().handle(e);
-        }
+            } catch (Exception e) {
+                new ExceptionHandler().handle(e);
+            }
+        } while (input != 0);
     }
 }
