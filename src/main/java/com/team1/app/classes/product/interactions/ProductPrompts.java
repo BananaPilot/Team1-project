@@ -6,7 +6,8 @@ public class ProductPrompts {
         System.out.println("1. Create new product");
         System.out.println("2. List all products");
         System.out.println("3. Search for products");
-        System.out.println("4. Delete products");
+        System.out.println("4. Update products");
+        System.out.println("5. Delete products");
         System.out.println("0. Back to main menu");
     }
 
