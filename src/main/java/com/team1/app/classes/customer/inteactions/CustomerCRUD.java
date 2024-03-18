@@ -31,13 +31,9 @@ public class CustomerCRUD {
 
     public void updateCustomer(List<Customer> customers) {
         Customer customer;
-        try{
-            customer = getCustomer(customers);
-            if (customer == null) {
-                System.out.println("Something went wrong please try again");
-                return;
-            }
-        }catch (IllegalArgumentException e){
+        customer = getCustomer(customers);
+        if (customer == null) {
+            System.out.println("Something went wrong please try again");
             return;
         }
         int input;

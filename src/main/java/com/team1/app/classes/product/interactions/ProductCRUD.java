@@ -113,7 +113,7 @@ public class ProductCRUD {
                                 .getPositions(), "Select new stocking position:"));
                 default -> throw new IllegalStateException("Unexpected value: " + input);
             }
-        } while (input > 0);
+        } while (input != 0);
         System.out.println("Updated product: " + product);
     }
 

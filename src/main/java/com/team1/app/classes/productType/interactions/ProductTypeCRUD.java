@@ -41,7 +41,7 @@ public class ProductTypeCRUD {
                 case 2 -> productType.setDescription(In.getInstance().getString("New description: "));
                 default -> throw new IllegalStateException("Unexpected value: " + input);
             }
-        } while (input > 0);
+        } while (input != 0);
 
         System.out.println("Updated product type" + productType);
     }
