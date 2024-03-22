@@ -26,7 +26,12 @@ public class SupplierCRUD {
         return switch (input) {
             case 1 -> Searchable.search(suppliers, In.getInstance().getString("ID: "));
             case 2 -> Searchable.search(suppliers, In.getInstance().getString("VAT-number: "));
-            case 3 -> (Supplier) Contacts.searchByContacts(suppliers, In.getInstance().getString("E-mail: "));
+            case 3 -> Searchable.search(suppliers, In.getInstance().getString("E-mail: "), (s, e) -> {
+                for (Supplier supplier: s){
+                    if (supplier.getContacts().contains(e)) return supplier;
+                }
+                return null;
+            });
             case 4 -> Searchable.search(suppliers, In.getInstance().getString("Address: "));
             case 5 -> Searchable.search(suppliers, In.getInstance().getString("Company name: "));
             case 6 -> Searchable.search(suppliers, In.getInstance().getInt("Supplied product type: "));
