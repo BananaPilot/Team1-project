@@ -30,18 +30,6 @@ public class Contacts extends Searchable {
         this.phoneNumber = phoneNumber;
     }
 
-    public static <T extends Searchable> OrderPlacer searchByContacts (List<T> searchables, Object value) {
-        for (Searchable searchable : searchables) {
-            if (searchable instanceof Customer customer) {
-                if (customer.getContacts().contains(value)) return customer;
-            }
-            if (searchable instanceof Supplier supplier) {
-                if (supplier.getContacts().contains(value)) return supplier;
-            }
-        }
-        return null;
-    }
-
     @Override
     public String toString() {
         return  "E-mail: " + email + " - " +

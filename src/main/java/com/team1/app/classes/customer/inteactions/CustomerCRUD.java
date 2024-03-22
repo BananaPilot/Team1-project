@@ -22,7 +22,12 @@ public class CustomerCRUD {
         int input = In.getInstance().getInput();
         return switch (input) {
             case 1 -> Searchable.search(customers, In.getInstance().getString("ID: "));
-            case 2 -> (Customer) Contacts.searchByContacts(customers, In.getInstance().getString("Email: "));
+            case 2 -> Searchable.search(customers, In.getInstance().getString("E-mail: "), (a, e) -> {
+                for (Customer customer : a) {
+                    if (customer.getContacts().contains(e)) return customer;
+                }
+                return null;
+            });
             case 3 -> Searchable.search(customers, In.getInstance().getString("Name: "), In.getInstance().getString("Surname: "));
             case 0 -> throw new IllegalArgumentException();
             default -> null;
