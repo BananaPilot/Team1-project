@@ -6,7 +6,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.BiFunction;
+import java.util.function.Function;
 
 public abstract class Searchable {
     public boolean contains(Object... values) {
@@ -62,7 +62,7 @@ public abstract class Searchable {
         return null;
     }
 
-    public static <T extends Searchable> T search(List<T> arrayList, Object stuffToSearch, BiFunction<List<T>, Object, T> lambda){
-        return lambda.apply(arrayList, stuffToSearch);
+    public static <T extends Searchable> T search(Object stuffToSearch, Function<Object, T> lambda){
+        return lambda.apply(stuffToSearch);
     }
 }

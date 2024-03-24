@@ -22,8 +22,8 @@ public class CustomerCRUD {
         int input = In.getInstance().getInput();
         return switch (input) {
             case 1 -> Searchable.search(customers, In.getInstance().getString("ID: "));
-            case 2 -> Searchable.search(customers, In.getInstance().getString("E-mail: "), (a, e) -> {
-                for (Customer customer : a) {
+            case 2 -> Searchable.search(In.getInstance().getString("E-mail: "), (e) -> {
+                for (Customer customer : customers) {
                     if (customer.getContacts().contains(e)) return customer;
                 }
                 return null;
